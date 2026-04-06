@@ -3,1148 +3,526 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harmonic Information Theory — Mariano Fernández Méndez & Nicolás Echaniz</title>
-  <meta name="description" content="Harmonic Information Theory: investigación transdisciplinaria sobre si las relaciones proporcionales entre frecuencias constituyen un nivel fundamental de organización de la información. Asociación Civil AlterMundi.">
-
+  <title>Harmonic Information Theory Foundations</title>
+  <meta name="description" content="Harmonic Information Theory Foundations — Mariano Fernández Méndez y Nicolás Echaniz. CC BY 4.0 · Asociación Civil AlterMundi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"><\/script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"><\/script>
   <style>
-    :root {
-      --bg:        #030303;
-      --cyan:      #00e5c8;
-      --cyan-lo:   rgba(0, 229, 200, 0.08);
-      --cyan-mid:  rgba(0, 229, 200, 0.25);
-      --cyan-glow: rgba(0, 229, 200, 0.55);
-      --red:       #ff3030;
-      --text:      #dcdcdc;
-      --dim:       #606060;
-      --mid:       #909090;
-      --border:    rgba(0, 229, 200, 0.10);
-      --font:      'Space Grotesk', sans-serif;
-      --mono:      'Space Mono', monospace;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      font-weight: 300;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-
-    /* ── HERO ──────────────────────────────────────── */
-    #hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      overflow: hidden;
-    }
-
-    #canvas-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 840px;
-    }
-
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.28em;
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    h1.book-title {
-      font-size: clamp(2.8rem, 8vw, 6rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      line-height: 1.0;
-      margin-bottom: 0.2em;
-      opacity: 0;
-      transform: translateY(16px);
-    }
-
-    h1.book-title .accent {
-      color: var(--cyan);
-      display: block;
-    }
-
-    .book-subtitle {
-      font-size: clamp(0.82rem, 1.8vw, 1rem);
-      color: var(--mid);
-      max-width: 520px;
-      margin: 1.8rem auto 0;
-      line-height: 1.7;
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .hero-authors {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      color: var(--dim);
-      margin-top: 1.8rem;
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .hero-authors span {
-      color: var(--mid);
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.7rem 1.6rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      border-radius: 1px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-fill {
-      background: var(--cyan);
-      color: #000;
-      font-weight: 700;
-    }
-    .btn-fill:hover {
-      background: #fff;
-      box-shadow: 0 0 28px var(--cyan-glow);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--mid);
-    }
-    .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-      transform: translateY(-1px);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      z-index: 2;
-      opacity: 0;
-    }
-
-    .scroll-indicator span {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.25em;
-      color: var(--dim);
-      text-transform: uppercase;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 36px;
-      background: linear-gradient(to bottom, var(--cyan), transparent);
-      animation: pulse-line 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-line {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
-    /* ── DIVIDERS ──────────────────────────────────── */
-    .rule {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0;
-    }
-
-    /* ── SECTIONS ──────────────────────────────────── */
-    .section {
-      padding: 7rem 2rem;
-    }
-
-    .section-sm {
-      padding: 5rem 2rem;
-    }
-
-    .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .label {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.3em;
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 2rem;
-    }
-
-    h3 {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: var(--mid);
-      margin-bottom: 1rem;
-    }
-    p:last-child { margin-bottom: 0; }
-
-    /* ── QUOTE ─────────────────────────────────────── */
-    #quote {
-      padding: 9rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .quote-wrap {
-      max-width: 720px;
-    }
-
-    .quote-rule {
-      width: 32px;
-      height: 1px;
-      background: var(--cyan);
-      margin: 0 auto 2.5rem;
-    }
-
-    blockquote {
-      font-size: clamp(1.05rem, 2.8vw, 1.5rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    .quote-en {
-      font-size: clamp(0.78rem, 1.8vw, 0.95rem);
-      color: var(--dim);
-      font-style: normal;
-      margin-top: 1.2rem;
-      font-family: var(--mono);
-    }
-
-    .quote-author {
-      display: block;
-      margin-top: 2.5rem;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      color: var(--cyan);
-      text-transform: uppercase;
-    }
-
-    /* ── ABOUT / HIPÓTESIS ─────────────────────────── */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem 4rem;
-      margin-top: 3.5rem;
-    }
-
-    @media (max-width: 640px) {
-      .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    .grid-item {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-    }
-
-    .grid-item .num {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--cyan);
-      letter-spacing: 0.2em;
-      margin-bottom: 0.8rem;
-    }
-
-    /* ── FORMATS ───────────────────────────────────── */
-    #formats {
-      background: #070707;
-    }
-
-    .formats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 3.5rem;
-    }
-
-    @media (max-width: 700px) {
-      .formats-grid { grid-template-columns: 1fr; }
-    }
-
-    .format-card {
-      background: #070707;
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      transition: background 0.2s;
-    }
-    .format-card:hover { background: #0d0d0d; }
-
-    .format-type {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.28em;
-      color: var(--cyan);
-      text-transform: uppercase;
-    }
-
-    .format-name {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .format-desc {
-      font-size: 0.82rem;
-      color: var(--dim);
-      line-height: 1.65;
-      flex: 1;
-      margin: 0;
-    }
-
-    .tag {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      padding: 0.2rem 0.55rem;
-      border: 1px solid var(--border);
-      color: var(--dim);
-      border-radius: 1px;
-    }
-
-    .tag-cyan {
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-
-    .format-action {
-      margin-top: 0.75rem;
-    }
-
-    /* ── BEACON GALLERY ────────────────────────────── */
-    .beacon-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 3.5rem;
-    }
-
-    @media (max-width: 580px) {
-      .beacon-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    .beacon-img {
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      width: 100%;
-      filter: grayscale(0.15) brightness(0.8);
-      transition: filter 0.4s ease;
-    }
-
-    .beacon-img:hover {
-      filter: grayscale(0) brightness(1);
-    }
-
-    /* ── AUTHORS ───────────────────────────────────── */
-    .authors-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3.5rem;
-    }
-
-    @media (max-width: 600px) {
-      .authors-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    .author {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .author-photo {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      border: 1px solid var(--border);
-      filter: grayscale(0.1);
-    }
-
-    .author-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-
-    .author-role {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      color: var(--cyan);
-      text-transform: uppercase;
-    }
-
-    /* ── CREDITS ───────────────────────────────────── */
-    .team-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 2rem;
-    }
-
-    .chip {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid var(--border);
-      color: var(--mid);
-      letter-spacing: 0.04em;
-      border-radius: 1px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .chip:hover {
-      border-color: var(--cyan);
-      color: var(--text);
-    }
-
-    /* ── LICENSE ───────────────────────────────────── */
-    #license { background: #070707; }
-
-    .license-box {
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .license-title {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--cyan);
-      letter-spacing: 0.1em;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    .perms {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.75rem;
-      margin-top: 1.8rem;
-      padding-top: 1.8rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .perm {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      color: var(--dim);
-    }
-
-    .perm::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      background: var(--cyan);
-      border-radius: 50%;
-      margin-top: 0.5rem;
-      flex-shrink: 0;
-    }
-
-    .license-link {
-      margin-top: 1.5rem;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-    }
-
-    .license-link a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
-    .license-link a:hover { text-decoration: underline; }
-
-    /* ── ISBN NOTICE ───────────────────────────────── */
-    .isbn-notice {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      padding: 0.4rem 0.9rem;
-      border: 1px solid rgba(255, 48, 48, 0.25);
-      color: rgba(255, 48, 48, 0.7);
-      margin-top: 1rem;
-    }
-
-    .isbn-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--red);
-      animation: blink 2s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-
-    /* ── FOOTER ────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3.5rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 920px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-    }
-
-    .footer-brand {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-    }
-
-    .footer-meta {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--dim);
-      line-height: 2.2;
-    }
-
-    .footer-links {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--dim);
-      line-height: 2.4;
-      text-align: right;
-    }
-
-    .footer-links a {
-      color: var(--cyan);
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .footer-links a:hover { opacity: 0.7; }
-
-    /* ── REVEAL UTIL ───────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-    }
-
-    /* ── REDUCED MOTION ────────────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal,
-      .hero-tag, h1.book-title, .book-subtitle,
-      .hero-authors, .cta-row, .scroll-indicator {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-      .scroll-line { animation: none; }
-      .isbn-dot { animation: none; }
-    }
+    :root{--bg:#030303;--bg2:#080808;--cyan:#00e5c8;--clo:rgba(0,229,200,0.08);--cglow:rgba(0,229,200,0.5);--text:#dedede;--mid:#909090;--dim:#555;--brd:rgba(0,229,200,0.10);--font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);font-weight:300;line-height:1.75;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,3,3,0.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px}
+    .nav-logo{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    .nav-tabs{display:flex;list-style:none}
+    .nav-tab{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0 1rem;height:56px;display:flex;align-items:center;color:var(--dim);border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+    .nav-tab:hover{color:var(--text)}
+    .nav-tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+    @media(max-width:640px){.nav-logo{display:none}#nav{padding:0 .5rem}.nav-tab{padding:0 .55rem;font-size:.55rem}}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    #tab-interactivo{display:none;flex-direction:column;height:calc(100svh - 56px);padding-top:56px}
+    #tab-interactivo.active{display:flex}
+    .section{padding:7rem 2rem}
+    .wrap{max-width:960px;margin:0 auto}
+    .rule{border:none;border-top:1px solid var(--brd)}
+    .label{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:1rem}
+    h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-bottom:1.8rem}
+    h3{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+    p{font-size:.9rem;color:var(--mid);margin-bottom:1rem}
+    p:last-child{margin-bottom:0}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.6rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;border-radius:1px;transition:all .2s;cursor:pointer;border:none}
+    .btn-fill{background:var(--cyan);color:#000;font-weight:700}
+    .btn-fill:hover{background:#fff;box-shadow:0 0 28px var(--cglow);transform:translateY(-1px)}
+    .btn-outline{background:transparent;border:1px solid var(--brd);color:var(--mid)}
+    .btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-1px)}
+    .tag{display:inline-block;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;padding:.2rem .5rem;border:1px solid var(--brd);color:var(--dim);border-radius:1px}
+    .tag-c{border-color:var(--cyan);color:var(--cyan)}
+    .reveal{opacity:0;transform:translateY(20px)}
+    @media(prefers-reduced-motion:reduce){.reveal,.hero-tag,.title,.hero-sub,.hero-auth,.cta-row,.scroll-ind{opacity:1!important;transform:none!important}}
+    /* HERO */
+    #hero{position:relative;min-height:100svh;padding:56px 2rem 4rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+    #canvas-bg{position:absolute;inset:0;width:100%;height:100%}
+    .hero-books{position:relative;z-index:2;margin-bottom:2.5rem;display:flex;gap:2.5rem;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+    .hero-cover{width:clamp(110px,16vw,175px);box-shadow:0 24px 80px rgba(0,229,200,.18),0 8px 30px rgba(0,0,0,.8);border:1px solid var(--brd);transform:rotate(-2deg);transition:transform .4s;opacity:0}
+    .hero-cover:hover{transform:rotate(0) scale(1.03)}
+    .hero-render{width:clamp(140px,20vw,220px);box-shadow:0 32px 90px rgba(0,0,0,.75);transform:rotate(1.5deg);transition:transform .4s;opacity:0}
+    .hero-render:hover{transform:rotate(0) scale(1.03)}
+    .hero-content{position:relative;z-index:2;max-width:780px}
+    .hero-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;color:var(--cyan);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;transform:translateY(10px)}
+    h1.title{font-size:clamp(2.4rem,7vw,5rem);font-weight:600;letter-spacing:-.025em;line-height:1.0;opacity:0;transform:translateY(16px)}
+    h1.title .acc{color:var(--cyan)}
+    h1.title .sub{display:block;font-size:.44em;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-top:.35em}
+    .hero-sub{font-size:clamp(.82rem,1.8vw,1rem);color:var(--mid);max-width:500px;margin:1.6rem auto 0;opacity:0;transform:translateY(10px)}
+    .hero-auth{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--dim);margin:1.6rem 0 2.5rem;opacity:0;transform:translateY(10px)}
+    .hero-auth span{color:var(--mid)}
+    .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(10px)}
+    .scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:2;opacity:0}
+    .scroll-ind span{font-family:var(--mono);font-size:.55rem;letter-spacing:.25em;color:var(--dim);text-transform:uppercase}
+    .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--cyan),transparent);animation:pls 2s ease-in-out infinite}
+    @keyframes pls{0%,100%{opacity:.35}50%{opacity:1}}
+    .stats-bar{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:1.8rem 2rem}
+    .stats-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem}
+    .stat-n{font-family:var(--mono);font-size:1.8rem;color:var(--cyan);font-weight:700;display:block}
+    .stat-l{font-size:.72rem;color:var(--dim);letter-spacing:.05em}
+    #quote{padding:7rem 2rem;text-align:center}
+    .q-wrap{max-width:700px;margin:0 auto}
+    .q-line{width:32px;height:1px;background:var(--cyan);margin:0 auto 2.5rem}
+    blockquote{font-size:clamp(1rem,2.8vw,1.45rem);font-weight:300;font-style:italic;line-height:1.7}
+    .q-en{font-size:.78rem;color:var(--dim);font-style:normal;margin-top:1rem;font-family:var(--mono)}
+    .q-attr{display:block;margin-top:2rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    /* DESCARGAR */
+    #dl-hero{padding:8rem 2rem 4rem;display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap;border-bottom:1px solid var(--brd)}
+    .dl-img{width:clamp(180px,28vw,300px);box-shadow:0 40px 100px rgba(0,0,0,.8),0 0 60px rgba(0,229,200,.12);transition:transform .4s}
+    .dl-img:hover{transform:translateY(-6px) rotate(-1deg)}
+    .dl-text{max-width:440px}
+    .dl-text h2{font-size:clamp(2rem,5vw,3rem)}
+    .pvbadge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;padding:.35rem .8rem;border:1px solid rgba(0,229,200,.3);color:var(--cyan);margin-bottom:1.5rem;border-radius:1px}
+    .pdot{width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:pdotpls 2s infinite}
+    @keyframes pdotpls{0%,100%{opacity:1}50%{opacity:.2}}
+    .isbn-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;padding:.28rem .7rem;border:1px solid rgba(255,80,80,.25);color:rgba(255,100,100,.7);margin-top:.8rem;margin-bottom:1.5rem}
+    .rdot{width:4px;height:4px;background:#f55;border-radius:50%;animation:pdotpls 2s infinite}
+    .fmts-section{padding:5rem 2rem;background:var(--bg2)}
+    .fmts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd);border:1px solid var(--brd);margin-top:3rem}
+    @media(max-width:700px){.fmts-grid{grid-template-columns:1fr}}
+    .fmt{background:var(--bg2);padding:2.5rem 2rem;display:flex;flex-direction:column;gap:.8rem;transition:background .2s}
+    .fmt:hover{background:#0f0f0f}
+    .fmt-type{font-family:var(--mono);font-size:.56rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase}
+    .fmt-name{font-size:1.2rem;font-weight:500;color:var(--text)}
+    .fmt-desc{font-size:.82rem;color:var(--dim);line-height:1.65;flex:1;margin:0}
+    .print-notice{background:var(--bg);border:1px solid var(--brd);padding:2rem 2.5rem;margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+    .pnt{flex:1;min-width:200px}
+    .pnt h3{color:var(--text);margin-bottom:.4rem}
+    /* AUTORES */
+    .auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem}
+    @media(max-width:680px){.auth-grid{grid-template-columns:1fr;gap:3rem}}
+    .auth-card{display:flex;flex-direction:column;gap:1.5rem}
+    .auth-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top center;border:1px solid var(--brd);box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--brd)}
+    .auth-name{font-size:1.15rem;font-weight:500;color:var(--text);margin-bottom:.15rem}
+    .auth-role{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    .auth-mail{font-family:var(--mono);font-size:.68rem;color:var(--mid);margin-top:.3rem}
+    .auth-mail a{color:var(--cyan)}
+    .auth-mail a:hover{text-decoration:underline}
+    .auth-bio{font-size:.86rem;color:var(--mid);line-height:1.7}
+    .team-sec{padding:5rem 2rem;background:var(--bg2);border-top:1px solid var(--brd)}
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+    .chip{font-family:var(--mono);font-size:.65rem;padding:.3rem .75rem;border:1px solid var(--brd);color:var(--mid);border-radius:1px;transition:border-color .2s,color .2s;letter-spacing:.04em}
+    .chip:hover{border-color:var(--cyan);color:var(--text)}
+    /* INTERACTIVO */
+    .int-top{padding:1.2rem 2rem;background:var(--bg2);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;flex-shrink:0}
+    .int-top h2{font-size:1rem;font-weight:500;margin:0}
+    .int-top p{font-size:.78rem;color:var(--dim);margin:0}
+    .int-body{display:flex;flex:1;overflow:hidden}
+    #app-frame{flex:1;border:none;background:#000}
+    .qa-panel{width:340px;flex-shrink:0;background:var(--bg2);border-left:1px solid var(--brd);display:flex;flex-direction:column;overflow:hidden}
+    @media(max-width:900px){.int-body{flex-direction:column}.qa-panel{width:100%;height:260px;border-left:none;border-top:1px solid var(--brd)}#app-frame{min-height:400px}}
+    .qa-head{padding:1rem 1.2rem;border-bottom:1px solid var(--brd);font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;flex-shrink:0;display:flex;align-items:center;justify-content:space-between}
+    .qa-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem;scrollbar-width:thin;scrollbar-color:var(--brd) transparent}
+    .qa-msg{border-radius:2px;padding:.75rem .9rem;font-size:.8rem;line-height:1.6;max-width:95%}
+    .qa-u{background:var(--clo);border:1px solid var(--brd);color:var(--text);align-self:flex-end}
+    .qa-b{background:transparent;border:1px solid var(--brd);color:var(--mid);align-self:flex-start}
+    .qa-b strong{color:var(--cyan);font-weight:500;display:block;margin-bottom:.3rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
+    .qa-inp-row{padding:.8rem;border-top:1px solid var(--brd);display:flex;gap:.5rem;flex-shrink:0}
+    .qa-inp{flex:1;background:var(--bg);border:1px solid var(--brd);color:var(--text);font-family:var(--font);font-size:.8rem;padding:.55rem .75rem;border-radius:1px;outline:none;transition:border-color .2s}
+    .qa-inp:focus{border-color:var(--cyan)}
+    .qa-inp::placeholder{color:var(--dim)}
+    .qa-send{background:var(--cyan);color:#000;border:none;border-radius:1px;padding:.55rem .9rem;font-family:var(--mono);font-size:.7rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .qa-send:hover{background:#fff}
+    .qa-chips{padding:.5rem .8rem;display:flex;flex-wrap:wrap;gap:.4rem;flex-shrink:0;border-bottom:1px solid var(--brd)}
+    .qa-chip{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;padding:.2rem .5rem;border:1px solid var(--brd);color:var(--dim);border-radius:1px;cursor:pointer;transition:all .15s}
+    .qa-chip:hover{border-color:var(--cyan);color:var(--cyan)}
+    /* INFO */
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3.5rem}
+    @media(max-width:680px){.info-grid{grid-template-columns:1fr;gap:2.5rem}}
+    .info-block h3{color:var(--text);font-size:.9rem;margin-bottom:1rem}
+    .info-link{display:block;font-family:var(--mono);font-size:.72rem;color:var(--cyan);margin-bottom:.5rem;letter-spacing:.04em}
+    .info-link:hover{text-decoration:underline}
+    .lic-box{border:1px solid var(--brd);padding:2.2rem;margin-top:1.5rem}
+    .lic-name{font-family:var(--mono);font-size:.72rem;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:1rem}
+    .perms{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--brd)}
+    .perm{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--dim)}
+    .perm::before{content:'';width:4px;height:4px;background:var(--cyan);border-radius:50%;flex-shrink:0}
+    /* FOOTER */
+    footer{border-top:1px solid var(--brd);padding:3rem 2rem}
+    .foot-in{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;align-items:flex-start}
+    .foot-brand{font-size:.85rem;font-weight:500;color:var(--text);margin-bottom:.3rem}
+    .foot-meta{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2.2}
+    .foot-r{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2.4;text-align:right}
+    .foot-r a{color:var(--cyan)}
+    .foot-r a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════════ -->
-<section id="hero">
-  <canvas id="canvas-bg"></canvas>
+<nav id="nav">
+  <span class="nav-logo">HIT · Foundations</span>
+  <ul class="nav-tabs">
+    <li class="nav-tab active" data-tab="libro">Libro</li>
+    <li class="nav-tab" data-tab="descargar">Descargar</li>
+    <li class="nav-tab" data-tab="autores">Autores</li>
+    <li class="nav-tab" data-tab="interactivo">Interactivo</li>
+    <li class="nav-tab" data-tab="info">Info</li>
+  </ul>
+</nav>
 
-  <div class="hero-inner">
-    <span class="hero-tag">Asociación Civil AlterMundi &nbsp;·&nbsp; Acceso abierto &nbsp;·&nbsp; CC BY 4.0</span>
-
-    <h1 class="book-title">
-      Harmonic
-      <span class="accent">Information</span>
-      Theory
-    </h1>
-
-    <p class="book-subtitle">
-      Una investigación transdisciplinaria sobre si las relaciones proporcionales
-      entre frecuencias constituyen un nivel fundamental de organización de la información.
-    </p>
-
-    <p class="hero-authors">
-      <span>Mariano Fernández Méndez</span> &amp; <span>Nicolás Echaniz</span>
-    </p>
-
-    <div class="cta-row">
-      <a href="#" class="btn btn-fill">↓&nbsp; Descargar PDF</a>
-      <a href="#" class="btn btn-outline">Leer Markdown</a>
-      <a href="#" class="btn btn-outline">Fuente LaTeX</a>
+<!-- TAB LIBRO -->
+<div id="tab-libro" class="tab-panel active">
+  <section id="hero">
+    <canvas id="canvas-bg"></canvas>
+    <div class="hero-books">
+      <img src="portada.jpg" alt="Portada del libro" class="hero-cover">
+      <img src="render1.jpg" alt="Render edición impresa" class="hero-render">
     </div>
-  </div>
-
-  <div class="scroll-indicator">
-    <span>scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     QUOTE
-══════════════════════════════════════════════════ -->
-<section id="quote">
-  <div class="quote-wrap reveal">
-    <div class="quote-rule"></div>
-    <blockquote>
-      "Al principio, había una sola cosa. Entonces, la cosa se estiró.
-      Y mientras se estiraba, se meneó. Y cuando se meneó, comprendió que
-      ya no era una sola, porque estaba ella y el meneo.
-      Así que se meneó más. Y eso es todo. Excelente."
-    </blockquote>
-    <p class="quote-en">
-      "In the beginning, there was one thing. So the thing stretched.
-      And as it stretched, it wiggled. And when it wiggled, it understood it was
-      one no more, because there was it and the wiggle. So she wiggled more.
-      And that's all. Excellent."
-    </p>
-    <span class="quote-author">— Nicolás Echaniz</span>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     SOBRE EL LIBRO
-══════════════════════════════════════════════════ -->
-<section class="section" id="about">
-  <div class="wrap">
-    <span class="label reveal">Sobre el libro</span>
-    <h2 class="reveal">El ratio como unidad mínima<br>de información</h2>
-
-    <div class="grid-2">
-      <div class="grid-item reveal">
-        <div class="num">01 — Hipótesis central</div>
-        <h3>La ratio, no la frecuencia absoluta</h3>
-        <p>
-          La relación proporcional entre frecuencias es el portador mínimo
-          de información. HIT investiga si las estructuras armónicas existen
-          en señales reales, son computacionalmente aprendibles y
-          biológicamente significativas.
-        </p>
-      </div>
-
-      <div class="grid-item reveal">
-        <div class="num">02 — Cuatro registros</div>
-        <h3>Físico · Biológico · Afectivo · Simbólico</h3>
-        <p>
-          El libro abraza la inconsistencia como productiva, resistiendo
-          la reducción a una unidad forzada. Seis hipótesis centrales
-          (H1–H6) articulan el programa experimental en distintos
-          dominios de validez.
-        </p>
-      </div>
-
-      <div class="grid-item reveal">
-        <div class="num">03 — El Beacon</div>
-        <h3>Teoría que se puede escuchar</h3>
-        <p>
-          Un excitador electromagnético de kalimba construido con solenoides
-          implementa la serie armónica natural: F×1, F×2, F×3, F×4, F×5.
-          Artefacto experimental y obra de arte sonora, el Beacon convierte
-          hipótesis en vibración física.
-        </p>
-      </div>
-
-      <div class="grid-item reveal">
-        <div class="num">04 — Acceso abierto</div>
-        <h3>Publicación libre desde el origen</h3>
-        <p>
-          La obra se publica íntegramente bajo licencia CC BY 4.0.
-          El PDF es la edición bibliográfica oficial (ISBN en trámite).
-          El Markdown está optimizado para lectura por sistemas de
-          inteligencia artificial y navegación semántica.
-        </p>
+    <div class="hero-content">
+      <span class="hero-tag">Asociación Civil AlterMundi · CC BY 4.0 · 2026</span>
+      <h1 class="title">Harmonic <span class="acc">Information</span> Theory<span class="sub">Foundations</span></h1>
+      <p class="hero-sub">Una investigación transdisciplinaria sobre si las relaciones proporcionales entre frecuencias constituyen un nivel fundamental de organización de la información.</p>
+      <p class="hero-auth"><span>Mariano Fernández Méndez</span> &amp; <span>Nicolás Echaniz</span></p>
+      <div class="cta-row">
+        <button class="btn btn-fill" onclick="switchTab('descargar')">↓ Descargar</button>
+        <button class="btn btn-outline" onclick="switchTab('interactivo')">Libro interactivo →</button>
       </div>
     </div>
+    <div class="scroll-ind"><span>scroll</span><div class="scroll-line"></div></div>
+  </section>
+  <div class="stats-bar reveal">
+    <div class="stats-inner">
+      <div class="stat"><span class="stat-n">6</span><span class="stat-l">Partes</span></div>
+      <div class="stat"><span class="stat-n">16</span><span class="stat-l">Capítulos</span></div>
+      <div class="stat"><span class="stat-n">22</span><span class="stat-l">Conceptos</span></div>
+      <div class="stat"><span class="stat-n">6</span><span class="stat-l">Hipótesis</span></div>
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Probes</span></div>
+      <div class="stat"><span class="stat-n">7</span><span class="stat-l">Dominios</span></div>
+    </div>
   </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     FORMATS
-══════════════════════════════════════════════════ -->
-<section class="section" id="formats">
-  <div class="wrap">
-    <span class="label reveal">Formatos de acceso</span>
-    <h2 class="reveal">Una obra,<br>varias capas de acceso</h2>
-    <p class="reveal" style="max-width:520px">
-      La misma obra se presenta en tres formatos con propósitos distintos.
-      El ISBN, cuando sea asignado, pertenecerá exclusivamente a la edición PDF oficial.
-    </p>
-
-    <div class="formats-grid reveal">
-
-      <div class="format-card">
-        <span class="format-type">Edición oficial</span>
-        <div class="format-name">PDF</div>
-        <p class="format-desc">
-          Edición preliminar oficial del libro. Formato bibliográfico completo
-          con diseño tipográfico. Cuando se asigne el ISBN, corresponderá
-          exclusivamente a este formato.
-        </p>
-        <span class="tag tag-cyan">ISBN en trámite</span>
-        <div class="format-action">
-          <a href="#" class="btn btn-fill">↓ Descargar PDF</a>
+  <hr class="rule">
+  <section id="quote">
+    <div class="q-wrap reveal">
+      <div class="q-line"></div>
+      <blockquote>"Al principio, había una sola cosa. Entonces, la cosa se estiró. Y mientras se estiraba, se meneó. Y cuando se meneó, comprendió que ya no era una sola, porque estaba ella y el meneo. Así que se meneó más. Y eso es todo. Excelente."</blockquote>
+      <p class="q-en">"In the beginning, there was one thing. So the thing stretched. And as it stretched, it wiggled. And when it wiggled, it understood it was one no more, because there was it and the wiggle. So she wiggled more. And that's all. Excellent."</p>
+      <span class="q-attr">— Nicolás Echaniz</span>
+    </div>
+  </section>
+  <hr class="rule">
+  <section class="section">
+    <div class="wrap">
+      <span class="label reveal">Sobre el libro</span>
+      <h2 class="reveal">El ratio como unidad mínima de información</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-top:3rem" class="reveal">
+        <div style="border-top:1px solid var(--brd);padding-top:1.5rem">
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">01 — HIPÓTESIS</p>
+          <h3>La ratio, no la frecuencia absoluta</h3>
+          <p>La relación proporcional entre frecuencias es el portador mínimo de información. HIT investiga si las estructuras armónicas son computacionalmente aprendibles, cross-modales y biológicamente significativas.</p>
+        </div>
+        <div style="border-top:1px solid var(--brd);padding-top:1.5rem">
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">02 — REGISTROS</p>
+          <h3>Físico · Biológico · Afectivo · Simbólico</h3>
+          <p>El libro abraza la inconsistencia como productiva, resistiendo la reducción a una unidad forzada. Seis hipótesis centrales (H1–H6) articulan el programa experimental en distintos dominios de validez.</p>
+        </div>
+        <div style="border-top:1px solid var(--brd);padding-top:1.5rem">
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">03 — ARTEFACTO</p>
+          <h3>El Beacon: teoría audible</h3>
+          <p>Un excitador electromagnético de kalimba implementa la serie armónica natural: F×1, F×2, F×3, F×4, F×5. Artefacto experimental y obra de arte sonora: las hipótesis se vuelven vibración física.</p>
+        </div>
+        <div style="border-top:1px solid var(--brd);padding-top:1.5rem">
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">04 — ACCESO</p>
+          <h3>Publicación abierta desde el origen</h3>
+          <p>CC BY 4.0. El PDF es la edición bibliográfica oficial (ISBN en trámite). El Markdown está optimizado para lectura por LLMs y navegación semántica sin necesidad de cargar el manuscrito completo.</p>
         </div>
       </div>
+    </div>
+  </section>
+  <footer>
+    <div class="foot-in">
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez y Nicolás Echaniz<br>Asociación Civil AlterMundi · ISBN en trámite · CC BY 4.0</div></div>
+      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
+    </div>
+  </footer>
+</div>
 
-      <div class="format-card">
-        <span class="format-type">Versión abierta</span>
-        <div class="format-name">Markdown</div>
-        <p class="format-desc">
-          Versión textual estructurada del libro, optimizada para lectura
-          automatizada, consulta segmentada y navegación por sistemas de
-          inteligencia artificial. No constituye la edición bibliográfica con ISBN.
-        </p>
-        <span class="tag">Optimizado para LLMs</span>
-        <div class="format-action">
-          <a href="#" class="btn btn-outline">Leer Markdown</a>
+<!-- TAB DESCARGAR -->
+<div id="tab-descargar" class="tab-panel">
+  <div id="dl-hero">
+    <img src="render1.jpg" alt="Edición impresa" class="dl-img">
+    <div class="dl-text">
+      <div class="pvbadge"><span class="pdot"></span> Disponible ahora</div>
+      <h2>Descargar el libro</h2>
+      <p>El libro está disponible en tres formatos complementarios. El PDF es la edición bibliográfica oficial. El Markdown está diseñado para lectura por inteligencias artificiales. El LaTeX es la fuente editorial completa.</p>
+      <div class="isbn-badge"><span class="rdot"></span> ISBN: en trámite · Edición preliminar oficial</div>
+    </div>
+  </div>
+  <section class="fmts-section">
+    <div class="wrap">
+      <span class="label">Formatos</span>
+      <h2>Una obra, tres capas</h2>
+      <div class="fmts-grid">
+        <div class="fmt">
+          <span class="fmt-type">Edición oficial</span>
+          <div class="fmt-name">PDF</div>
+          <p class="fmt-desc">Edición preliminar oficial del libro con diseño tipográfico completo. El ISBN, cuando sea asignado, corresponderá exclusivamente a este formato.</p>
+          <span class="tag tag-c">ISBN en trámite</span>
+          <div style="margin-top:1rem"><a href="main.pdf" download class="btn btn-fill">↓ Descargar PDF</a></div>
+        </div>
+        <div class="fmt">
+          <span class="fmt-type">Versión abierta</span>
+          <div class="fmt-name">Markdown</div>
+          <p class="fmt-desc">Versión textual estructurada optimizada para lectura automatizada, consulta segmentada y navegación semántica por LLMs. No constituye la edición bibliográfica con ISBN.</p>
+          <span class="tag">Optimizado para LLMs</span>
+          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">Ver en GitHub →</a></div>
+        </div>
+        <div class="fmt">
+          <span class="fmt-type">Fuente editorial</span>
+          <div class="fmt-name">LaTeX</div>
+          <p class="fmt-desc">Fuente editorial del libro. Contiene exclusivamente la fuente tipográfica y materiales editoriales. No es el repositorio general del ecosistema de investigación.</p>
+          <span class="tag">Código fuente</span>
+          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">Ver repositorio →</a></div>
         </div>
       </div>
+      <div class="print-notice">
+        <img src="portada.jpg" alt="Portada" style="width:65px;opacity:.8;flex-shrink:0">
+        <div class="pnt"><h3>Edición impresa</h3><p>¿Te interesa una edición impresa? Escribinos para información sobre disponibilidad y preventa.</p></div>
+        <a href="mailto:info@altermundi.net?subject=Edición impresa HIT Foundations" class="btn btn-outline">Consultar →</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="foot-in">
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi · ISBN en trámite</div></div>
+      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a></div>
+    </div>
+  </footer>
+</div>
 
-      <div class="format-card">
-        <span class="format-type">Fuente editorial</span>
-        <div class="format-name">LaTeX</div>
-        <p class="format-desc">
-          Fuente editorial del libro. Contiene exclusivamente la fuente
-          tipográfica y los materiales editoriales asociados.
-          No es el repositorio general del ecosistema de investigación.
-        </p>
-        <span class="tag">Código fuente</span>
-        <div class="format-action">
-          <a href="https://github.com/AlterMundi/harmonic-information-theory" class="btn btn-outline" target="_blank" rel="noopener">Ver repositorio</a>
+<!-- TAB AUTORES -->
+<div id="tab-autores" class="tab-panel">
+  <section class="section" style="padding-top:8rem">
+    <div class="wrap">
+      <span class="label">Autoría</span>
+      <h2>Los autores</h2>
+      <div class="auth-grid">
+        <div class="auth-card">
+          <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="auth-photo">
+          <div>
+            <div class="auth-name">Mariano Fernández Méndez</div>
+            <div class="auth-role">Autor · Compilador · Redactor final</div>
+            <div class="auth-mail"><a href="mailto:marianofm@altermundi.net">marianofm@altermundi.net</a></div>
+          </div>
+          <p class="auth-bio">Investigador, músico y compilador final de la obra. Trabaja en la intersección entre teoría de la información, acústica y epistemología transdisciplinaria. Responsable de la redacción final y de la arquitectura conceptual del libro. Miembro de Asociación Civil AlterMundi.</p>
+          <p class="auth-bio">Su investigación parte de una pregunta fundamental: si las relaciones proporcionales entre frecuencias constituyen un nivel de organización de la información anterior a cualquier codificación cultural, ¿cuáles son sus implicancias para la biología, la computación y la experiencia subjetiva?</p>
+        </div>
+        <div class="auth-card">
+          <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo">
+          <div>
+            <div class="auth-name">Nicolás Echaniz</div>
+            <div class="auth-role">Autor · Investigador</div>
+            <div class="auth-mail"><a href="mailto:nicolasechaniz@altermundi.net">nicolasechaniz@altermundi.net</a></div>
+          </div>
+          <p class="auth-bio">Co-fundador de Asociación Civil AlterMundi. Investigador en redes comunitarias, software libre y tecnología soberana. Impulsor del programa de investigación HIT y arquitecto del Beacon armónico — el excitador electromagnético de kalimba que materializa las hipótesis de la teoría en vibración física.</p>
+          <p class="auth-bio">Autor de la premisa fundacional: <em>"Al principio, había una sola cosa. La cosa se estiró. Y mientras se estiraba, se meneó."</em> — una cosmogonía que condensa el núcleo de HIT: de la unidad al wiggle como acto generativo de toda información.</p>
         </div>
       </div>
-
     </div>
-
-    <div style="margin-top:2rem">
-      <div class="isbn-notice">
-        <span class="isbn-dot"></span>
-        ISBN: en trámite &nbsp;·&nbsp; Edición preliminar oficial de circulación
+  </section>
+  <div class="team-sec">
+    <div class="wrap">
+      <span class="label">Créditos</span>
+      <h2>Equipo de investigación y desarrollo</h2>
+      <p>Desarrollado en el marco institucional de <strong style="color:var(--text);font-weight:500">Asociación Civil AlterMundi</strong>.</p>
+      <div class="chips">
+        <span class="chip">Anabella Scigliano</span><span class="chip">Federico Bonino</span><span class="chip">Julián De La Reta</span><span class="chip">Martín Fernández Méndez</span><span class="chip">Pablo Bustos</span><span class="chip">Saira Asua</span><span class="chip">Santiago Cetrán</span><span class="chip">Sofía Campagnoli</span>
       </div>
     </div>
   </div>
-</section>
+  <footer>
+    <div class="foot-in">
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Asociación Civil AlterMundi · CC BY 4.0</div></div>
+      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a></div>
+    </div>
+  </footer>
+</div>
 
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     BEACON GALLERY
-══════════════════════════════════════════════════ -->
-<section class="section" id="beacon">
-  <div class="wrap">
-    <span class="label reveal">El proyecto</span>
-    <h2 class="reveal">El Beacon: del laboratorio<br>al instrumento</h2>
-    <p class="reveal" style="max-width:560px">
-      Un artefacto que materializa las hipótesis de HIT en vibración física.
-      Solenoides que activan las púas de un instrumento acústico implementando
-      la serie armónica natural. Figuras de Lissajous proyectadas en luz.
-      Investigación que se puede tocar, escuchar y ver.
-    </p>
+<!-- TAB INTERACTIVO -->
+<div id="tab-interactivo" class="tab-panel">
+  <div class="int-top">
+    <div><h2>Libro interactivo</h2><p>Mapa de conceptos · Lectura por capítulos · Índice navegable</p></div>
+    <a href="app.html" target="_blank" class="btn btn-outline" style="flex-shrink:0">Pantalla completa ↗</a>
   </div>
-
-  <div style="max-width:1200px; margin: 3.5rem auto 0; padding: 0 2rem">
-    <div class="beacon-grid reveal">
-      <img src="IMG_4704.jpg"  alt="Beacon armónico — detalle de solenoides" class="beacon-img">
-      <img src="IMG_4596.jpg"  alt="Construcción del Beacon" class="beacon-img">
-      <img src="IMG_4661.jpg"  alt="Ensamblaje del Beacon sobre guitarra" class="beacon-img">
-      <img src="MVI_51770.jpg" alt="Beacon en escena — instalación" class="beacon-img">
-      <img src="IMG_5184.jpg"  alt="Figuras de Lissajous — luz y voz" class="beacon-img">
-      <img src="IMG_5192.jpg"  alt="Lissajous rojo — resonancia armónica" class="beacon-img">
+  <div class="int-body">
+    <iframe id="app-frame" src="app.html" title="HIT — Libro interactivo" allowfullscreen></iframe>
+    <div class="qa-panel">
+      <div class="qa-head"><span>Preguntas sobre HIT</span><span style="font-size:.52rem;color:var(--dim)">búsqueda conceptual</span></div>
+      <div class="qa-chips">
+        <span class="qa-chip" onclick="sendQ(this)">¿Qué es HIT?</span>
+        <span class="qa-chip" onclick="sendQ(this)">El Beacon</span>
+        <span class="qa-chip" onclick="sendQ(this)">Lissajous</span>
+        <span class="qa-chip" onclick="sendQ(this)">H1–H6</span>
+        <span class="qa-chip" onclick="sendQ(this)">Serie armónica</span>
+        <span class="qa-chip" onclick="sendQ(this)">Phideus</span>
+        <span class="qa-chip" onclick="sendQ(this)">Licencia CC BY</span>
+        <span class="qa-chip" onclick="sendQ(this)">Autores</span>
+      </div>
+      <div class="qa-msgs" id="qa-msgs">
+        <div class="qa-msg qa-b"><strong>Asistente HIT</strong>Hola. Puedo responder preguntas sobre los conceptos del libro. Probá los accesos rápidos o escribí tu pregunta.</div>
+      </div>
+      <div class="qa-inp-row">
+        <input class="qa-inp" id="qa-inp" type="text" placeholder="Escribí tu pregunta..." onkeydown="if(event.key==='Enter')askQA()">
+        <button class="qa-send" onclick="askQA()">→</button>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     AUTHORS
-══════════════════════════════════════════════════ -->
-<section class="section" id="authors">
-  <div class="wrap">
-    <span class="label reveal">Autoría</span>
-    <h2 class="reveal">Los autores</h2>
-
-    <div class="authors-grid">
-
-      <div class="author reveal">
-        <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="author-photo">
-        <div>
-          <div class="author-name">Mariano Fernández Méndez</div>
-          <div class="author-role">Autor · Compilador · Redactor final</div>
+<!-- TAB INFO -->
+<div id="tab-info" class="tab-panel">
+  <section class="section" style="padding-top:8rem">
+    <div class="wrap">
+      <span class="label">Más información</span>
+      <h2>Contacto, repositorios y licencia</h2>
+      <div class="info-grid">
+        <div class="info-block">
+          <h3>Contacto</h3>
+          <p style="margin-bottom:1.2rem">Para consultas generales, edición impresa, colaboraciones o uso del material:</p>
+          <a href="mailto:info@altermundi.net" class="info-link">info@altermundi.net</a>
+          <a href="mailto:marianofm@altermundi.net" class="info-link">marianofm@altermundi.net</a>
+          <a href="mailto:nicolasechaniz@altermundi.net" class="info-link">nicolasechaniz@altermundi.net</a>
         </div>
-        <p>
-          Investigador, músico y compilador final de la obra.
-          Trabaja en la intersección entre teoría de la información,
-          acústica, epistemología y construcción colaborativa del conocimiento
-          en el marco de Asociación Civil AlterMundi.
-        </p>
-      </div>
-
-      <div class="author reveal">
-        <img src="nicolas" alt="Nicolás Echaniz" class="author-photo">
-        <div>
-          <div class="author-name">Nicolás Echaniz</div>
-          <div class="author-role">Autor · Investigador</div>
+        <div class="info-block">
+          <h3>Repositorios</h3>
+          <p style="margin-bottom:1.2rem">Todo el material del libro y el ecosistema de investigación es público:</p>
+          <a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="info-link">AlterMundi/harmonic-information-theory →</a>
+          <a href="https://github.com/AlterMundi/book-interactive" target="_blank" rel="noopener" class="info-link">AlterMundi/book-interactive →</a>
+          <a href="https://github.com/AlterMundi/book" target="_blank" rel="noopener" class="info-link">AlterMundi/book →</a>
+          <a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="info-link">AlterMundi/Phideus →</a>
         </div>
-        <p>
-          Co-fundador de AlterMundi. Investigador en redes comunitarias,
-          software libre y tecnología soberana. Impulsor del programa
-          de investigación HIT, arquitecto del Beacon y autor de
-          la pregunta que lo inicia todo.
-        </p>
+        <div class="info-block">
+          <h3>Sobre AlterMundi</h3>
+          <p>Asociación Civil AlterMundi es una organización sin fines de lucro dedicada a la investigación y desarrollo de tecnologías libres, redes comunitarias y herramientas digitales soberanas. HIT es uno de sus programas de investigación activos.</p>
+          <a href="https://altermundi.net" target="_blank" rel="noopener" class="info-link" style="margin-top:.8rem">altermundi.net →</a>
+        </div>
+        <div class="info-block">
+          <h3>ISBN y estado editorial</h3>
+          <p>La obra circula como edición preliminar oficial. El ISBN está en trámite y corresponderá exclusivamente a la edición PDF oficial cuando sea asignado.</p>
+          <div class="isbn-badge" style="margin-top:1rem"><span class="rdot"></span> ISBN en trámite · Edición preliminar oficial</div>
+        </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     CREDITS
-══════════════════════════════════════════════════ -->
-<section class="section-sm" id="credits">
-  <div class="wrap">
-    <span class="label reveal">Créditos</span>
-    <h2 class="reveal">Equipo de investigación<br>y desarrollo</h2>
-    <p class="reveal">
-      Desarrollado en el marco institucional de
-      <strong style="color:var(--text); font-weight:500">Asociación Civil AlterMundi</strong>.
-    </p>
-
-    <div class="team-chips reveal">
-      <span class="chip">Anabella Scigliano</span>
-      <span class="chip">Federico Bonino</span>
-      <span class="chip">Julián De La Reta</span>
-      <span class="chip">Martín Fernández Méndez</span>
-      <span class="chip">Pablo Bustos</span>
-      <span class="chip">Saira Asua</span>
-      <span class="chip">Santiago Cetrán</span>
-      <span class="chip">Sofía Campagnoli</span>
-    </div>
-
-    <div style="margin-top:3rem; display:flex; flex-wrap:wrap; gap:0.75rem" class="reveal">
-      <a href="https://github.com/AlterMundi/book-interactive" class="btn btn-outline" target="_blank" rel="noopener">
-        Libro interactivo →
-      </a>
-      <a href="https://github.com/AlterMundi/harmonic-information-theory" class="btn btn-outline" target="_blank" rel="noopener">
-        Repositorios relacionados →
-      </a>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     LICENSE
-══════════════════════════════════════════════════ -->
-<section class="section-sm" id="license">
-  <div class="wrap">
-    <span class="label reveal">Licencia</span>
-    <h2 class="reveal">Acceso abierto desde el origen</h2>
-
-    <div class="license-box reveal">
-      <span class="license-title">Creative Commons Attribution 4.0 International (CC BY 4.0)</span>
-      <p style="font-size:0.85rem; color:var(--mid); margin:0">
-        Esta obra puede compartirse, copiarse, redistribuirse y adaptarse,
-        incluso con fines comerciales, siempre que se reconozca adecuadamente
-        la autoría, se enlace la licencia y se indiquen los cambios realizados.
-        No debe sugerirse aval de los autores ni de Asociación Civil AlterMundi.
-        Los materiales de terceros, si los hubiera, pueden quedar excluidos.
-      </p>
-
-      <div class="perms">
-        <div class="perm">Compartir libremente</div>
-        <div class="perm">Uso comercial permitido</div>
-        <div class="perm">Adaptaciones permitidas</div>
-        <div class="perm">Atribución requerida</div>
-        <div class="perm">Indicar cambios realizados</div>
-      </div>
-
-      <p class="license-link">
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">
-          https://creativecommons.org/licenses/by/4.0/
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<!-- ══════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">Harmonic Information Theory</div>
-      <div class="footer-meta">
-        Mariano Fernández Méndez y Nicolás Echaniz<br>
-        Asociación Civil AlterMundi<br>
-        ISBN: en trámite &nbsp;·&nbsp; Edición preliminar oficial<br>
-        CC BY 4.0 &nbsp;·&nbsp; [MES Y AÑO]
+      <div class="lic-box" style="margin-top:4rem">
+        <span class="lic-name">Creative Commons Attribution 4.0 International (CC BY 4.0)</span>
+        <p style="font-size:.85rem;color:var(--mid);margin:0">Esta obra puede compartirse, copiarse, redistribuirse y adaptarse, incluso con fines comerciales, siempre que se reconozca adecuadamente la autoría, se enlace la licencia y se indiquen los cambios realizados. No debe sugerirse aval de los autores ni de Asociación Civil AlterMundi.</p>
+        <div class="perms">
+          <div class="perm">Compartir libremente</div><div class="perm">Uso comercial</div><div class="perm">Adaptar y remixar</div><div class="perm">Atribución requerida</div><div class="perm">Indicar cambios</div>
+        </div>
+        <p style="margin-top:1.2rem;margin-bottom:0;font-family:var(--mono);font-size:.68rem"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license" style="color:var(--cyan)">https://creativecommons.org/licenses/by/4.0/</a></p>
       </div>
     </div>
-    <div class="footer-links">
-      <a href="#">[URL OFICIAL]</a><br>
-      <a href="mailto:">[MAIL DE CONTACTO]</a><br>
-      <br>
-      <a href="https://github.com/AlterMundi/book-interactive" target="_blank" rel="noopener">book-interactive →</a><br>
-      <a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener">harmonic-information-theory →</a><br>
-      <a href="https://altermundi.net" target="_blank" rel="noopener">altermundi.net →</a>
+  </section>
+  <footer>
+    <div class="foot-in">
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez y Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN en trámite</div></div>
+      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
     </div>
-  </div>
-</footer>
+  </footer>
+</div>
 
-
-<!-- ══════════════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════════════ -->
 <script>
-// ── LISSAJOUS CANVAS ────────────────────────────────────────────────────────
-(function () {
-  'use strict';
-
-  const canvas = document.getElementById('canvas-bg');
-  const ctx    = canvas.getContext('2d');
-  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  let W, H, phase = 0, rafId;
-
-  // 5armonicos reference: cyan neon Lissajous on black
-  // a=2, b=3 gives 3-petal harmonic form matching the reference image
-  const A = 2, B = 3;
-  const STEPS = 800;
-  const TRAIL = 400;
-
-  function resize () {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-
-  function lissX (t, ph) {
-    return W / 2 + Math.min(W, H) * 0.25 * Math.sin(A * t + ph);
-  }
-
-  function lissY (t) {
-    return H / 2 + Math.min(W, H) * 0.35 * Math.sin(B * t);
-  }
-
-  function drawStaticCurve () {
+function switchTab(n){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  document.querySelector('[data-tab="'+n+'"]').classList.add('active');
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.nav-tab').forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
+(function(){
+  const canvas=document.getElementById('canvas-bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const R=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W,H,phase=0,rafId;
+  const A=2,B=3,STEPS=800,TRAIL=400;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  function lx(t,ph){return W/2+Math.min(W,H)*0.24*Math.sin(A*t+ph);}
+  function ly(t){return H/2+Math.min(W,H)*0.34*Math.sin(B*t);}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
     ctx.beginPath();
-    for (let i = 0; i <= STEPS; i++) {
-      const t = (i / STEPS) * Math.PI * 2;
-      const x = lissX(t, 0.6), y = lissY(t);
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = 'rgba(0,229,200,0.07)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  }
-
-  function drawGlow (x, y, r, alpha) {
-    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0,   `rgba(0,229,200,${alpha})`);
-    g.addColorStop(0.45,`rgba(0,229,200,${alpha * 0.25})`);
-    g.addColorStop(1,   'rgba(0,229,200,0)');
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI * 2);
-    ctx.fillStyle = g;
-    ctx.fill();
-  }
-
-  function frame () {
-    ctx.clearRect(0, 0, W, H);
-
-    // Faint full static outline
-    drawStaticCurve();
-
-    // Animated trail
-    const headT = phase;
-
-    for (let i = TRAIL; i >= 0; i--) {
-      const t  = headT - (i / TRAIL) * Math.PI * 2 * 0.72;
-      const pt = headT - ((i + 1) / TRAIL) * Math.PI * 2 * 0.72;
-
-      const x  = lissX(t,  phase * 0.18);
-      const y  = lissY(t);
-      const px = lissX(pt, phase * 0.18);
-      const py = lissY(pt);
-
-      const ratio = 1 - i / TRAIL;
-
-      if (i === 0) {
-        // Bright head
-        drawGlow(x, y, 22, 0.85);
-        ctx.beginPath();
-        ctx.arc(x, y, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = '#fff';
-        ctx.fill();
-      } else {
-        ctx.beginPath();
-        ctx.moveTo(px, py);
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = `rgba(0,229,200,${ratio * 0.72})`;
-        ctx.lineWidth   = ratio * 2.8 + 0.4;
-        ctx.shadowColor = 'rgba(0,229,200,0.45)';
-        ctx.shadowBlur  = ratio * 14;
-        ctx.stroke();
-        ctx.shadowBlur  = 0;
+    for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;i===0?ctx.moveTo(lx(t,.6),ly(t)):ctx.lineTo(lx(t,.6),ly(t));}
+    ctx.strokeStyle='rgba(0,229,200,0.055)';ctx.lineWidth=1;ctx.stroke();
+    for(let i=TRAIL;i>=0;i--){
+      const t=phase-(i/TRAIL)*Math.PI*2*0.72,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.72;
+      const x=lx(t,phase*.18),y=ly(t),px=lx(pt,phase*.18),py=ly(pt),r=1-i/TRAIL;
+      if(i===0){
+        const g=ctx.createRadialGradient(x,y,0,x,y,22);
+        g.addColorStop(0,'rgba(0,229,200,0.85)');g.addColorStop(.45,'rgba(0,229,200,.22)');g.addColorStop(1,'rgba(0,229,200,0)');
+        ctx.beginPath();ctx.arc(x,y,22,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+        ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+      }else{
+        ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);
+        ctx.strokeStyle='rgba(0,229,200,'+(r*.7)+')';ctx.lineWidth=r*2.6+.4;
+        ctx.shadowBlur=r*13;ctx.shadowColor='rgba(0,229,200,0.4)';ctx.stroke();ctx.shadowBlur=0;
       }
     }
-
-    phase += 0.009;
-    rafId = requestAnimationFrame(frame);
+    phase+=.009;rafId=requestAnimationFrame(draw);
   }
-
-  window.addEventListener('resize', resize);
-  resize();
-
-  if (REDUCED) {
-    // Single static snapshot
-    drawStaticCurve();
-  } else {
-    frame();
-  }
-
-  // Pause when off-screen to save resources
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      cancelAnimationFrame(rafId);
-    } else if (!REDUCED) {
-      frame();
-    }
-  });
+  window.addEventListener('resize',resize);resize();
+  if(R){ctx.beginPath();for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;i===0?ctx.moveTo(lx(t,.6),ly(t)):ctx.lineTo(lx(t,.6),ly(t));}ctx.strokeStyle='rgba(0,229,200,0.12)';ctx.lineWidth=1.5;ctx.stroke();}
+  else draw();
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(rafId);else if(!R)draw();});
 })();
-
-
-// ── GSAP ANIMATIONS ─────────────────────────────────────────────────────────
 gsap.registerPlugin(ScrollTrigger);
-
-// Hero entrance
-const heroTl = gsap.timeline({ delay: 0.4 });
-heroTl
-  .to('.hero-tag',      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' })
-  .to('h1.book-title',  { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.3')
-  .to('.book-subtitle', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5')
-  .to('.hero-authors',  { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.4')
-  .to('.cta-row',       { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-  .to('.scroll-indicator', { opacity: 1, duration: 0.5, ease: 'power2.out' });
-
-// Scroll reveals
-gsap.utils.toArray('.reveal').forEach(el => {
-  gsap.to(el, {
-    opacity: 1,
-    y: 0,
-    duration: 0.75,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: el,
-      start: 'top 88%',
-      once: true,
-    }
-  });
-});
+const tl=gsap.timeline({delay:.3});
+tl.to('.hero-tag',{opacity:1,y:0,duration:.6,ease:'power2.out'})
+  .to('h1.title',{opacity:1,y:0,duration:.9,ease:'power2.out'},'-=.3')
+  .to('.hero-sub',{opacity:1,y:0,duration:.7,ease:'power2.out'},'-=.5')
+  .to('.hero-auth',{opacity:1,y:0,duration:.5,ease:'power2.out'},'-=.4')
+  .to('.cta-row',{opacity:1,y:0,duration:.5,ease:'power2.out'},'-=.3')
+  .to('.scroll-ind',{opacity:1,duration:.5});
+gsap.fromTo('.hero-cover',{opacity:0,y:40,rotate:-5},{opacity:1,y:0,rotate:-2,duration:1,delay:.2,ease:'power3.out'});
+gsap.fromTo('.hero-render',{opacity:0,y:40,rotate:4},{opacity:1,y:0,rotate:1.5,duration:1,delay:.45,ease:'power3.out'});
+gsap.utils.toArray('#tab-libro .reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+const QA=[
+  {keys:['qué es hit','harmonic','teoría','hit'],q:'¿Qué es HIT?',a:'Harmonic Information Theory (HIT) es un programa de investigación transdisciplinario que investiga si las relaciones proporcionales entre frecuencias (ratios) constituyen un nivel fundamental de organización de la información, anterior a cualquier frecuencia absoluta.'},
+  {keys:['hipótesis','h1','h2','h3','h4','h5','h6','seis'],q:'Las 6 hipótesis (H1–H6)',a:'H1: Las estructuras armónicas existen en señales reales. H2: Son computacionalmente aprendibles. H3: Son cross-modales. H4: Son biológicamente significativas. H5: Tienen correlatos afectivos. H6: Estructuran representaciones simbólicas.'},
+  {keys:['beacon','kalimba','solenoide','instrumento'],q:'¿Qué es el Beacon?',a:'El Beacon es un excitador electromagnético de kalimba con solenoides que implementa la serie armónica natural F×1, F×2, F×3, F×4, F×5. Es a la vez artefacto experimental y obra de arte sonora.'},
+  {keys:['lissajous','figura','luz','vibración'],q:'Figuras de Lissajous',a:'Patrones visuales creados por dos movimientos oscilatorios perpendiculares. En HIT se usan como visualizaciones directas de ratios armónicas: la misma proporción que suena como consonancia aparece como una figura estable y simétrica.'},
+  {keys:['serie armónica','overtones','parciales','armónicos'],q:'Serie armónica',a:'Secuencia de frecuencias múltiplos enteros de una fundamental: F, 2F, 3F, 4F, 5F... Base física del timbre de los instrumentos acústicos y, según HIT, un patrón informacional con relevancia más allá de la música.'},
+  {keys:['phideus','python','software','aprendizaje'],q:'¿Qué es Phideus?',a:'Programa computacional de HIT en Python. Testa si los ratios de frecuencia constituyen un lenguaje informacional universal usando aprendizaje contrastivo cross-modal (VICReg). En validaciones musicales alcanzó 84.1% del rendimiento de referencia.'},
+  {keys:['ratio','relación','proporción','intervalo'],q:'¿Qué es un ratio armónico?',a:'La relación proporcional entre dos frecuencias: 2:1 es la octava, 3:2 la quinta justa, 4:3 la cuarta. HIT propone que estos ratios son el portador mínimo de información: la misma relación en cualquier altura tiene las mismas propiedades informacionales.'},
+  {keys:['licencia','cc by','creative commons','libre'],q:'Licencia',a:'CC BY 4.0. Podés copiar, compartir, adaptar y usar comercialmente, siempre que atribuyas la autoría, enlaces la licencia e indiques cambios. No implica aval de autores ni de AlterMundi.'},
+  {keys:['autores','mariano','nicolás','quiénes'],q:'Los autores',a:'Mariano Fernández Méndez (compilador y redactor final — marianofm@altermundi.net) y Nicolás Echaniz (co-fundador de AlterMundi — nicolasechaniz@altermundi.net). Obra desarrollada en el marco de Asociación Civil AlterMundi.'},
+  {keys:['descargar','pdf','download','obtener'],q:'¿Cómo descargar?',a:'PDF (edición oficial, ISBN en trámite), Markdown (versión abierta para LLMs) y LaTeX (fuente editorial). Ver la pestaña "Descargar" o escribir a info@altermundi.net.'},
+  {keys:['isbn','estado','edición','preliminar'],q:'Estado del ISBN',a:'ISBN en trámite. La obra circula como edición preliminar oficial. Cuando sea asignado corresponderá exclusivamente al PDF.'}
+];
+function sc(txt,keys){const t=txt.toLowerCase();return keys.reduce((s,k)=>s+(t.includes(k)?1:0),0);}
+function findAns(q){
+  let best=null,bs=0;
+  QA.forEach(item=>{const s=sc(q,item.keys);if(s>bs){bs=s;best=item;}});
+  if(best&&bs>0)return best;
+  const words=q.toLowerCase().split(/\s+/).filter(w=>w.length>3);
+  QA.forEach(item=>{const s=words.reduce((a,w)=>a+(item.keys.some(k=>k.includes(w)||w.includes(k))?1:0),0);if(s>bs){bs=s;best=item;}});
+  return bs>0?best:null;
+}
+function addMsg(txt,type,title){
+  const msgs=document.getElementById('qa-msgs');
+  const d=document.createElement('div');d.className='qa-msg qa-'+type;
+  d.innerHTML=title?'<strong>'+title+'</strong>'+txt:txt;
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+}
+function askQA(){
+  const inp=document.getElementById('qa-inp');const q=inp.value.trim();if(!q)return;
+  addMsg(q,'u');inp.value='';
+  const ans=findAns(q);
+  setTimeout(()=>{
+    if(ans)addMsg(ans.a,'b',ans.q);
+    else addMsg('No encontré respuesta directa. Probá: ratio, Beacon, Lissajous, hipótesis, Phideus, licencia, autores.','b','Sin resultado');
+  },220);
+}
+function sendQ(el){document.getElementById('qa-inp').value=el.textContent;askQA();}
 </script>
-
 </body>
 </html>
