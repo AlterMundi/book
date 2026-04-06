@@ -121,6 +121,29 @@
     #tab-interactivo{overflow:hidden}
     #app-frame{flex:1;min-height:0;width:100%;border:none;display:block}
 
+    /* MAPA CARD + Q&A */
+    .map-card{background:rgba(0,229,200,0.04);border-radius:12px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:4rem;box-shadow:0 8px 60px rgba(0,0,0,.3);transition:background .3s}
+    .map-card:hover{background:rgba(0,229,200,0.07)}
+    .map-card h3{color:var(--text);margin-bottom:.4rem}
+    .exp-section{margin-top:4rem;padding-bottom:2rem}
+    .exp-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .75rem;background:rgba(255,180,0,.07);color:rgba(255,180,0,.8);border-radius:20px;margin-bottom:1.5rem}
+    .exp-badge::before{content:'';width:5px;height:5px;background:rgba(255,180,0,.8);border-radius:50%;animation:pdotpls 2s infinite;flex-shrink:0}
+    .exp-section h2{font-size:1.4rem;margin-bottom:.4rem}
+    .qa-box{background:rgba(255,255,255,.02);border-radius:12px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,.3)}
+    .qa-key-row{padding:1rem 1.5rem;display:flex;gap:.6rem;align-items:center;border-bottom:1px solid rgba(255,255,255,.04)}
+    .qa-key-inp{flex:1;background:transparent;border:none;outline:none;font-family:var(--mono);font-size:.72rem;color:var(--text);letter-spacing:.04em}
+    .qa-key-inp::placeholder{color:var(--dim)}
+    .qa-msgs{padding:1.5rem;min-height:200px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:.9rem}
+    .qa-msg-u{align-self:flex-end;background:rgba(0,229,200,.08);color:var(--text);padding:.65rem 1rem;border-radius:16px 16px 4px 16px;font-size:.84rem;max-width:85%;word-break:break-word}
+    .qa-msg-b{align-self:flex-start;background:rgba(255,255,255,.04);color:var(--mid);padding:.65rem 1rem;border-radius:16px 16px 16px 4px;font-size:.84rem;max-width:92%;line-height:1.68;word-break:break-word}
+    .qa-msg-b strong{color:var(--text);display:block;margin-bottom:.25rem;font-size:.68rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .qa-input-row{padding:.9rem 1.5rem;border-top:1px solid rgba(255,255,255,.04);display:flex;gap:.6rem;align-items:center}
+    .qa-inp{flex:1;background:transparent;border:none;outline:none;font-size:.88rem;color:var(--text);font-family:inherit}
+    .qa-inp::placeholder{color:var(--dim)}
+    .qa-send{background:var(--cyan);color:#000;border:none;border-radius:24px;padding:.4rem 1.1rem;font-family:var(--mono);font-size:.6rem;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:opacity .2s;flex-shrink:0}
+    .qa-send:hover{opacity:.85}
+    .qa-send:disabled{opacity:.35;cursor:not-allowed}
+
     /* INFO */
     .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3.5rem}
     @media(max-width:680px){.info-grid{grid-template-columns:1fr;gap:2.5rem}}
@@ -362,6 +385,37 @@
         </div>
         <p style="margin-top:1.2rem;margin-bottom:0;font-family:var(--mono);font-size:.68rem"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license" style="color:var(--cyan)">https://creativecommons.org/licenses/by/4.0/</a></p>
       </div>
+
+      <!-- MAPA INTERACTIVO CARD -->
+      <div class="map-card">
+        <div>
+          <span class="label" style="margin-bottom:.5rem">Exploración visual</span>
+          <h3>Mapa de conceptos interactivo</h3>
+          <p style="margin:0;font-size:.84rem;color:var(--dim)">Grafo de fuerza con los 30 conceptos del libro. Navegá las relaciones entre hipótesis, registros, herramientas y teoría.</p>
+        </div>
+        <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Abrir mapa →</a>
+      </div>
+
+      <!-- Q&A EXPERIMENTAL -->
+      <div class="exp-section">
+        <div class="exp-badge">experimental</div>
+        <h2>Preguntale al libro</h2>
+        <p style="margin-bottom:1.5rem">IA con contexto completo de HIT. Necesitás una <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="color:var(--cyan)">API key de Anthropic</a> (gratuita para empezar).</p>
+        <div class="qa-box">
+          <div class="qa-key-row" id="qa-key-row">
+            <input id="qa-key-inp" class="qa-key-inp" type="password" placeholder="sk-ant-… · ingresá tu API key de Anthropic" autocomplete="off">
+            <button class="qa-send" onclick="hitSetKey()">Conectar</button>
+          </div>
+          <div class="qa-msgs" id="qa-msgs">
+            <div class="qa-msg-b"><strong>HIT</strong>Hola. Tengo el contexto completo del libro. Podés preguntarme sobre las hipótesis, el Beacon, Phideus, figuras de Lissajous, o cualquier concepto de Harmonic Information Theory.</div>
+          </div>
+          <div class="qa-input-row">
+            <input id="qa-inp" class="qa-inp" type="text" placeholder="Escribí tu pregunta…" onkeydown="if(event.key==='Enter')hitSend()">
+            <button class="qa-send" id="qa-send-btn" onclick="hitSend()" disabled>Enviar</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
   <footer>
@@ -423,44 +477,95 @@ tl.to('h1.title',{opacity:1,y:0,duration:1.1,ease:'power3.out'})
   .to('.cta-row',{opacity:1,y:0,duration:.6,ease:'power2.out'},'-=.4')
   .to('.scroll-ind',{opacity:1,duration:.5},'-=.2');
 gsap.utils.toArray('#tab-libro .reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
-const QA=[
-  {keys:['qué es hit','harmonic','teoría','hit'],q:'¿Qué es HIT?',a:'Harmonic Information Theory (HIT) es un programa de investigación transdisciplinario que investiga si las relaciones proporcionales entre frecuencias (ratios) constituyen un nivel fundamental de organización de la información, anterior a cualquier frecuencia absoluta.'},
-  {keys:['hipótesis','h1','h2','h3','h4','h5','h6','seis'],q:'Las 6 hipótesis (H1–H6)',a:'H1: Las estructuras armónicas existen en señales reales. H2: Son computacionalmente aprendibles. H3: Son cross-modales. H4: Son biológicamente significativas. H5: Tienen correlatos afectivos. H6: Estructuran representaciones simbólicas.'},
-  {keys:['beacon','kalimba','solenoide','instrumento'],q:'¿Qué es el Beacon?',a:'El Beacon es un excitador electromagnético de kalimba con solenoides que implementa la serie armónica natural F×1, F×2, F×3, F×4, F×5. Es a la vez artefacto experimental y obra de arte sonora.'},
-  {keys:['lissajous','figura','luz','vibración'],q:'Figuras de Lissajous',a:'Patrones visuales creados por dos movimientos oscilatorios perpendiculares. En HIT se usan como visualizaciones directas de ratios armónicas: la misma proporción que suena como consonancia aparece como una figura estable y simétrica.'},
-  {keys:['serie armónica','overtones','parciales','armónicos'],q:'Serie armónica',a:'Secuencia de frecuencias múltiplos enteros de una fundamental: F, 2F, 3F, 4F, 5F... Base física del timbre de los instrumentos acústicos y, según HIT, un patrón informacional con relevancia más allá de la música.'},
-  {keys:['phideus','python','software','aprendizaje'],q:'¿Qué es Phideus?',a:'Programa computacional de HIT en Python. Testa si los ratios de frecuencia constituyen un lenguaje informacional universal usando aprendizaje contrastivo cross-modal (VICReg). En validaciones musicales alcanzó 84.1% del rendimiento de referencia.'},
-  {keys:['ratio','relación','proporción','intervalo'],q:'¿Qué es un ratio armónico?',a:'La relación proporcional entre dos frecuencias: 2:1 es la octava, 3:2 la quinta justa, 4:3 la cuarta. HIT propone que estos ratios son el portador mínimo de información: la misma relación en cualquier altura tiene las mismas propiedades informacionales.'},
-  {keys:['licencia','cc by','creative commons','libre'],q:'Licencia',a:'CC BY 4.0. Podés copiar, compartir, adaptar y usar comercialmente, siempre que atribuyas la autoría, enlaces la licencia e indiques cambios. No implica aval de autores ni de AlterMundi.'},
-  {keys:['autores','mariano','nicolás','quiénes'],q:'Los autores',a:'Mariano Fernández Méndez (compilador y redactor final — marianofm@altermundi.net) y Nicolás Echaniz (co-fundador de AlterMundi — nicolasechaniz@altermundi.net). Obra desarrollada en el marco de Asociación Civil AlterMundi.'},
-  {keys:['descargar','pdf','download','obtener'],q:'¿Cómo descargar?',a:'PDF (edición oficial, ISBN en trámite), Markdown (versión abierta para LLMs) y LaTeX (fuente editorial). Ver la pestaña "Descargar" o escribir a info@altermundi.net.'},
-  {keys:['isbn','estado','edición','preliminar'],q:'Estado del ISBN',a:'ISBN en trámite. La obra circula como edición preliminar oficial. Cuando sea asignado corresponderá exclusivamente al PDF.'}
-];
-function sc(txt,keys){const t=txt.toLowerCase();return keys.reduce((s,k)=>s+(t.includes(k)?1:0),0);}
-function findAns(q){
-  let best=null,bs=0;
-  QA.forEach(item=>{const s=sc(q,item.keys);if(s>bs){bs=s;best=item;}});
-  if(best&&bs>0)return best;
-  const words=q.toLowerCase().split(/\s+/).filter(w=>w.length>3);
-  QA.forEach(item=>{const s=words.reduce((a,w)=>a+(item.keys.some(k=>k.includes(w)||w.includes(k))?1:0),0);if(s>bs){bs=s;best=item;}});
-  return bs>0?best:null;
-}
-function addMsg(txt,type,title){
+// === Q&A con API de Anthropic ===
+const HIT_SYSTEM=`Sos un asistente especializado en el libro "Harmonic Information Theory Foundations" (HIT). Respondé siempre en español. Sé conciso y preciso. No inventes información; si no sabés algo del libro decilo.
+
+SOBRE EL LIBRO:
+HIT (Harmonic Information Theory) es un programa de investigación transdisciplinario de Asociación Civil AlterMundi. Investiga si los ratios entre frecuencias son un nivel fundamental de organización de la información, anterior a cualquier frecuencia absoluta.
+
+ESTRUCTURA: 6 partes, 16 capítulos, 22 conceptos formales, 6 hipótesis, 3 probes, 7 dominios.
+
+HIPÓTESIS (H1-H6):
+H1: Las estructuras armónicas existen en señales reales del mundo.
+H2: Son computacionalmente aprendibles por ML.
+H3: Son cross-modales (luz, sonido, movimiento, etc.).
+H4: Son biológicamente significativas.
+H5: Tienen correlatos afectivos en humanos.
+H6: Estructuran representaciones simbólicas (lenguaje, matemáticas, arte).
+
+CONCEPTOS CLAVE:
+- Ratio armónico: relación proporcional entre dos frecuencias (2:1 octava, 3:2 quinta, 4:3 cuarta). Portador mínimo de información.
+- Serie armónica: F, 2F, 3F, 4F, 5F… Base del timbre acústico y patrón informacional universal.
+- Figuras de Lissajous: patrones visuales de dos oscilaciones perpendiculares. Visualizan ratios; la consonancia aparece como figura estable.
+- 4 registros: físico, biológico, afectivo, simbólico.
+- Beacon: excitador electromagnético de kalimba con 5 solenoides (F×1 a F×5). Artefacto experimental y obra sonora.
+- Phideus: software Python con aprendizaje contrastivo cross-modal (VICReg). 84.1% rendimiento de referencia en validaciones musicales. 3 probes.
+
+AUTORES: Mariano Fernández Méndez (compilador, marianofm@altermundi.net) y Nicolás Echaniz (nicolasechaniz@altermundi.net). Institución: Asociación Civil AlterMundi.
+LICENCIA: CC BY 4.0. ISBN: en trámite (edición preliminar oficial).`;
+
+let hitKey=localStorage.getItem('hit_apikey')||'';
+let hitHistory=[];
+
+function hitAddMsg(txt,type,title){
   const msgs=document.getElementById('qa-msgs');
-  const d=document.createElement('div');d.className='qa-msg qa-'+type;
-  d.innerHTML=title?'<strong>'+title+'</strong>'+txt:txt;
+  const d=document.createElement('div');
+  d.className='qa-msg-'+type;
+  d.innerHTML=title?'<strong>'+escHtml(title)+'</strong>'+escHtml(txt):escHtml(txt);
   msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
 }
-function askQA(){
-  const inp=document.getElementById('qa-inp');const q=inp.value.trim();if(!q)return;
-  addMsg(q,'u');inp.value='';
-  const ans=findAns(q);
-  setTimeout(()=>{
-    if(ans)addMsg(ans.a,'b',ans.q);
-    else addMsg('No encontré respuesta directa. Probá: ratio, Beacon, Lissajous, hipótesis, Phideus, licencia, autores.','b','Sin resultado');
-  },220);
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function hitSetKey(){
+  const v=document.getElementById('qa-key-inp').value.trim();
+  if(!v)return;
+  hitKey=v;localStorage.setItem('hit_apikey',v);
+  document.getElementById('qa-key-row').style.display='none';
+  document.getElementById('qa-send-btn').disabled=false;
+  hitAddMsg('API key guardada. Listo para responder sobre el libro.','b','HIT');
 }
-function sendQ(el){document.getElementById('qa-inp').value=el.textContent;askQA();}
+
+(function(){
+  if(hitKey){
+    document.getElementById('qa-key-row').style.display='none';
+    document.getElementById('qa-send-btn').disabled=false;
+  }
+})();
+
+async function hitSend(){
+  const inp=document.getElementById('qa-inp');
+  const q=inp.value.trim();if(!q||!hitKey)return;
+  const btn=document.getElementById('qa-send-btn');
+  btn.disabled=true;inp.value='';
+  hitAddMsg(q,'u');
+  hitHistory.push({role:'user',content:q});
+  const ld=document.createElement('div');
+  ld.className='qa-msg-b';ld.id='qa-ld';
+  ld.innerHTML='<span style="opacity:.4;font-family:var(--mono);font-size:.68rem">pensando…</span>';
+  document.getElementById('qa-msgs').appendChild(ld);
+  document.getElementById('qa-msgs').scrollTop=99999;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'content-type':'application/json','x-api-key':hitKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:600,system:HIT_SYSTEM,messages:hitHistory.slice(-10)})
+    });
+    const data=await res.json();
+    document.getElementById('qa-ld')?.remove();
+    if(data.content&&data.content[0]){
+      const ans=data.content[0].text;
+      hitHistory.push({role:'assistant',content:ans});
+      hitAddMsg(ans,'b','HIT');
+    }else{
+      hitAddMsg((data.error?.message||'API key inválida o límite alcanzado.'),'b','⚠');
+      if(data.error?.type==='authentication_error'){localStorage.removeItem('hit_apikey');hitKey='';document.getElementById('qa-key-row').style.display='flex';btn.disabled=true;}
+    }
+  }catch(e){
+    document.getElementById('qa-ld')?.remove();
+    hitAddMsg('Error de conexión. Revisá tu API key e intentá de nuevo.','b','⚠');
+  }
+  btn.disabled=false;inp.focus();
+}
 </script>
 </body>
 </html>
