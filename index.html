@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,8 +30,6 @@
     /* PANELS */
     .tab-panel{display:none}
     .tab-panel.active{display:block}
-    #tab-interactivo{display:none;flex-direction:column;height:100svh;padding-top:56px}
-    #tab-interactivo.active{display:flex}
 
     /* SHARED */
     .section{padding:7rem 2rem}
@@ -113,13 +111,19 @@
     .auth-mail a:hover{text-decoration:underline}
     .auth-bio{font-size:.86rem;color:var(--mid);line-height:1.75}
     .team-sec{padding:5rem 2rem 7rem}
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
-    .chip{font-family:var(--mono);font-size:.65rem;padding:.3rem .9rem;background:rgba(0,229,200,0.04);color:var(--mid);border-radius:20px;transition:background .2s,color .2s;letter-spacing:.04em}
-    .chip:hover{background:rgba(0,229,200,0.1);color:var(--text)}
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+    @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+    .member-card{background:rgba(0,229,200,0.025);border-radius:12px;padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.9rem;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 8px 40px rgba(0,0,0,.3)}
+    .member-card:hover{background:rgba(0,229,200,0.05);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 30px rgba(0,229,200,.05)}
+    .member-lissajous{width:100%;aspect-ratio:1;border-radius:8px;background:rgba(0,0,0,.35);display:block}
+    .member-name{font-size:.88rem;font-weight:500;color:var(--text)}
+    .member-role{font-family:var(--mono);font-size:.54rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-top:-.4rem}
+    .member-bio{font-size:.76rem;color:var(--dim);line-height:1.65;flex:1}
+    .member-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem}
+    .member-link{font-family:var(--mono);font-size:.56rem;color:var(--mid);padding:.2rem .6rem;border-radius:20px;background:rgba(255,255,255,.04);transition:color .2s,background .2s;letter-spacing:.04em}
+    .member-link:hover{color:var(--cyan);background:rgba(0,229,200,.07)}
 
-    /* INTERACTIVO */
-    #tab-interactivo{overflow:hidden}
-    #app-frame{flex:1;min-height:0;width:100%;border:none;display:block}
 
     /* MAPA CARD + Q&A */
     .map-card{background:rgba(0,229,200,0.04);border-radius:12px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:4rem;box-shadow:0 8px 60px rgba(0,0,0,.3);transition:background .3s}
@@ -171,10 +175,9 @@
 <nav id="nav">
   <span class="nav-logo">HIT · Foundations</span>
   <ul class="nav-tabs">
-    <li class="nav-tab active" data-tab="libro">Libro</li>
-    <li class="nav-tab" data-tab="descargar">Descargar</li>
-    <li class="nav-tab" data-tab="autores">Autores</li>
-    <li class="nav-tab" data-tab="interactivo">Interactivo</li>
+    <li class="nav-tab active" data-tab="libro">Book</li>
+    <li class="nav-tab" data-tab="descargar">Download</li>
+    <li class="nav-tab" data-tab="autores">Authors</li>
     <li class="nav-tab" data-tab="info">Info</li>
   </ul>
 </nav>
@@ -186,8 +189,8 @@
     <div class="hero-content">
       <h1 class="title">Harmonic <span class="acc">Information</span> Theory</h1>
       <div class="cta-row">
-        <button class="btn btn-fill" onclick="switchTab('descargar')">↓ Descargar</button>
-        <a href="mailto:info@altermundi.net" class="btn btn-outline">Más info →</a>
+        <button class="btn btn-fill" onclick="switchTab('descargar')">↓ Download</button>
+        <a href="mailto:info@altermundi.net" class="btn btn-outline">More info →</a>
       </div>
     </div>
     <div class="scroll-ind"><span>scroll</span><div class="scroll-line"></div></div>
@@ -196,43 +199,42 @@
   <section id="quote">
     <div class="q-wrap reveal">
       <div class="q-dot"></div>
-      <blockquote>"Al principio, había una sola cosa. Entonces, la cosa se estiró. Y mientras se estiraba, se meneó. Y cuando se meneó, comprendió que ya no era una sola, porque estaba ella y el meneo. Así que se meneó más. Y eso es todo. Excelente."</blockquote>
-      <p class="q-en">"In the beginning, there was one thing. So the thing stretched. And as it stretched, it wiggled. And when it wiggled, it understood it was one no more, because there was it and the wiggle. So she wiggled more. And that's all. Excellent."</p>
+      <blockquote>"In the beginning, there was one thing. So the thing stretched. And as it stretched, it wiggled. And when it wiggled, it understood it was one no more, because there was it and the wiggle. So she wiggled more. And that's all. Excellent."</blockquote>
       <span class="q-attr">— Nicolás Echaniz</span>
     </div>
   </section>
   <hr class="rule">
   <section class="section">
     <div class="wrap">
-      <span class="label reveal">Sobre el libro</span>
-      <h2 class="reveal">El ratio como unidad mínima de información</h2>
+      <span class="label reveal">About the book</span>
+      <h2 class="reveal">The ratio as the minimal unit of information</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-top:3rem" class="reveal">
         <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">01 — HIPÓTESIS</p>
-          <h3>La ratio, no la frecuencia absoluta</h3>
-          <p>La relación proporcional entre frecuencias es el portador mínimo de información. HIT investiga si las estructuras armónicas son computacionalmente aprendibles, cross-modales y biológicamente significativas.</p>
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">01 — HYPOTHESIS</p>
+          <h3>The ratio, not the absolute frequency</h3>
+          <p>The proportional relationship between frequencies is the minimal carrier of information. HIT investigates whether harmonic structures are computationally learnable, cross-modal, and biologically meaningful.</p>
         </div>
         <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">02 — REGISTROS</p>
-          <h3>Físico · Biológico · Afectivo · Simbólico</h3>
-          <p>El libro abraza la inconsistencia como productiva, resistiendo la reducción a una unidad forzada. Seis hipótesis centrales (H1–H6) articulan el programa experimental en distintos dominios de validez.</p>
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">02 — REGISTERS</p>
+          <h3>Physical · Biological · Affective · Symbolic</h3>
+          <p>The book embraces inconsistency as productive, resisting reduction to a forced unity. Six central hypotheses (H1–H6) articulate the experimental program across distinct domains of validity.</p>
         </div>
         <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">03 — ARTEFACTO</p>
-          <h3>El Beacon: teoría audible</h3>
-          <p>Un excitador electromagnético de kalimba implementa la serie armónica natural: F×1, F×2, F×3, F×4, F×5. Artefacto experimental y obra de arte sonora: las hipótesis se vuelven vibración física.</p>
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">03 — ARTEFACT</p>
+          <h3>The Beacon: audible theory</h3>
+          <p>An electromagnetic kalimba exciter implements the natural harmonic series: F×1, F×2, F×3, F×4, F×5. An experimental artifact and sonic artwork: the hypotheses become physical vibration.</p>
         </div>
         <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">04 — ACCESO</p>
-          <h3>Publicación abierta desde el origen</h3>
-          <p>CC BY 4.0. El PDF es la edición bibliográfica oficial (ISBN en trámite). El Markdown está optimizado para lectura por LLMs y navegación semántica sin necesidad de cargar el manuscrito completo.</p>
+          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">04 — ACCESS</p>
+          <h3>Open publication from the start</h3>
+          <p>CC BY 4.0. The PDF is the official bibliographic edition (ISBN pending). The Markdown is optimized for LLM reading and semantic navigation without loading the full manuscript.</p>
         </div>
       </div>
     </div>
   </section>
   <footer>
     <div class="foot-in">
-      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez y Nicolás Echaniz<br>Asociación Civil AlterMundi · ISBN en trámite · CC BY 4.0</div></div>
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · ISBN pending · CC BY 4.0</div></div>
       <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
     </div>
   </footer>
@@ -241,51 +243,51 @@
 <!-- TAB DESCARGAR -->
 <div id="tab-descargar" class="tab-panel">
   <div id="dl-hero">
-    <img src="render1.jpg" alt="Edición impresa" class="dl-img">
+    <img src="render1.jpg" alt="Print edition" class="dl-img">
     <div class="dl-text">
-      <div class="pvbadge"><span class="pdot"></span> Disponible ahora</div>
-      <h2>Descargar el libro</h2>
-      <p>El libro está disponible en tres formatos complementarios. El PDF es la edición bibliográfica oficial. El Markdown está diseñado para lectura por inteligencias artificiales. El LaTeX es la fuente editorial completa.</p>
-      <div class="isbn-badge"><span class="rdot"></span> ISBN: en trámite · Edición preliminar oficial</div>
+      <div class="pvbadge"><span class="pdot"></span> Available now</div>
+      <h2>Download the book</h2>
+      <p>The book is available in three complementary formats. The PDF is the official bibliographic edition. The Markdown is designed for AI reading. The LaTeX is the full editorial source.</p>
+      <div class="isbn-badge"><span class="rdot"></span> ISBN: pending · Official preliminary edition</div>
     </div>
   </div>
   <section class="fmts-section">
     <div class="wrap">
-      <span class="label">Formatos</span>
-      <h2>Una obra, tres capas</h2>
+      <span class="label">Formats</span>
+      <h2>One work, three layers</h2>
       <div class="fmts-grid">
         <div class="fmt">
-          <span class="fmt-type">Edición oficial</span>
+          <span class="fmt-type">Official edition</span>
           <div class="fmt-name">PDF</div>
-          <p class="fmt-desc">Edición preliminar oficial del libro con diseño tipográfico completo. El ISBN, cuando sea asignado, corresponderá exclusivamente a este formato.</p>
-          <span class="tag tag-c">ISBN en trámite</span>
-          <div style="margin-top:1rem"><a href="main.pdf" download class="btn btn-fill">↓ Descargar PDF</a></div>
+          <p class="fmt-desc">Official preliminary edition of the book with full typographic design. The ISBN, when assigned, will correspond exclusively to this format.</p>
+          <span class="tag tag-c">ISBN pending</span>
+          <div style="margin-top:1rem"><a href="main.pdf" download class="btn btn-fill">↓ Download PDF</a></div>
         </div>
         <div class="fmt">
-          <span class="fmt-type">Versión abierta</span>
+          <span class="fmt-type">Open version</span>
           <div class="fmt-name">Markdown</div>
-          <p class="fmt-desc">Versión textual estructurada optimizada para lectura automatizada, consulta segmentada y navegación semántica por LLMs. No constituye la edición bibliográfica con ISBN.</p>
-          <span class="tag">Optimizado para LLMs</span>
-          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">Ver en GitHub →</a></div>
+          <p class="fmt-desc">Structured text version optimized for automated reading, segmented queries, and semantic navigation by LLMs. Not the bibliographic edition with ISBN.</p>
+          <span class="tag">Optimized for LLMs</span>
+          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub →</a></div>
         </div>
         <div class="fmt">
-          <span class="fmt-type">Fuente editorial</span>
+          <span class="fmt-type">Editorial source</span>
           <div class="fmt-name">LaTeX</div>
-          <p class="fmt-desc">Fuente editorial del libro. Contiene exclusivamente la fuente tipográfica y materiales editoriales. No es el repositorio general del ecosistema de investigación.</p>
-          <span class="tag">Código fuente</span>
-          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">Ver repositorio →</a></div>
+          <p class="fmt-desc">Editorial source of the book. Contains exclusively the typographic source and editorial materials. Not the general repository of the research ecosystem.</p>
+          <span class="tag">Source code</span>
+          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">View repository →</a></div>
         </div>
       </div>
       <div class="print-notice">
-        <img src="portada.jpg" alt="Portada" style="width:65px;opacity:.8;flex-shrink:0">
-        <div class="pnt"><h3>Edición impresa</h3><p>¿Te interesa una edición impresa? Escribinos para información sobre disponibilidad y preventa.</p></div>
-        <a href="mailto:info@altermundi.net?subject=Edición impresa HIT Foundations" class="btn btn-outline">Consultar →</a>
+        <img src="portada.jpg" alt="Cover" style="width:65px;opacity:.8;flex-shrink:0">
+        <div class="pnt"><h3>Print edition</h3><p>Interested in a print edition? Write to us for information on availability and pre-orders.</p></div>
+        <a href="mailto:info@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline">Enquire →</a>
       </div>
     </div>
   </section>
   <footer>
     <div class="foot-in">
-      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi · ISBN en trámite</div></div>
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi · ISBN pending</div></div>
       <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a></div>
     </div>
   </footer>
@@ -295,39 +297,94 @@
 <div id="tab-autores" class="tab-panel">
   <section class="section" style="padding-top:8rem">
     <div class="wrap">
-      <span class="label">Autoría</span>
-      <h2>Los autores</h2>
+      <span class="label">Authorship</span>
+      <h2>The authors</h2>
       <div class="auth-grid">
         <div class="auth-card">
           <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="auth-photo">
           <div>
             <div class="auth-name">Mariano Fernández Méndez</div>
-            <div class="auth-role">Autor · Compilador · Redactor final</div>
+            <div class="auth-role">Author · Compiler · Final editor</div>
             <div class="auth-mail"><a href="mailto:marianofm@altermundi.net">marianofm@altermundi.net</a></div>
           </div>
-          <p class="auth-bio">Investigador, músico y compilador final de la obra. Trabaja en la intersección entre teoría de la información, acústica y epistemología transdisciplinaria. Responsable de la redacción final y de la arquitectura conceptual del libro. Miembro de Asociación Civil AlterMundi.</p>
-          <p class="auth-bio">Su investigación parte de una pregunta fundamental: si las relaciones proporcionales entre frecuencias constituyen un nivel de organización de la información anterior a cualquier codificación cultural, ¿cuáles son sus implicancias para la biología, la computación y la experiencia subjetiva?</p>
+          <p class="auth-bio">Researcher, musician, and final compiler of the work. Works at the intersection of information theory, acoustics, and transdisciplinary epistemology. Responsible for the final writing and conceptual architecture of the book. Member of Asociación Civil AlterMundi.</p>
+          <p class="auth-bio">His research starts from a fundamental question: if the proportional relationships between frequencies constitute a level of information organization prior to any cultural encoding, what are the implications for biology, computation, and subjective experience?</p>
         </div>
         <div class="auth-card">
           <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo">
           <div>
             <div class="auth-name">Nicolás Echaniz</div>
-            <div class="auth-role">Autor · Investigador</div>
+            <div class="auth-role">Author · Researcher</div>
             <div class="auth-mail"><a href="mailto:nicolasechaniz@altermundi.net">nicolasechaniz@altermundi.net</a></div>
           </div>
-          <p class="auth-bio">Co-fundador de Asociación Civil AlterMundi. Investigador en redes comunitarias, software libre y tecnología soberana. Impulsor del programa de investigación HIT y arquitecto del Beacon armónico — el excitador electromagnético de kalimba que materializa las hipótesis de la teoría en vibración física.</p>
-          <p class="auth-bio">Autor de la premisa fundacional: <em>"Al principio, había una sola cosa. La cosa se estiró. Y mientras se estiraba, se meneó."</em> — una cosmogonía que condensa el núcleo de HIT: de la unidad al wiggle como acto generativo de toda información.</p>
+          <p class="auth-bio">Co-founder of Asociación Civil AlterMundi. Researcher in community networks, free software, and sovereign technology. Driver of the HIT research program and architect of the harmonic Beacon — the electromagnetic kalimba exciter that materializes the theory's hypotheses into physical vibration.</p>
+          <p class="auth-bio">Author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> — a cosmogony that condenses the core of HIT: from unity to the wiggle as the generative act of all information.</p>
         </div>
       </div>
     </div>
   </section>
   <div class="team-sec">
     <div class="wrap">
-      <span class="label">Créditos</span>
-      <h2>Equipo de investigación y desarrollo</h2>
-      <p>Desarrollado en el marco institucional de <strong style="color:var(--text);font-weight:500">Asociación Civil AlterMundi</strong>.</p>
-      <div class="chips">
-        <span class="chip">Anabella Scigliano</span><span class="chip">Federico Bonino</span><span class="chip">Julián De La Reta</span><span class="chip">Martín Fernández Méndez</span><span class="chip">Pablo Bustos</span><span class="chip">Saira Asua</span><span class="chip">Santiago Cetrán</span><span class="chip">Sofía Campagnoli</span>
+      <span class="label">Research and development team</span>
+      <h2>Developed within the institutional framework of Asociación Civil AlterMundi.</h2>
+      <div class="team-grid">
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="2" data-b="3" data-phase="0.78"></canvas>
+          <div><div class="member-name">Anabella Scigliano</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Biomedical engineering student focused on the intersection of physiology and technology, exploring the neurological and therapeutic implications of harmonic structures. Also contributes to software validation, QA, and technical testing.</p>
+          <div class="member-links"><a href="https://github.com/AnnieScigliano" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="3" data-b="4" data-phase="0.52"></canvas>
+          <div><div class="member-name">Federico Bonino</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Electronics technician and sound recording operator, focused on signal acquisition, digitization, and acoustic processing. His work connects instrumentation, software, and experimental analysis.</p>
+          <div class="member-links"><a href="https://github.com/Fede654" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="2" data-b="5" data-phase="1.05"></canvas>
+          <div><div class="member-name">Julián De La Reta</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Psychologist with a Jungian orientation, focused on myth projection, symbolic analysis, and the interpretation of archetypal patterns.</p>
+          <div class="member-links"></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="3" data-b="5" data-phase="0"></canvas>
+          <div><div class="member-name">Martín Fernández Méndez</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Industrial designer and university lecturer working on mechatronics, optics, and manufacturable device design. He contributes to the development of robust and replicable experimental instruments.</p>
+          <div class="member-links"></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="4" data-b="5" data-phase="0.78"></canvas>
+          <div><div class="member-name">Pablo Bustos</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Developer working across software, electronics, mechatronics, optics, and radiofrequency systems. His work supports the technical development of instruments for signal capture and experimentation.</p>
+          <div class="member-links"><a href="https://github.com/Pablomonte" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="1" data-b="2" data-phase="0.78"></canvas>
+          <div><div class="member-name">Saira Asua</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Software developer contributing to the design, implementation, and technical development of experimental systems. Her work supports the integration between software tools and research processes.</p>
+          <div class="member-links"><a href="https://github.com/SairaAsua" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="3" data-b="7" data-phase="0.52"></canvas>
+          <div><div class="member-name">Santiago Cetrán</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio">Developer focused on QA, monitoring, dashboards, and validation scripts. He contributes to the reliability, observability, and reproducibility of experimental systems.</p>
+          <div class="member-links"><a href="https://github.com/Santiagocetran" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
+        </div>
+
+        <div class="member-card">
+          <canvas class="member-lissajous" data-a="5" data-b="6" data-phase="1.05"></canvas>
+          <div><div class="member-name">Sofía Campagnoli</div><div class="member-role">Researcher</div></div>
+          <p class="member-bio"></p>
+          <div class="member-links"></div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -339,49 +396,44 @@
   </footer>
 </div>
 
-<!-- TAB INTERACTIVO -->
-<div id="tab-interactivo" class="tab-panel">
-  <iframe id="app-frame" src="app.html" title="HIT — Libro interactivo" allowfullscreen style="border:none;display:block"></iframe>
-</div>
-
 <!-- TAB INFO -->
 <div id="tab-info" class="tab-panel">
   <section class="section" style="padding-top:8rem">
     <div class="wrap">
-      <span class="label">Más información</span>
-      <h2>Contacto, repositorios y licencia</h2>
+      <span class="label">More information</span>
+      <h2>Contact, repositories and license</h2>
       <div class="info-grid">
         <div class="info-block">
-          <h3>Contacto</h3>
-          <p style="margin-bottom:1.2rem">Para consultas generales, edición impresa, colaboraciones o uso del material:</p>
+          <h3>Contact</h3>
+          <p style="margin-bottom:1.2rem">For general enquiries, print edition, collaborations, or use of the material:</p>
           <a href="mailto:info@altermundi.net" class="info-link">info@altermundi.net</a>
           <a href="mailto:marianofm@altermundi.net" class="info-link">marianofm@altermundi.net</a>
           <a href="mailto:nicolasechaniz@altermundi.net" class="info-link">nicolasechaniz@altermundi.net</a>
         </div>
         <div class="info-block">
-          <h3>Repositorios</h3>
-          <p style="margin-bottom:1.2rem">Todo el material del libro y el ecosistema de investigación es público:</p>
+          <h3>Repositories</h3>
+          <p style="margin-bottom:1.2rem">All book material and the research ecosystem are public:</p>
           <a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="info-link">AlterMundi/harmonic-information-theory →</a>
           <a href="https://github.com/AlterMundi/book-interactive" target="_blank" rel="noopener" class="info-link">AlterMundi/book-interactive →</a>
           <a href="https://github.com/AlterMundi/book" target="_blank" rel="noopener" class="info-link">AlterMundi/book →</a>
           <a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="info-link">AlterMundi/Phideus →</a>
         </div>
         <div class="info-block">
-          <h3>Sobre AlterMundi</h3>
-          <p>Asociación Civil AlterMundi es una organización sin fines de lucro dedicada a la investigación y desarrollo de tecnologías libres, redes comunitarias y herramientas digitales soberanas. HIT es uno de sus programas de investigación activos.</p>
+          <h3>About AlterMundi</h3>
+          <p>Asociación Civil AlterMundi is a non-profit organization dedicated to research and development of free technologies, community networks, and sovereign digital tools. HIT is one of its active research programs.</p>
           <a href="https://altermundi.net" target="_blank" rel="noopener" class="info-link" style="margin-top:.8rem">altermundi.net →</a>
         </div>
         <div class="info-block">
-          <h3>ISBN y estado editorial</h3>
-          <p>La obra circula como edición preliminar oficial. El ISBN está en trámite y corresponderá exclusivamente a la edición PDF oficial cuando sea asignado.</p>
-          <div class="isbn-badge" style="margin-top:1rem"><span class="rdot"></span> ISBN en trámite · Edición preliminar oficial</div>
+          <h3>ISBN and editorial status</h3>
+          <p>The work circulates as the official preliminary edition. The ISBN is pending and will correspond exclusively to the official PDF edition when assigned.</p>
+          <div class="isbn-badge" style="margin-top:1rem"><span class="rdot"></span> ISBN pending · Official preliminary edition</div>
         </div>
       </div>
       <div class="lic-box" style="margin-top:4rem">
         <span class="lic-name">Creative Commons Attribution 4.0 International (CC BY 4.0)</span>
-        <p style="font-size:.85rem;color:var(--mid);margin:0">Esta obra puede compartirse, copiarse, redistribuirse y adaptarse, incluso con fines comerciales, siempre que se reconozca adecuadamente la autoría, se enlace la licencia y se indiquen los cambios realizados. No debe sugerirse aval de los autores ni de Asociación Civil AlterMundi.</p>
+        <p style="font-size:.85rem;color:var(--mid);margin:0">This work may be shared, copied, redistributed, and adapted, even for commercial purposes, as long as appropriate credit is given, the license is linked, and changes are indicated. No endorsement by the authors or Asociación Civil AlterMundi should be implied.</p>
         <div class="perms">
-          <div class="perm">Compartir libremente</div><div class="perm">Uso comercial</div><div class="perm">Adaptar y remixar</div><div class="perm">Atribución requerida</div><div class="perm">Indicar cambios</div>
+          <div class="perm">Share freely</div><div class="perm">Commercial use</div><div class="perm">Adapt and remix</div><div class="perm">Attribution required</div><div class="perm">Indicate changes</div>
         </div>
         <p style="margin-top:1.2rem;margin-bottom:0;font-family:var(--mono);font-size:.68rem"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license" style="color:var(--cyan)">https://creativecommons.org/licenses/by/4.0/</a></p>
       </div>
@@ -389,29 +441,29 @@
       <!-- MAPA INTERACTIVO CARD -->
       <div class="map-card">
         <div>
-          <span class="label" style="margin-bottom:.5rem">Exploración visual</span>
-          <h3>Mapa de conceptos interactivo</h3>
-          <p style="margin:0;font-size:.84rem;color:var(--dim)">Grafo de fuerza con los 30 conceptos del libro. Navegá las relaciones entre hipótesis, registros, herramientas y teoría.</p>
+          <span class="label" style="margin-bottom:.5rem">Visual exploration</span>
+          <h3>Interactive concept map</h3>
+          <p style="margin:0;font-size:.84rem;color:var(--dim)">Force graph with 30 concepts from the book. Navigate the relationships between hypotheses, registers, tools, and theory.</p>
         </div>
-        <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Abrir mapa →</a>
+        <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open map →</a>
       </div>
 
       <!-- Q&A EXPERIMENTAL -->
       <div class="exp-section">
         <div class="exp-badge">experimental</div>
-        <h2>Preguntale al libro</h2>
-        <p style="margin-bottom:1.5rem">IA con contexto completo de HIT. Necesitás una <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="color:var(--cyan)">API key de Anthropic</a> (gratuita para empezar).</p>
+        <h2>Ask the book</h2>
+        <p style="margin-bottom:1.5rem">AI with full HIT context. You need an <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="color:var(--cyan)">Anthropic API key</a> (free to start).</p>
         <div class="qa-box">
           <div class="qa-key-row" id="qa-key-row">
-            <input id="qa-key-inp" class="qa-key-inp" type="password" placeholder="sk-ant-… · ingresá tu API key de Anthropic" autocomplete="off">
-            <button class="qa-send" onclick="hitSetKey()">Conectar</button>
+            <input id="qa-key-inp" class="qa-key-inp" type="password" placeholder="sk-ant-… · enter your Anthropic API key" autocomplete="off">
+            <button class="qa-send" onclick="hitSetKey()">Connect</button>
           </div>
           <div class="qa-msgs" id="qa-msgs">
-            <div class="qa-msg-b"><strong>HIT</strong>Hola. Tengo el contexto completo del libro. Podés preguntarme sobre las hipótesis, el Beacon, Phideus, figuras de Lissajous, o cualquier concepto de Harmonic Information Theory.</div>
+            <div class="qa-msg-b"><strong>HIT</strong>Hello. I have the full context of the book. You can ask me about the hypotheses, the Beacon, Phideus, Lissajous figures, or any concept from Harmonic Information Theory.</div>
           </div>
           <div class="qa-input-row">
-            <input id="qa-inp" class="qa-inp" type="text" placeholder="Escribí tu pregunta…" onkeydown="if(event.key==='Enter')hitSend()">
-            <button class="qa-send" id="qa-send-btn" onclick="hitSend()" disabled>Enviar</button>
+            <input id="qa-inp" class="qa-inp" type="text" placeholder="Type your question…" onkeydown="if(event.key==='Enter')hitSend()">
+            <button class="qa-send" id="qa-send-btn" onclick="hitSend()" disabled>Send</button>
           </div>
         </div>
       </div>
@@ -420,7 +472,7 @@
   </section>
   <footer>
     <div class="foot-in">
-      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez y Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN en trámite</div></div>
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN pending</div></div>
       <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
     </div>
   </footer>
@@ -478,7 +530,7 @@ tl.to('h1.title',{opacity:1,y:0,duration:1.1,ease:'power3.out'})
   .to('.scroll-ind',{opacity:1,duration:.5},'-=.2');
 gsap.utils.toArray('#tab-libro .reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
 // === Q&A con API de Anthropic ===
-const HIT_SYSTEM=`Sos un asistente especializado en el libro "Harmonic Information Theory Foundations" (HIT). Respondé siempre en español. Sé conciso y preciso. No inventes información; si no sabés algo del libro decilo.
+const HIT_SYSTEM=`You are a specialized assistant for the book "Harmonic Information Theory Foundations" (HIT). Always respond in English. Be concise and precise. Do not invent information; if you don't know something about the book, say so.
 
 SOBRE EL LIBRO:
 HIT (Harmonic Information Theory) es un programa de investigación transdisciplinario de Asociación Civil AlterMundi. Investiga si los ratios entre frecuencias son un nivel fundamental de organización de la información, anterior a cualquier frecuencia absoluta.
@@ -522,7 +574,7 @@ function hitSetKey(){
   hitKey=v;localStorage.setItem('hit_apikey',v);
   document.getElementById('qa-key-row').style.display='none';
   document.getElementById('qa-send-btn').disabled=false;
-  hitAddMsg('API key guardada. Listo para responder sobre el libro.','b','HIT');
+  hitAddMsg('API key saved. Ready to answer questions about the book.','b','HIT');
 }
 
 (function(){
@@ -541,7 +593,7 @@ async function hitSend(){
   hitHistory.push({role:'user',content:q});
   const ld=document.createElement('div');
   ld.className='qa-msg-b';ld.id='qa-ld';
-  ld.innerHTML='<span style="opacity:.4;font-family:var(--mono);font-size:.68rem">pensando…</span>';
+  ld.innerHTML='<span style="opacity:.4;font-family:var(--mono);font-size:.68rem">thinking…</span>';
   document.getElementById('qa-msgs').appendChild(ld);
   document.getElementById('qa-msgs').scrollTop=99999;
   try{
@@ -557,15 +609,64 @@ async function hitSend(){
       hitHistory.push({role:'assistant',content:ans});
       hitAddMsg(ans,'b','HIT');
     }else{
-      hitAddMsg((data.error?.message||'API key inválida o límite alcanzado.'),'b','⚠');
+      hitAddMsg((data.error?.message||'Invalid API key or limit reached.'),'b','⚠');
       if(data.error?.type==='authentication_error'){localStorage.removeItem('hit_apikey');hitKey='';document.getElementById('qa-key-row').style.display='flex';btn.disabled=true;}
     }
   }catch(e){
     document.getElementById('qa-ld')?.remove();
-    hitAddMsg('Error de conexión. Revisá tu API key e intentá de nuevo.','b','⚠');
+    hitAddMsg('Connection error. Check your API key and try again.','b','⚠');
   }
   btn.disabled=false;inp.focus();
 }
+// === Lissajous team cards ===
+(function(){
+  const R=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.member-lissajous').forEach(canvas=>{
+    const A=parseFloat(canvas.dataset.a);
+    const B=parseFloat(canvas.dataset.b);
+    const ph0=parseFloat(canvas.dataset.phase);
+    const ctx=canvas.getContext('2d');
+    const STEPS=600,TRAIL=220;
+    let phase=ph0,rafId;
+    function resize(){
+      const s=canvas.offsetWidth;
+      canvas.width=s*devicePixelRatio;canvas.height=s*devicePixelRatio;
+      ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    }
+    function draw(){
+      const W=canvas.offsetWidth,H=canvas.offsetHeight;
+      ctx.clearRect(0,0,W,H);
+      const r=Math.min(W,H)*0.34;
+      ctx.beginPath();
+      for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;const x=W/2+r*Math.sin(A*t+ph0);const y=H/2+r*Math.sin(B*t);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.strokeStyle='rgba(0,229,200,0.07)';ctx.lineWidth=1;ctx.stroke();
+      for(let i=TRAIL;i>=0;i--){
+        const t=phase-(i/TRAIL)*Math.PI*2*0.68,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.68;
+        const x=W/2+r*Math.sin(A*t+ph0),y=H/2+r*Math.sin(B*t);
+        const px=W/2+r*Math.sin(A*pt+ph0),py=H/2+r*Math.sin(B*pt);
+        const ratio=1-i/TRAIL;
+        if(i===0){
+          const g=ctx.createRadialGradient(x,y,0,x,y,11);
+          g.addColorStop(0,'rgba(0,229,200,0.9)');g.addColorStop(.5,'rgba(0,229,200,.2)');g.addColorStop(1,'rgba(0,229,200,0)');
+          ctx.beginPath();ctx.arc(x,y,11,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+          ctx.beginPath();ctx.arc(x,y,1.8,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+        }else{
+          ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);
+          ctx.strokeStyle='rgba(0,229,200,'+(ratio*.6)+')';ctx.lineWidth=ratio*2.2+.3;
+          ctx.shadowBlur=ratio*9;ctx.shadowColor='rgba(0,229,200,0.35)';ctx.stroke();ctx.shadowBlur=0;
+        }
+      }
+      phase+=.0065;rafId=requestAnimationFrame(draw);
+    }
+    resize();
+    new ResizeObserver(()=>{cancelAnimationFrame(rafId);resize();if(!R)draw();}).observe(canvas);
+    if(R){
+      const W=canvas.offsetWidth,H=canvas.offsetHeight,r=Math.min(W,H)*0.34;
+      ctx.beginPath();for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;const x=W/2+r*Math.sin(A*t+ph0);const y=H/2+r*Math.sin(B*t);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.strokeStyle='rgba(0,229,200,0.18)';ctx.lineWidth=1.5;ctx.stroke();
+    }else draw();
+  });
+})();
 </script>
 </body>
 </html>
