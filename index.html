@@ -32,7 +32,7 @@
     .tab-panel.active{display:block}
 
     /* SHARED */
-    .section{padding:7rem 2rem}
+    .section{padding:5rem 2rem}
     .wrap{max-width:960px;margin:0 auto}
     .rule{display:none} /* separación por espacio, no por líneas */
     .label{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:1rem}
@@ -40,6 +40,27 @@
     h3{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
     p{font-size:.9rem;color:var(--mid);margin-bottom:1rem}
     p:last-child{margin-bottom:0}
+
+    /* ECOSYSTEM */
+    .eco-section{padding:0 2rem 5rem}
+    .eco-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+    @media(max-width:680px){.eco-grid{grid-template-columns:1fr}}
+    .eco-card{position:relative;border-radius:16px;padding:3rem 2.5rem;display:flex;flex-direction:column;gap:1.4rem;overflow:hidden;transition:transform .35s,box-shadow .35s}
+    .eco-card:hover{transform:translateY(-6px)}
+    .eco-card-beacon{background:linear-gradient(135deg,rgba(120,80,255,0.07) 0%,rgba(80,60,255,0.03) 100%);box-shadow:0 8px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(120,80,255,0.15)}
+    .eco-card-beacon:hover{box-shadow:0 24px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(120,80,255,0.3),0 0 60px rgba(100,80,255,0.06)}
+    .eco-card-phideus{background:linear-gradient(135deg,rgba(0,229,200,0.06) 0%,rgba(0,229,200,0.02) 100%);box-shadow:0 8px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(0,229,200,0.1)}
+    .eco-card-phideus:hover{box-shadow:0 24px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,229,200,0.22),0 0 60px rgba(0,229,200,0.06)}
+    .eco-label{font-family:var(--mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.2rem}
+    .eco-label-beacon{color:#a08cff}
+    .eco-label-phideus{color:var(--cyan)}
+    .eco-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
+    .eco-tagline{font-size:.88rem;color:var(--mid);font-style:italic;line-height:1.6;margin-top:-.4rem}
+    .eco-desc{font-size:.84rem;color:var(--dim);line-height:1.75}
+    .eco-link-beacon{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:#a08cff;margin-top:.5rem;display:inline-block;transition:opacity .2s}
+    .eco-link-beacon:hover{opacity:.7}
+    .eco-link-phideus{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--cyan);margin-top:.5rem;display:inline-block;transition:opacity .2s}
+    .eco-link-phideus:hover{opacity:.7}
 
     /* BOTONES */
     .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.8rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;border-radius:40px;transition:all .25s;cursor:pointer;border:none}
@@ -50,6 +71,9 @@
     .tag{display:inline-block;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;padding:.25rem .65rem;background:rgba(0,229,200,0.05);color:var(--mid);border-radius:20px}
     .tag-c{background:rgba(0,229,200,0.08);color:var(--cyan)}
     .reveal{opacity:0;transform:translateY(20px)}
+    .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem 4rem;margin-top:3rem}
+    @media(max-width:800px){.home-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.home-grid{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){.reveal,.title,.cta-row,.scroll-ind{opacity:1!important;transform:none!important}}
 
     /* HERO */
@@ -65,7 +89,7 @@
     @keyframes pls{0%,100%{opacity:.35}50%{opacity:1}}
 
     /* QUOTE — sin línea, acento con glow puntual */
-    #quote{padding:8rem 2rem;text-align:center}
+    #quote{padding:5rem 2rem;text-align:center}
     .q-wrap{max-width:700px;margin:0 auto}
     .q-dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;margin:0 auto 3rem;box-shadow:0 0 18px var(--cyan),0 0 40px rgba(0,229,200,.3)}
     blockquote{font-size:clamp(1rem,2.8vw,1.45rem);font-weight:300;font-style:italic;line-height:1.75;color:var(--text)}
@@ -73,7 +97,7 @@
     .q-attr{display:block;margin-top:2rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
 
     /* DESCARGAR */
-    #dl-hero{padding:8rem 2rem 5rem;display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap}
+    #dl-hero{padding:5rem 2rem 3rem;display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap}
     .dl-img{width:clamp(180px,28vw,300px);box-shadow:0 40px 120px rgba(0,0,0,.9),0 0 80px rgba(0,229,200,.1);transition:transform .5s,box-shadow .5s;border-radius:2px}
     .dl-img:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 60px 140px rgba(0,0,0,.9),0 0 100px rgba(0,229,200,.18)}
     .dl-text{max-width:440px}
@@ -85,7 +109,7 @@
     .rdot{width:4px;height:4px;background:#f55;border-radius:50%;animation:pdotpls 2s infinite}
 
     /* FORMATOS — cards flotantes sin grilla rígida */
-    .fmts-section{padding:5rem 2rem 7rem}
+    .fmts-section{padding:3rem 2rem 5rem}
     .fmts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
     @media(max-width:700px){.fmts-grid{grid-template-columns:1fr;gap:1.5rem}}
     .fmt{background:rgba(0,229,200,0.03);padding:2.5rem 2rem;border-radius:12px;display:flex;flex-direction:column;gap:.8rem;transition:background .3s,box-shadow .3s,transform .3s;box-shadow:0 8px 60px rgba(0,0,0,.4)}
@@ -110,7 +134,7 @@
     .auth-mail a{color:var(--cyan)}
     .auth-mail a:hover{text-decoration:underline}
     .auth-bio{font-size:.86rem;color:var(--mid);line-height:1.75}
-    .team-sec{padding:5rem 2rem 7rem}
+    .team-sec{padding:3rem 2rem 5rem}
     .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
     @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:480px){.team-grid{grid-template-columns:1fr}}
@@ -148,9 +172,18 @@
     .qa-send:hover{opacity:.85}
     .qa-send:disabled{opacity:.35;cursor:not-allowed}
 
+    /* CONTACT BLOCK */
+    .contact-block{background:rgba(0,229,200,0.03);border-radius:16px;padding:3rem 2.5rem;margin-bottom:3.5rem;box-shadow:0 8px 60px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,229,200,0.07)}
+    .contact-main-email{font-family:var(--mono);font-size:clamp(.9rem,2.5vw,1.15rem);color:var(--cyan);letter-spacing:.04em;display:inline-block;margin:1.2rem 0 1.8rem;transition:opacity .2s}
+    .contact-main-email:hover{opacity:.7}
+    .contact-authors{display:flex;gap:2rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05)}
+    .contact-author-link{font-family:var(--mono);font-size:.7rem;color:var(--mid);letter-spacing:.04em;transition:color .2s}
+    .contact-author-link:hover{color:var(--cyan)}
+    .contact-author-name{font-size:.72rem;color:var(--dim);margin-bottom:.2rem}
+
     /* INFO */
-    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3.5rem}
-    @media(max-width:680px){.info-grid{grid-template-columns:1fr;gap:2.5rem}}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:3.5rem}
+    @media(max-width:760px){.info-grid{grid-template-columns:1fr;gap:2rem}}
     .info-block h3{color:var(--text);font-size:.9rem;margin-bottom:1rem}
     .info-link{display:block;font-family:var(--mono);font-size:.72rem;color:var(--cyan);margin-bottom:.5rem;letter-spacing:.04em}
     .info-link:hover{text-decoration:underline}
@@ -190,7 +223,7 @@
       <h1 class="title">Harmonic <span class="acc">Information</span> Theory</h1>
       <div class="cta-row">
         <button class="btn btn-fill" onclick="switchTab('descargar')">↓ Download</button>
-        <a href="mailto:info@altermundi.net" class="btn btn-outline">More info →</a>
+        <button class="btn btn-outline" onclick="switchTab('info')">More info →</button>
       </div>
     </div>
     <div class="scroll-ind"><span>scroll</span><div class="scroll-line"></div></div>
@@ -208,34 +241,56 @@
     <div class="wrap">
       <span class="label reveal">About the book</span>
       <h2 class="reveal">The ratio as the minimal unit of information</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-top:3rem" class="reveal">
-        <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">01 — HYPOTHESIS</p>
+      <div class="home-grid reveal">
+        <div>
           <h3>The ratio, not the absolute frequency</h3>
           <p>The proportional relationship between frequencies is the minimal carrier of information. HIT investigates whether harmonic structures are computationally learnable, cross-modal, and biologically meaningful.</p>
         </div>
-        <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">02 — REGISTERS</p>
+        <div>
           <h3>Physical · Biological · Affective · Symbolic</h3>
           <p>The book embraces inconsistency as productive, resisting reduction to a forced unity. Six central hypotheses (H1–H6) articulate the experimental program across distinct domains of validity.</p>
         </div>
-        <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">03 — ARTEFACT</p>
-          <h3>The Beacon: audible theory</h3>
-          <p>An electromagnetic kalimba exciter implements the natural harmonic series: F×1, F×2, F×3, F×4, F×5. An experimental artifact and sonic artwork: the hypotheses become physical vibration.</p>
-        </div>
-        <div style="padding-top:2rem">
-          <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);margin-bottom:.7rem">04 — ACCESS</p>
+        <div>
           <h3>Open publication from the start</h3>
           <p>CC BY 4.0. The PDF is the official bibliographic edition (ISBN pending). The Markdown is optimized for LLM reading and semantic navigation without loading the full manuscript.</p>
         </div>
       </div>
     </div>
   </section>
+  <section class="eco-section">
+    <div class="wrap">
+      <span class="label reveal">The ecosystem</span>
+      <h2 class="reveal">Theory in practice</h2>
+      <div class="eco-grid reveal">
+
+        <div class="eco-card eco-card-beacon">
+          <div>
+            <div class="eco-label eco-label-beacon">Artefact</div>
+            <div class="eco-title">Harmonic Beacon</div>
+          </div>
+          <p class="eco-tagline">"Making the interference pattern of the subtle audible in the material realm."</p>
+          <p class="eco-desc">An electromagnetic kalimba exciter that implements the natural harmonic series F×1 through F×5 as physical vibration — and a companion app that makes those vibrations continuously accessible. The Beacon is both experimental instrument and sonic artwork: a 24/7 live stream of natural harmonics, with audio overlay sessions and biometric validation protocols designed to test the affective and neurological implications of harmonic structures.</p>
+          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="eco-link-beacon">harmonicbeacon.com →</a>
+        </div>
+
+        <div class="eco-card eco-card-phideus">
+          <div>
+            <div class="eco-label eco-label-phideus">Research instrument</div>
+            <div class="eco-title">Phideus</div>
+          </div>
+          <p class="eco-tagline">"Do frequency ratios constitute a universal informational language?"</p>
+          <p class="eco-desc">An AI research program testing whether harmonic frequency ratios transfer across sensory modalities. Using VICReg contrastive learning on audio↔MIDI cross-modal retrieval, Phideus asks whether shared ratio structure between domains enables cross-modal recognition — independently of timbre, instrument, or absolute pitch. Cross-modality is the testbed, not the objective. Named after Phidias, the Greek sculptor whose mastery of proportion defined classical form.</p>
+          <a href="https://phideus.net" target="_blank" rel="noopener" class="eco-link-phideus">phideus.net →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · ISBN pending · CC BY 4.0</div></div>
-      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
     </div>
   </footer>
 </div>
@@ -281,14 +336,14 @@
       <div class="print-notice">
         <img src="portada.jpg" alt="Cover" style="width:65px;opacity:.8;flex-shrink:0">
         <div class="pnt"><h3>Print edition</h3><p>Interested in a print edition? Write to us for information on availability and pre-orders.</p></div>
-        <a href="mailto:info@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline">Enquire →</a>
+        <a href="mailto:editorial@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline">Enquire →</a>
       </div>
     </div>
   </section>
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi · ISBN pending</div></div>
-      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a></div>
     </div>
   </footer>
 </div>
@@ -304,21 +359,19 @@
           <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="auth-photo">
           <div>
             <div class="auth-name">Mariano Fernández Méndez</div>
-            <div class="auth-role">Author · Compiler · Final editor</div>
-            <div class="auth-mail"><a href="mailto:marianofm@altermundi.net">marianofm@altermundi.net</a></div>
+            <div class="auth-role">Author</div>
           </div>
-          <p class="auth-bio">Researcher, musician, and final compiler of the work. Works at the intersection of information theory, acoustics, and transdisciplinary epistemology. Responsible for the final writing and conceptual architecture of the book. Member of Asociación Civil AlterMundi.</p>
-          <p class="auth-bio">His research starts from a fundamental question: if the proportional relationships between frequencies constitute a level of information organization prior to any cultural encoding, what are the implications for biology, computation, and subjective experience?</p>
+          <p class="auth-bio">Mariano Fernández Méndez is an author of the book, a researcher, and a musician. A member of Asociación Civil AlterMundi, he was responsible for the final compilation, writing, and conceptual architecture of the work. His research moves across information theory, acoustics, and transdisciplinary epistemologies.</p>
+          <p class="auth-bio">His work begins with a central question: if proportional relationships between frequencies constitute a level of information organization prior to any cultural encoding, what are the implications for biology, computation, and subjective experience?</p>
         </div>
         <div class="auth-card">
           <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo">
           <div>
             <div class="auth-name">Nicolás Echaniz</div>
-            <div class="auth-role">Author · Researcher</div>
-            <div class="auth-mail"><a href="mailto:nicolasechaniz@altermundi.net">nicolasechaniz@altermundi.net</a></div>
+            <div class="auth-role">Author</div>
           </div>
-          <p class="auth-bio">Co-founder of Asociación Civil AlterMundi. Researcher in community networks, free software, and sovereign technology. Driver of the HIT research program and architect of the harmonic Beacon — the electromagnetic kalimba exciter that materializes the theory's hypotheses into physical vibration.</p>
-          <p class="auth-bio">Author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> — a cosmogony that condenses the core of HIT: from unity to the wiggle as the generative act of all information.</p>
+          <p class="auth-bio">Nicolás Echaniz is an author of the book, co-founder of Asociación Civil AlterMundi, and a researcher in community networks, free software, and sovereign technologies. He leads the conceptual and technical direction of the HIT project and created the harmonic Beacon, the electromagnetic kalimba exciter that brings the theory's hypotheses into the realm of physical vibration.</p>
+          <p class="auth-bio">He is the author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> This formulation captures the core of HIT: the passage from unity to movement as the generative act of all information. His work brings together musicology, technology studies, and artificial intelligence to explore the harmonic structure of sound and meaning.</p>
         </div>
       </div>
     </div>
@@ -381,7 +434,6 @@
         <div class="member-card">
           <canvas class="member-lissajous" data-a="5" data-b="6" data-phase="1.05"></canvas>
           <div><div class="member-name">Sofía Campagnoli</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio"></p>
           <div class="member-links"></div>
         </div>
 
@@ -391,7 +443,7 @@
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Asociación Civil AlterMundi · CC BY 4.0</div></div>
-      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a></div>
     </div>
   </footer>
 </div>
@@ -401,15 +453,24 @@
   <section class="section" style="padding-top:8rem">
     <div class="wrap">
       <span class="label">More information</span>
-      <h2>Contact, repositories and license</h2>
-      <div class="info-grid">
-        <div class="info-block">
-          <h3>Contact</h3>
-          <p style="margin-bottom:1.2rem">For general enquiries, print edition, collaborations, or use of the material:</p>
-          <a href="mailto:info@altermundi.net" class="info-link">info@altermundi.net</a>
-          <a href="mailto:marianofm@altermundi.net" class="info-link">marianofm@altermundi.net</a>
-          <a href="mailto:nicolasechaniz@altermundi.net" class="info-link">nicolasechaniz@altermundi.net</a>
+      <h2>Get in touch</h2>
+
+      <div class="contact-block">
+        <p style="font-size:.84rem;color:var(--mid);margin:0">Questions about the book, contributions, collaborations, media, or print editions — write to us at:</p>
+        <a href="mailto:editorial@altermundi.net" class="contact-main-email">editorial@altermundi.net</a>
+        <div class="contact-authors">
+          <div>
+            <div class="contact-author-name">Mariano Fernández Méndez</div>
+            <a href="mailto:mariano@altermundi.net" class="contact-author-link">mariano@altermundi.net</a>
+          </div>
+          <div>
+            <div class="contact-author-name">Nicolás Echaniz</div>
+            <a href="mailto:nicoechaniz@altermundi.net" class="contact-author-link">nicoechaniz@altermundi.net</a>
+          </div>
         </div>
+      </div>
+
+      <div class="info-grid">
         <div class="info-block">
           <h3>Repositories</h3>
           <p style="margin-bottom:1.2rem">All book material and the research ecosystem are public:</p>
@@ -473,7 +534,7 @@
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN pending</div></div>
-      <div class="foot-r"><a href="mailto:info@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
     </div>
   </footer>
 </div>
