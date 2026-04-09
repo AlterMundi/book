@@ -120,7 +120,7 @@
 
     /* FORMATOS — cards flotantes sin grilla rígida */
     .fmts-section{padding:3rem 2rem 5rem}
-    .fmts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+    .fmts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem;margin-top:3rem}
     @media(max-width:700px){.fmts-grid{grid-template-columns:1fr;gap:1.5rem}}
     .fmt{background:rgba(0,229,200,0.03);padding:2.5rem 2rem;border-radius:12px;display:flex;flex-direction:column;gap:.8rem;transition:background .3s,box-shadow .3s,transform .3s;box-shadow:0 8px 60px rgba(0,0,0,.4)}
     .fmt:hover{background:rgba(0,229,200,0.06);box-shadow:0 20px 80px rgba(0,0,0,.5),0 0 40px rgba(0,229,200,.06);transform:translateY(-4px)}
@@ -134,29 +134,32 @@
     .pnt h3{color:var(--text);margin-bottom:.6rem;font-size:1.3rem}
 
     /* AUTORES */
-    .auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem}
-    @media(max-width:680px){.auth-grid{grid-template-columns:1fr;gap:3.5rem}}
-    .auth-card{display:flex;flex-direction:column;gap:1.5rem}
-    .auth-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top center;box-shadow:0 0 0 2px rgba(0,229,200,0.15),0 0 40px rgba(0,229,200,0.08),0 12px 40px rgba(0,0,0,.6)}
-    .auth-name{font-size:1.15rem;font-weight:500;color:var(--text);margin-bottom:.15rem}
-    .auth-role{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
-    .auth-mail{font-family:var(--mono);font-size:.68rem;color:var(--mid);margin-top:.3rem}
-    .auth-mail a{color:var(--cyan)}
-    .auth-mail a:hover{text-decoration:underline}
-    .auth-bio{font-size:.95rem;color:var(--mid);line-height:1.75}
-    .team-sec{padding:3rem 2rem 5rem}
-    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
-    @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.team-grid{grid-template-columns:1fr}}
-    .member-card{background:rgba(0,229,200,0.025);border-radius:12px;padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.9rem;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 8px 40px rgba(0,0,0,.3)}
-    .member-card:hover{background:rgba(0,229,200,0.05);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 30px rgba(0,229,200,.05)}
-    .member-lissajous{width:100%;aspect-ratio:1;border-radius:8px;background:rgba(0,0,0,.35);display:block}
-    .member-name{font-size:.95rem;font-weight:500;color:var(--text)}
-    .member-role{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-top:-.4rem}
-    .member-bio{font-size:.86rem;color:var(--dim);line-height:1.65;flex:1}
-    .member-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem}
-    .member-link{font-family:var(--mono);font-size:.62rem;color:var(--mid);padding:.2rem .6rem;border-radius:20px;background:rgba(255,255,255,.04);transition:color .2s,background .2s;letter-spacing:.04em}
-    .member-link:hover{color:var(--cyan);background:rgba(0,229,200,.07)}
+    .author-section{padding:6rem 2rem 4rem}
+    .authors-two-col{display:grid;grid-template-columns:1fr 1px 1fr;gap:4rem;align-items:start}
+    .authors-vdivider{width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.1) 20%,rgba(255,255,255,.1) 80%,transparent);align-self:stretch}
+    .author-col-full{display:flex;flex-direction:column;gap:.9rem}
+    .author-visual-top{display:flex;flex-direction:row;align-items:center;gap:1.4rem;margin-bottom:.8rem}
+    .author-lis-wrap{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+    .author-lissajous{display:block;opacity:.85;flex-shrink:0}
+    .author-ratio-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;color:rgba(0,229,200,.55);display:block;margin-top:.3rem;text-align:center}
+    .auth-photo-lg{width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:top center;box-shadow:0 0 0 1px rgba(0,229,200,0.18),0 12px 40px rgba(0,0,0,.7);flex-shrink:0}
+    .author-name{font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:500;letter-spacing:-.02em;color:var(--text);margin:0}
+    .auth-bio-full{font-size:.93rem;color:var(--mid);line-height:1.85;margin:0}
+    .auth-mail-link{font-family:var(--mono);font-size:.68rem;color:var(--dim);transition:color .2s}
+    .auth-mail-link:hover{color:var(--cyan)}
+    @media(max-width:700px){.authors-two-col{grid-template-columns:1fr;gap:3rem}.authors-vdivider{display:none}}
+    /* TEAM */
+    .team-section{padding:3rem 2rem 5rem}
+    .team-grid-open{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 3rem}
+    @media(max-width:900px){.team-grid-open{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.team-grid-open{grid-template-columns:1fr}}
+    .team-person{display:flex;align-items:flex-start;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+    .team-lissajous{flex-shrink:0;opacity:.5}
+    .team-person-info{display:flex;flex-direction:column;gap:.25rem}
+    .team-name{font-size:.9rem;font-weight:500;color:var(--text)}
+    .team-role{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--dim);text-transform:uppercase;line-height:1.6}
+    .team-gh{font-family:var(--mono);font-size:.62rem;color:var(--cyan);transition:opacity .2s;margin-top:.2rem}
+    .team-gh:hover{opacity:.7}
 
 
     /* PROBES — dos columnas, sin cajas */
@@ -167,7 +170,9 @@
     .probe-rule-beacon{background:linear-gradient(to right,#a08cff,transparent)}
     .probe-rule-phideus{background:linear-gradient(to right,#4a6fbb,transparent)}
     .probe-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;display:block;margin-bottom:.5rem}
-    .probe-title{font-size:clamp(1.4rem,2.8vw,2rem);font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:.7rem}
+    .probe-title,.probe-title-link{font-size:clamp(1.4rem,2.8vw,2rem);font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:.7rem;display:block}
+    .probe-title-link{transition:opacity .2s}
+    .probe-title-link:hover{opacity:.75}
     .probe-hint{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);font-weight:400;vertical-align:middle;margin-left:.4rem;opacity:.6}
     .probe-tagline{font-size:.9rem;color:var(--mid);font-style:italic;line-height:1.65;margin-bottom:1rem}
     .probe-body{font-size:.95rem;color:var(--text);line-height:1.9;font-weight:300;text-align:justify;hyphens:auto;margin-bottom:1.2rem;flex:1}
@@ -208,10 +213,22 @@
     .res-repo-link{font-family:var(--mono);font-size:.78rem;color:var(--cyan);letter-spacing:.02em;display:inline-block;margin-top:.3rem;transition:opacity .2s}
     .res-repo-link:hover{opacity:.7}
 
-    /* ALTERMUNDI BANNER */
+    /* ALTERMUNDI BANNER (Info tab) */
     .altermundi-banner{display:flex;align-items:center;gap:2rem;margin:4rem 0 3rem}
     .altermundi-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent)}
     .altermundi-phrase{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+    /* ALTERMUNDI HERO (Authors tab) */
+    .altermundi-hero{position:relative;padding:4rem 2rem 3.5rem;text-align:center;overflow:hidden;margin-top:1.5rem}
+    .mesh-bg{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+    .altermundi-hero-content{position:relative;z-index:2}
+    .altermundi-copete{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;margin-bottom:.7rem}
+    .altermundi-name{font-size:clamp(2.2rem,6vw,4rem);font-weight:500;letter-spacing:-.03em;color:var(--text);margin-bottom:0}
+
+    /* DOWNLOAD LINKS BAR */
+    .dl-links-bar{display:flex;align-items:center;justify-content:space-between;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05)}
+    .dl-link{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--dim);transition:color .2s}
+    .dl-link:hover{color:var(--cyan)}
+    .dl-dot{color:rgba(255,255,255,.15);font-size:.9rem}
 
     /* CONTACT BLOCK */
     .contact-block{background:rgba(0,229,200,0.03);border-radius:16px;padding:3rem 2.5rem;margin-bottom:3.5rem;box-shadow:0 8px 60px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,229,200,0.07)}
@@ -293,19 +310,19 @@
         <div class="probe-col">
           <div class="probe-rule probe-rule-beacon"></div>
           <span class="probe-label" style="color:#a08cff">Artefact</span>
-          <div class="probe-title">Harmonic Beacon <span class="probe-hint">ƒ×n</span></div>
+          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="probe-title-link" style="color:inherit">Harmonic Beacon <span class="probe-hint">ƒ×n</span></a>
           <p class="probe-tagline">"Making the interference pattern of the subtle audible in the material realm."</p>
           <p class="probe-body">The experiential probe of HIT — the human leg of the research. Where Phideus works inside computation, the Beacon works inside the room and inside the body. A continuously excited string holds open the full natural harmonic series as a living acoustic field: not a drone, but a sustained interference pattern that listeners enter. People report melodies, voices, textures not explicitly in the source — the Beacon takes those reports seriously as evidence. In therapeutic settings it runs alongside PMP, opening new conditions for symbolic and affective work. Available as a 24/7 live stream.</p>
-          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="probe-link" style="color:#a08cff">harmonicbeacon.com →</a>
+          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="probe-link" style="color:#a08cff;font-size:.82rem">harmonicbeacon.com →</a>
         </div>
 
         <div class="probe-col">
           <div class="probe-rule probe-rule-phideus"></div>
           <span class="probe-label" style="color:#4a6fbb">Research instrument</span>
-          <div class="probe-title">Phideus <span class="probe-hint">φ · AI</span></div>
+          <a href="https://phideus.net" target="_blank" rel="noopener" class="probe-title-link" style="color:inherit">Phideus <span class="probe-hint">φ · AI</span></a>
           <p class="probe-tagline">"Do frequency ratios constitute a universal informational language?"</p>
           <p class="probe-body">An AI research program testing whether harmonic frequency ratios transfer across sensory modalities. Phideus asks whether shared ratio structure between domains enables cross-modal recognition — independently of timbre, instrument, or absolute pitch. Cross-modality is the testbed, not the objective. Named after Phidias, the Greek sculptor whose mastery of proportion defined classical form.</p>
-          <a href="https://phideus.net" target="_blank" rel="noopener" class="probe-link" style="color:#4a6fbb">phideus.net →</a>
+          <a href="https://phideus.net" target="_blank" rel="noopener" class="probe-link" style="color:#4a6fbb;font-size:.82rem">phideus.net →</a>
         </div>
 
       </div>
@@ -361,41 +378,16 @@
         <a href="mailto:editorial@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline" style="white-space:nowrap">Enquire →</a>
       </div>
 
-    </div>
-  </section>
-
-  <section class="resources-section">
-    <div class="wrap">
-      <span class="label">Resources</span>
-      <div class="resources-grid">
-
-        <div class="map-card">
-          <img src="mapa.jpg" alt="Interactive concept map" style="width:72px;height:72px;object-fit:cover;border-radius:8px;opacity:.85;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,.5)">
-          <div>
-            <h3>Interactive concept map</h3>
-            <p style="margin:0;font-size:.84rem;color:var(--dim)">Force graph with 30 concepts from the book. Navigate the relationships between hypotheses, registers, tools, and theory.</p>
-          </div>
-          <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open →</a>
-        </div>
-
-        <div class="map-card">
-          <div class="res-icon">⬡</div>
-          <div>
-            <h3>DeepWiki</h3>
-            <p style="margin:0;font-size:.84rem;color:var(--dim)">AI-generated knowledge base of the full research ecosystem. Navigate the codebase, concepts, and architecture.</p>
-          </div>
-          <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open →</a>
-        </div>
-
-        <div class="map-card">
-          <div class="res-icon">⌥</div>
-          <div>
-            <h3>Repositories</h3>
-            <p style="margin:0;font-size:.84rem;color:var(--dim)"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="res-repo-link">AlterMundi/harmonic-information-theory →</a><br><a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="res-repo-link">AlterMundi/Phideus →</a></p>
-          </div>
-        </div>
-
+      <div class="dl-links-bar">
+        <a href="app.html" target="_blank" rel="noopener" class="dl-link">Interactive map</a>
+        <span class="dl-dot">·</span>
+        <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="dl-link">DeepWiki</a>
+        <span class="dl-dot">·</span>
+        <a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="dl-link">harmonic-information-theory</a>
+        <span class="dl-dot">·</span>
+        <a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="dl-link">Phideus</a>
       </div>
+
     </div>
   </section>
   <footer>
@@ -408,97 +400,124 @@
 
 <!-- TAB AUTORES -->
 <div id="tab-autores" class="tab-panel">
-  <section class="section" style="padding-top:8rem">
+
+  <section class="author-section">
     <div class="wrap">
-      <h2>The authors</h2>
-      <div class="auth-grid">
-        <div class="auth-card">
-          <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="auth-photo">
-          <div>
-            <div class="auth-name">Mariano Fernández Méndez</div>
-            <div class="auth-role">Author</div>
+      <div class="authors-two-col">
+
+        <div class="author-col-full">
+          <div class="author-visual-top">
+            <div class="author-lis-wrap">
+              <canvas class="author-lissajous" data-a="3" data-b="2" data-phase="0.78" width="110" height="110"></canvas>
+              <div class="author-ratio-tag">3 : 2</div>
+            </div>
+            <img src="mariano.jpg" alt="Mariano Fernández Méndez" class="auth-photo-lg">
           </div>
-          <p class="auth-bio">Mariano Fernández Méndez is a researcher, writer, and developer with a transdisciplinary background spanning artificial intelligence, electronics, acoustics, information theory, semiotics, and the social study of technology. Working across these fields, he has developed an approach oriented toward connecting technical, conceptual, and epistemological questions within a shared horizon. A member of Asociación Civil AlterMundi, he was responsible for the final compilation, writing, and conceptual architecture of this work.</p>
-          <p class="auth-bio">Within HIT, his contribution centers on organizing a transdisciplinary investigation into harmonic relations and their significance for understanding information, structure, and relation across diverse systems.</p>
+          <span class="label">Author</span>
+          <h2 class="author-name">Mariano Fernández Méndez</h2>
+          <p class="auth-bio-full">Mariano Fernández Méndez is a researcher, writer, and developer with a transdisciplinary background spanning artificial intelligence, electronics, acoustics, information theory, semiotics, and the social study of technology. Working across these fields, he has developed an approach oriented toward connecting technical, conceptual, and epistemological questions within a shared horizon. A member of Asociación Civil AlterMundi, he was responsible for the final compilation, writing, and conceptual architecture of this work.</p>
+          <p class="auth-bio-full">Within HIT, his contribution centers on organizing a transdisciplinary investigation into harmonic relations and their significance for understanding information, structure, and relation across diverse systems.</p>
+          <a href="mailto:mariano@altermundi.net" class="auth-mail-link">mariano@altermundi.net</a>
         </div>
-        <div class="auth-card">
-          <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo">
-          <div>
-            <div class="auth-name">Nicolás Echaniz</div>
-            <div class="auth-role">Author</div>
+
+        <div class="authors-vdivider"></div>
+
+        <div class="author-col-full">
+          <div class="author-visual-top">
+            <div class="author-lis-wrap">
+              <canvas class="author-lissajous" data-a="5" data-b="4" data-phase="0.78" width="110" height="110"></canvas>
+              <div class="author-ratio-tag">5 : 4</div>
+            </div>
+            <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo-lg">
           </div>
-          <p class="auth-bio">Nicolás Echaniz is an author of the book, co-founder of Asociación Civil AlterMundi, a musician, and a researcher in the field of natural harmony. His work also spans community networks, free software, and sovereign technologies. He leads the conceptual and technical direction of the HIT project and created the harmonic Beacon, a device that brings the theory's hypotheses into the realm of physical vibration.</p>
-          <p class="auth-bio">He is the author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> This formulation captures a central intuition of HIT: the passage from unity to movement as a generative act of information. His work brings together music, technology, and artificial intelligence to explore the harmonic structure of sound and meaning.</p>
+          <span class="label">Author</span>
+          <h2 class="author-name">Nicolás Echaniz</h2>
+          <p class="auth-bio-full">Nicolás Echaniz is an author of the book, co-founder of Asociación Civil AlterMundi, a musician, and a researcher in the field of natural harmony. His work also spans community networks, free software, and sovereign technologies. He leads the conceptual and technical direction of the HIT project and created the harmonic Beacon, a device that brings the theory's hypotheses into the realm of physical vibration.</p>
+          <p class="auth-bio-full">He is the author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> This formulation captures a central intuition of HIT: the passage from unity to movement as a generative act of information. His work brings together music, technology, and artificial intelligence to explore the harmonic structure of sound and meaning.</p>
+          <a href="mailto:nicoechaniz@altermundi.net" class="auth-mail-link">nicoechaniz@altermundi.net</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="altermundi-hero">
+    <canvas id="mesh-canvas" class="mesh-bg"></canvas>
+    <div class="altermundi-hero-content">
+      <p class="altermundi-copete">Developed within the institutional framework of</p>
+      <h2 class="altermundi-name">AlterMundi</h2>
+    </div>
+  </div>
+
+  <section class="team-section">
+    <div class="wrap">
+      <span class="label" style="display:block;margin-bottom:2rem">Research &amp; development team</span>
+      <div class="team-grid-open">
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="2" data-b="3" data-phase="0.78" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Anabella Scigliano</span>
+            <span class="team-role">Physiology · biosignals · QA</span>
+            <a href="https://github.com/AnnieScigliano" target="_blank" rel="noopener" class="team-gh">GitHub →</a>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="3" data-b="4" data-phase="0.52" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Federico Bonino</span>
+            <span class="team-role">Signal acquisition · acoustics</span>
+            <a href="https://github.com/Fede654" target="_blank" rel="noopener" class="team-gh">GitHub →</a>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="2" data-b="5" data-phase="1.05" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Julián De La Reta</span>
+            <span class="team-role">Psychology · PMP · archetypes</span>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="3" data-b="5" data-phase="0" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Martín Fernández Méndez</span>
+            <span class="team-role">Industrial design · instruments</span>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="4" data-b="5" data-phase="0.78" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Pablo Bustos</span>
+            <span class="team-role">Software · electronics · RF</span>
+            <a href="https://github.com/Pablomonte" target="_blank" rel="noopener" class="team-gh">GitHub →</a>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="1" data-b="1.618" data-phase="0.78" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Saira Asua</span>
+            <span class="team-role">Software development · systems</span>
+            <a href="https://github.com/SairaAsua" target="_blank" rel="noopener" class="team-gh">GitHub →</a>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="3" data-b="7" data-phase="0.52" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Santiago Cetrán</span>
+            <span class="team-role">QA · monitoring · observability</span>
+            <a href="https://github.com/Santiagocetran" target="_blank" rel="noopener" class="team-gh">GitHub →</a>
+          </div>
+        </div>
+        <div class="team-person">
+          <canvas class="team-lissajous" data-a="5" data-b="6" data-phase="1.05" width="56" height="56"></canvas>
+          <div class="team-person-info">
+            <span class="team-name">Sofía Campagnoli</span>
+            <span class="team-role">Researcher</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <div class="team-sec">
-    <div class="wrap">
-      <div style="text-align:center;padding:2.5rem;border-radius:16px;background:rgba(0,229,200,0.03);box-shadow:inset 0 0 0 1px rgba(0,229,200,0.08);margin-bottom:3rem">
-        <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0">AlterMundi</h2>
-      </div>
-      <h2>Research and development team</h2>
-      <div class="team-grid" style="margin-top:2.5rem">
 
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="2" data-b="3" data-phase="0.78"></canvas>
-          <div><div class="member-name">Anabella Scigliano</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Biomedical engineering student focused on the intersection of physiology and technology, exploring the neurological and therapeutic implications of harmonic structures. Also contributes to software validation, QA, and technical testing.</p>
-          <div class="member-links"><a href="https://github.com/AnnieScigliano" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="3" data-b="4" data-phase="0.52"></canvas>
-          <div><div class="member-name">Federico Bonino</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Electronics technician and sound recording operator, focused on signal acquisition, digitization, and acoustic processing. His work connects instrumentation, software, and experimental analysis.</p>
-          <div class="member-links"><a href="https://github.com/Fede654" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="2" data-b="5" data-phase="1.05"></canvas>
-          <div><div class="member-name">Julián De La Reta</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Psychologist with a Jungian orientation, focused on myth projection, symbolic analysis, and the interpretation of archetypal patterns.</p>
-          <div class="member-links"></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="3" data-b="5" data-phase="0"></canvas>
-          <div><div class="member-name">Martín Fernández Méndez</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Industrial designer and university lecturer working on mechatronics, optics, and manufacturable device design. He contributes to the development of robust and replicable experimental instruments.</p>
-          <div class="member-links"></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="4" data-b="5" data-phase="0.78"></canvas>
-          <div><div class="member-name">Pablo Bustos</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Developer working across software, electronics, mechatronics, optics, and radiofrequency systems. His work supports the technical development of instruments for signal capture and experimentation.</p>
-          <div class="member-links"><a href="https://github.com/Pablomonte" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="1" data-b="1.618" data-phase="0.78"></canvas>
-          <div><div class="member-name">Saira Asua</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Software developer contributing to the design, implementation, and technical development of experimental systems. Her work supports the integration between software tools and research processes.</p>
-          <div class="member-links"><a href="https://github.com/SairaAsua" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="3" data-b="7" data-phase="0.52"></canvas>
-          <div><div class="member-name">Santiago Cetrán</div><div class="member-role">Researcher</div></div>
-          <p class="member-bio">Developer focused on QA, monitoring, dashboards, and validation scripts. He contributes to the reliability, observability, and reproducibility of experimental systems.</p>
-          <div class="member-links"><a href="https://github.com/Santiagocetran" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
-        </div>
-
-        <div class="member-card">
-          <canvas class="member-lissajous" data-a="5" data-b="6" data-phase="1.05"></canvas>
-          <div><div class="member-name">Sofía Campagnoli</div><div class="member-role">Researcher</div></div>
-          <div class="member-links"></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Asociación Civil AlterMundi · CC BY 4.0</div></div>
@@ -654,6 +673,86 @@ gsap.utils.toArray('#tab-libro .reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,
     if(!reduced){t+=0.004;requestAnimationFrame(draw);}
   }
   draw();
+})();
+// === Author + team Lissajous ===
+(function(){
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function drawLissajous(c,t){
+    const a=parseFloat(c.dataset.a),b=parseFloat(c.dataset.b),phase=parseFloat(c.dataset.phase)||0;
+    const W=c.width,H=c.height,cx=W/2,cy=H/2,rx=cx-6,ry=cy-6,steps=500;
+    const ctx=c.getContext('2d');
+    ctx.clearRect(0,0,W,H);
+    ctx.beginPath();
+    for(let i=0;i<=steps;i++){
+      const p=i/steps*Math.PI*2;
+      const x=cx+rx*Math.sin(a*p+phase+t);
+      const y=cy+ry*Math.sin(b*p);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle='rgba(0,229,200,0.6)';
+    ctx.lineWidth=1;
+    ctx.shadowColor='rgba(0,229,200,0.25)';
+    ctx.shadowBlur=4;
+    ctx.stroke();
+  }
+  const authorCanvases=[...document.querySelectorAll('.author-lissajous')];
+  const teamCanvases=[...document.querySelectorAll('.team-lissajous')];
+  const all=[...authorCanvases,...teamCanvases];
+  if(!all.length)return;
+  let t=0;
+  function loop(){
+    all.forEach(c=>drawLissajous(c,reduced?0:t));
+    if(!reduced)t+=0.005;
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+// === AlterMundi mesh ===
+(function(){
+  const c=document.getElementById('mesh-canvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let W,H,nodes;
+  function init(){
+    W=c.offsetWidth;H=c.offsetHeight;
+    c.width=W;c.height=H;
+    const count=Math.floor(W*H/9000)+10;
+    nodes=Array.from({length:count},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    if(!reduced)nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<0||n.x>W)n.vx*=-1;
+      if(n.y<0||n.y>H)n.vy*=-1;
+    });
+    const dist=120;
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<dist){
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(0,229,200,${(1-d/dist)*.18})`;
+          ctx.lineWidth=.8;
+          ctx.moveTo(nodes[i].x,nodes[i].y);
+          ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.stroke();
+        }
+      }
+      ctx.beginPath();
+      ctx.arc(nodes[i].x,nodes[i].y,1.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,229,200,0.3)';
+      ctx.fill();
+    }
+    if(!reduced)requestAnimationFrame(draw);
+  }
+  init();draw();
+  window.addEventListener('resize',()=>{init();if(reduced)draw();});
 })();
 // === Q&A con API de Anthropic ===
 const HIT_SYSTEM=`You are a specialized assistant for the book "Harmonic Information Theory Foundations" (HIT). Always respond in English. Be concise and precise. Do not invent information; if you don't know something about the book, say so.
