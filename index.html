@@ -7,11 +7,11 @@
   <meta name="description" content="Harmonic Information Theory Foundations — Mariano Fernández Méndez y Nicolás Echaniz. CC BY 4.0 · Asociación Civil AlterMundi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
-    :root{--bg:#030303;--bg2:#060606;--cyan:#00e5c8;--clo:rgba(0,229,200,0.06);--cglow:rgba(0,229,200,0.45);--text:#dedede;--mid:#888;--dim:#484848;--font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace}
+    :root{--bg:#030303;--bg2:#060606;--cyan:#00e5c8;--clo:rgba(0,229,200,0.06);--cglow:rgba(0,229,200,0.45);--text:#dedede;--mid:#888;--dim:#484848;--font:'Space Grotesk',sans-serif;--mono:'Space Grotesk',sans-serif}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:var(--font);font-weight:300;line-height:1.75;overflow-x:hidden}
@@ -20,12 +20,12 @@
 
     /* NAV — separado por sombra, sin línea */
     #nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,3,3,0.88);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px}
-    .nav-logo{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    .nav-logo{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
     .nav-tabs{display:flex;list-style:none}
-    .nav-tab{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0 1rem;height:56px;display:flex;align-items:center;color:var(--dim);border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+    .nav-tab{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0 1rem;height:56px;display:flex;align-items:center;color:var(--dim);border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
     .nav-tab:hover{color:var(--text)}
     .nav-tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
-    @media(max-width:640px){.nav-logo{display:none}#nav{padding:0 .5rem}.nav-tab{padding:0 .55rem;font-size:.55rem}}
+    @media(max-width:640px){.nav-logo{display:none}#nav{padding:0 .5rem}.nav-tab{padding:0 .55rem;font-size:.62rem}}
 
     /* PANELS */
     .tab-panel{display:none}
@@ -35,10 +35,10 @@
     .section{padding:5rem 2rem}
     .wrap{max-width:960px;margin:0 auto}
     .rule{display:none} /* separación por espacio, no por líneas */
-    .label{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:1rem}
+    .label{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-bottom:1rem}
     h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-bottom:1.8rem}
-    h3{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
-    p{font-size:.9rem;color:var(--mid);margin-bottom:1rem}
+    h3{font-size:1.05rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+    p{font-size:1rem;color:var(--mid);margin-bottom:1rem}
     p:last-child{margin-bottom:0}
 
     /* ECOSYSTEM */
@@ -49,17 +49,17 @@
     .eco-card:hover{transform:translateY(-6px)}
     .eco-card-beacon{background:linear-gradient(135deg,rgba(120,80,255,0.07) 0%,rgba(80,60,255,0.03) 100%);box-shadow:0 8px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(120,80,255,0.15)}
     .eco-card-beacon:hover{box-shadow:0 24px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(120,80,255,0.3),0 0 60px rgba(100,80,255,0.06)}
-    .eco-card-phideus{background:linear-gradient(135deg,rgba(0,229,200,0.06) 0%,rgba(0,229,200,0.02) 100%);box-shadow:0 8px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(0,229,200,0.1)}
-    .eco-card-phideus:hover{box-shadow:0 24px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,229,200,0.22),0 0 60px rgba(0,229,200,0.06)}
-    .eco-label{font-family:var(--mono);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.2rem}
+    .eco-card-phideus{background:linear-gradient(135deg,rgba(30,60,140,0.35) 0%,rgba(20,40,100,0.18) 100%);box-shadow:0 8px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(50,90,180,0.35)}
+    .eco-card-phideus:hover{box-shadow:0 24px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(50,90,180,0.55),0 0 60px rgba(30,60,140,0.15)}
+    .eco-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.2rem}
     .eco-label-beacon{color:#a08cff}
-    .eco-label-phideus{color:var(--cyan)}
+    .eco-label-phideus{color:#4a6fbb}
     .eco-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
-    .eco-tagline{font-size:.88rem;color:var(--mid);font-style:italic;line-height:1.6;margin-top:-.4rem}
-    .eco-desc{font-size:.84rem;color:var(--dim);line-height:1.75}
+    .eco-tagline{font-size:.95rem;color:var(--mid);font-style:italic;line-height:1.6;margin-top:-.4rem}
+    .eco-desc{font-size:.92rem;color:var(--dim);line-height:1.75}
     .eco-link-beacon{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:#a08cff;margin-top:.5rem;display:inline-block;transition:opacity .2s}
     .eco-link-beacon:hover{opacity:.7}
-    .eco-link-phideus{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--cyan);margin-top:.5rem;display:inline-block;transition:opacity .2s}
+    .eco-link-phideus{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:#4a6fbb;margin-top:.5rem;display:inline-block;transition:opacity .2s}
     .eco-link-phideus:hover{opacity:.7}
 
     /* BOTONES */
@@ -68,8 +68,18 @@
     .btn-fill:hover{background:#fff;box-shadow:0 0 36px var(--cglow);transform:translateY(-2px)}
     .btn-outline{background:transparent;border:1px solid rgba(0,229,200,0.2);color:var(--mid)}
     .btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);box-shadow:0 0 20px rgba(0,229,200,0.1)}
-    .tag{display:inline-block;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;padding:.25rem .65rem;background:rgba(0,229,200,0.05);color:var(--mid);border-radius:20px}
+    .tag{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;padding:.25rem .65rem;background:rgba(0,229,200,0.05);color:var(--mid);border-radius:20px}
     .tag-c{background:rgba(0,229,200,0.08);color:var(--cyan)}
+    /* RATIO BLOCK */
+    /* RATIO SECTION — centrada, sin caja */
+    .ratio-section{padding:6rem 2rem;text-align:center}
+    .ratio-center{max-width:660px;margin:0 auto}
+    .ratio-title{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:500;letter-spacing:-.02em;line-height:1.2;background:linear-gradient(120deg,var(--text) 0%,var(--cyan) 45%,var(--text) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:ratio-shimmer 5s linear infinite}
+    @keyframes ratio-shimmer{to{background-position:200% center}}
+    .ratio-canvas{display:block;margin:1.6rem auto 2rem;opacity:.7}
+    .ratio-body{font-size:clamp(1rem,1.8vw,1.1rem);color:var(--text);line-height:1.95;font-weight:300;text-align:justify;hyphens:auto}
+    @media(prefers-reduced-motion:reduce){.ratio-title{animation:none;background:none;-webkit-text-fill-color:var(--text)}}
+
     .reveal{opacity:0;transform:translateY(20px)}
     .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem 4rem;margin-top:3rem}
     @media(max-width:800px){.home-grid{grid-template-columns:repeat(2,1fr)}}
@@ -92,9 +102,9 @@
     #quote{padding:5rem 2rem;text-align:center}
     .q-wrap{max-width:700px;margin:0 auto}
     .q-dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;margin:0 auto 3rem;box-shadow:0 0 18px var(--cyan),0 0 40px rgba(0,229,200,.3)}
-    blockquote{font-size:clamp(1rem,2.8vw,1.45rem);font-weight:300;font-style:italic;line-height:1.75;color:var(--text)}
-    .q-en{font-size:.78rem;color:var(--dim);font-style:normal;margin-top:1.2rem;font-family:var(--mono)}
-    .q-attr{display:block;margin-top:2rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    blockquote{font-size:clamp(1.1rem,2.8vw,1.55rem);font-weight:300;font-style:italic;line-height:1.75;color:var(--text)}
+    .q-en{font-size:.84rem;color:var(--dim);font-style:normal;margin-top:1.2rem;font-family:var(--mono)}
+    .q-attr{display:block;margin-top:2rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
 
     /* DESCARGAR */
     #dl-hero{padding:5rem 2rem 3rem;display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap}
@@ -116,12 +126,12 @@
     .fmt:hover{background:rgba(0,229,200,0.06);box-shadow:0 20px 80px rgba(0,0,0,.5),0 0 40px rgba(0,229,200,.06);transform:translateY(-4px)}
     .fmt-type{font-family:var(--mono);font-size:.56rem;letter-spacing:.3em;color:var(--cyan);text-transform:uppercase}
     .fmt-name{font-size:1.2rem;font-weight:500;color:var(--text)}
-    .fmt-desc{font-size:.82rem;color:var(--dim);line-height:1.65;flex:1;margin:0}
+    .fmt-desc{font-size:.9rem;color:var(--dim);line-height:1.65;flex:1;margin:0}
 
     /* Aviso edición impresa */
-    .print-notice{background:rgba(0,229,200,0.03);border-radius:12px;padding:2rem 2.5rem;margin-top:2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+    .print-notice{background:rgba(0,229,200,0.03);border-radius:16px;padding:3.5rem;margin-top:2.5rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;box-shadow:0 8px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(0,229,200,0.07)}
     .pnt{flex:1;min-width:200px}
-    .pnt h3{color:var(--text);margin-bottom:.4rem}
+    .pnt h3{color:var(--text);margin-bottom:.6rem;font-size:1.3rem}
 
     /* AUTORES */
     .auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem}
@@ -129,11 +139,11 @@
     .auth-card{display:flex;flex-direction:column;gap:1.5rem}
     .auth-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top center;box-shadow:0 0 0 2px rgba(0,229,200,0.15),0 0 40px rgba(0,229,200,0.08),0 12px 40px rgba(0,0,0,.6)}
     .auth-name{font-size:1.15rem;font-weight:500;color:var(--text);margin-bottom:.15rem}
-    .auth-role{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
+    .auth-role{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
     .auth-mail{font-family:var(--mono);font-size:.68rem;color:var(--mid);margin-top:.3rem}
     .auth-mail a{color:var(--cyan)}
     .auth-mail a:hover{text-decoration:underline}
-    .auth-bio{font-size:.86rem;color:var(--mid);line-height:1.75}
+    .auth-bio{font-size:.95rem;color:var(--mid);line-height:1.75}
     .team-sec{padding:3rem 2rem 5rem}
     .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
     @media(max-width:960px){.team-grid{grid-template-columns:repeat(2,1fr)}}
@@ -141,29 +151,45 @@
     .member-card{background:rgba(0,229,200,0.025);border-radius:12px;padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.9rem;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 8px 40px rgba(0,0,0,.3)}
     .member-card:hover{background:rgba(0,229,200,0.05);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 30px rgba(0,229,200,.05)}
     .member-lissajous{width:100%;aspect-ratio:1;border-radius:8px;background:rgba(0,0,0,.35);display:block}
-    .member-name{font-size:.88rem;font-weight:500;color:var(--text)}
-    .member-role{font-family:var(--mono);font-size:.54rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-top:-.4rem}
-    .member-bio{font-size:.76rem;color:var(--dim);line-height:1.65;flex:1}
+    .member-name{font-size:.95rem;font-weight:500;color:var(--text)}
+    .member-role{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-top:-.4rem}
+    .member-bio{font-size:.86rem;color:var(--dim);line-height:1.65;flex:1}
     .member-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem}
-    .member-link{font-family:var(--mono);font-size:.56rem;color:var(--mid);padding:.2rem .6rem;border-radius:20px;background:rgba(255,255,255,.04);transition:color .2s,background .2s;letter-spacing:.04em}
+    .member-link{font-family:var(--mono);font-size:.62rem;color:var(--mid);padding:.2rem .6rem;border-radius:20px;background:rgba(255,255,255,.04);transition:color .2s,background .2s;letter-spacing:.04em}
     .member-link:hover{color:var(--cyan);background:rgba(0,229,200,.07)}
 
 
+    /* PROBES — dos columnas, sin cajas */
+    .probes-section{padding:4rem 2rem 5rem}
+    .probes-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .probe-col{display:flex;flex-direction:column;gap:.0rem}
+    .probe-rule{height:2px;width:48px;margin-bottom:1.4rem;border-radius:2px;flex-shrink:0}
+    .probe-rule-beacon{background:linear-gradient(to right,#a08cff,transparent)}
+    .probe-rule-phideus{background:linear-gradient(to right,#4a6fbb,transparent)}
+    .probe-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;display:block;margin-bottom:.5rem}
+    .probe-title{font-size:clamp(1.4rem,2.8vw,2rem);font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:.7rem}
+    .probe-hint{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--dim);font-weight:400;vertical-align:middle;margin-left:.4rem;opacity:.6}
+    .probe-tagline{font-size:.9rem;color:var(--mid);font-style:italic;line-height:1.65;margin-bottom:1rem}
+    .probe-body{font-size:.95rem;color:var(--text);line-height:1.9;font-weight:300;text-align:justify;hyphens:auto;margin-bottom:1.2rem;flex:1}
+    .probe-link{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;transition:opacity .2s;display:inline-block;margin-top:auto}
+    .probe-link:hover{opacity:.65}
+    @media(max-width:720px){.probes-grid{grid-template-columns:1fr;gap:3rem}.probe-body{text-align:left}}
+
     /* MAPA CARD + Q&A */
-    .map-card{background:rgba(0,229,200,0.04);border-radius:12px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:4rem;box-shadow:0 8px 60px rgba(0,0,0,.3);transition:background .3s}
+    .map-card{background:rgba(0,229,200,0.04);border-radius:12px;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:nowrap;margin-top:2rem;box-shadow:0 8px 60px rgba(0,0,0,.3);transition:background .3s}
     .map-card:hover{background:rgba(0,229,200,0.07)}
     .map-card h3{color:var(--text);margin-bottom:.4rem}
     .exp-section{margin-top:4rem;padding-bottom:2rem}
     .exp-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .75rem;background:rgba(255,180,0,.07);color:rgba(255,180,0,.8);border-radius:20px;margin-bottom:1.5rem}
     .exp-badge::before{content:'';width:5px;height:5px;background:rgba(255,180,0,.8);border-radius:50%;animation:pdotpls 2s infinite;flex-shrink:0}
-    .exp-section h2{font-size:1.4rem;margin-bottom:.4rem}
+    .exp-section h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:.4rem}
     .qa-box{background:rgba(255,255,255,.02);border-radius:12px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,.3)}
     .qa-key-row{padding:1rem 1.5rem;display:flex;gap:.6rem;align-items:center;border-bottom:1px solid rgba(255,255,255,.04)}
     .qa-key-inp{flex:1;background:transparent;border:none;outline:none;font-family:var(--mono);font-size:.72rem;color:var(--text);letter-spacing:.04em}
     .qa-key-inp::placeholder{color:var(--dim)}
     .qa-msgs{padding:1.5rem;min-height:200px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:.9rem}
-    .qa-msg-u{align-self:flex-end;background:rgba(0,229,200,.08);color:var(--text);padding:.65rem 1rem;border-radius:16px 16px 4px 16px;font-size:.84rem;max-width:85%;word-break:break-word}
-    .qa-msg-b{align-self:flex-start;background:rgba(255,255,255,.04);color:var(--mid);padding:.65rem 1rem;border-radius:16px 16px 16px 4px;font-size:.84rem;max-width:92%;line-height:1.68;word-break:break-word}
+    .qa-msg-u{align-self:flex-end;background:rgba(0,229,200,.08);color:var(--text);padding:.65rem 1rem;border-radius:16px 16px 4px 16px;font-size:.9rem;max-width:85%;word-break:break-word}
+    .qa-msg-b{align-self:flex-start;background:rgba(255,255,255,.04);color:var(--mid);padding:.65rem 1rem;border-radius:16px 16px 16px 4px;font-size:.9rem;max-width:92%;line-height:1.68;word-break:break-word}
     .qa-msg-b strong{color:var(--text);display:block;margin-bottom:.25rem;font-size:.68rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
     .qa-input-row{padding:.9rem 1.5rem;border-top:1px solid rgba(255,255,255,.04);display:flex;gap:.6rem;align-items:center}
     .qa-inp{flex:1;background:transparent;border:none;outline:none;font-size:.88rem;color:var(--text);font-family:inherit}
@@ -172,33 +198,48 @@
     .qa-send:hover{opacity:.85}
     .qa-send:disabled{opacity:.35;cursor:not-allowed}
 
+    /* RESOURCES */
+    .resources-section{padding:5rem 2rem 4rem}
+    .resources-grid{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+    .resources-grid .map-card{margin-top:0;border-radius:0;border-top:1px solid rgba(255,255,255,.05);box-shadow:none}
+    .resources-grid .map-card:first-child{border-top:none;border-radius:12px 12px 0 0}
+    .resources-grid .map-card:last-child{border-radius:0 0 12px 12px}
+    .res-icon{font-size:1.6rem;opacity:.35;flex-shrink:0;width:72px;text-align:center;line-height:1}
+    .res-repo-link{font-family:var(--mono);font-size:.78rem;color:var(--cyan);letter-spacing:.02em;display:inline-block;margin-top:.3rem;transition:opacity .2s}
+    .res-repo-link:hover{opacity:.7}
+
+    /* ALTERMUNDI BANNER */
+    .altermundi-banner{display:flex;align-items:center;gap:2rem;margin:4rem 0 3rem}
+    .altermundi-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent)}
+    .altermundi-phrase{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+
     /* CONTACT BLOCK */
     .contact-block{background:rgba(0,229,200,0.03);border-radius:16px;padding:3rem 2.5rem;margin-bottom:3.5rem;box-shadow:0 8px 60px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,229,200,0.07)}
     .contact-main-email{font-family:var(--mono);font-size:clamp(.9rem,2.5vw,1.15rem);color:var(--cyan);letter-spacing:.04em;display:inline-block;margin:1.2rem 0 1.8rem;transition:opacity .2s}
     .contact-main-email:hover{opacity:.7}
     .contact-authors{display:flex;gap:2rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05)}
-    .contact-author-link{font-family:var(--mono);font-size:.7rem;color:var(--mid);letter-spacing:.04em;transition:color .2s}
+    .contact-author-link{font-family:var(--mono);font-size:.76rem;color:var(--mid);letter-spacing:.04em;transition:color .2s}
     .contact-author-link:hover{color:var(--cyan)}
-    .contact-author-name{font-size:.72rem;color:var(--dim);margin-bottom:.2rem}
+    .contact-author-name{font-size:.78rem;color:var(--dim);margin-bottom:.2rem}
 
     /* INFO */
     .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:3.5rem}
     @media(max-width:760px){.info-grid{grid-template-columns:1fr;gap:2rem}}
     .info-block h3{color:var(--text);font-size:.9rem;margin-bottom:1rem}
-    .info-link{display:block;font-family:var(--mono);font-size:.72rem;color:var(--cyan);margin-bottom:.5rem;letter-spacing:.04em}
+    .info-link{display:block;font-family:var(--mono);font-size:.78rem;color:var(--cyan);margin-bottom:.5rem;letter-spacing:.04em}
     .info-link:hover{text-decoration:underline}
     .lic-box{background:rgba(0,229,200,0.03);border-radius:12px;padding:2.5rem;margin-top:1.5rem;box-shadow:0 8px 60px rgba(0,0,0,.3)}
-    .lic-name{font-family:var(--mono);font-size:.72rem;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:1rem}
+    .lic-name{font-family:var(--mono);font-size:.78rem;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:1rem}
     .perms{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-top:1.5rem;padding-top:1.5rem}
-    .perm{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--dim)}
+    .perm{display:flex;align-items:center;gap:.4rem;font-size:.84rem;color:var(--dim)}
     .perm::before{content:'';width:5px;height:5px;background:var(--cyan);border-radius:50%;flex-shrink:0;box-shadow:0 0 6px var(--cyan)}
 
     /* FOOTER — fade desde abajo, sin línea */
     footer{padding:4rem 2rem;background:linear-gradient(to bottom,transparent,rgba(0,229,200,0.02))}
     .foot-in{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;align-items:flex-start}
     .foot-brand{font-size:.85rem;font-weight:500;color:var(--text);margin-bottom:.3rem}
-    .foot-meta{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2.2}
-    .foot-r{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2.4;text-align:right}
+    .foot-meta{font-family:var(--mono);font-size:.66rem;color:var(--dim);line-height:2.2}
+    .foot-r{font-family:var(--mono);font-size:.66rem;color:var(--dim);line-height:2.4;text-align:right}
     .foot-r a{color:var(--cyan)}
     .foot-r a:hover{text-decoration:underline}
   </style>
@@ -237,50 +278,34 @@
     </div>
   </section>
   <hr class="rule">
-  <section class="section">
-    <div class="wrap">
-      <span class="label reveal">About the book</span>
-      <h2 class="reveal">The ratio as the minimal unit of information</h2>
-      <div class="home-grid reveal">
-        <div>
-          <h3>The ratio, not the absolute frequency</h3>
-          <p>The proportional relationship between frequencies is the minimal carrier of information. HIT investigates whether harmonic structures are computationally learnable, cross-modal, and biologically meaningful.</p>
-        </div>
-        <div>
-          <h3>Physical · Biological · Affective · Symbolic</h3>
-          <p>The book embraces inconsistency as productive, resisting reduction to a forced unity. Six central hypotheses (H1–H6) articulate the experimental program across distinct domains of validity.</p>
-        </div>
-        <div>
-          <h3>Open publication from the start</h3>
-          <p>CC BY 4.0. The PDF is the official bibliographic edition (ISBN pending). The Markdown is optimized for LLM reading and semantic navigation without loading the full manuscript.</p>
-        </div>
-      </div>
+  <section class="ratio-section">
+    <div class="ratio-center reveal">
+      <h2 class="ratio-title">The ratio as the minimal unit of information</h2>
+      <canvas id="ratio-lissajous" class="ratio-canvas" width="220" height="80"></canvas>
+      <p class="ratio-body">The proportional relationship between frequencies is the minimal carrier of information. Harmonic Information Theory follows that intuition across computation, perception, and orientation, tracing how ratio-structured relations shape learned representation in Phideus and harmonic conditions of experience in Beacon. The result is a research program in which harmonic structure becomes experimentally legible across physical, biological, affective, and symbolic domains.</p>
     </div>
   </section>
-  <section class="eco-section">
-    <div class="wrap">
-      <span class="label reveal">The ecosystem</span>
-      <h2 class="reveal">Theory in practice</h2>
-      <div class="eco-grid reveal">
 
-        <div class="eco-card eco-card-beacon">
-          <div>
-            <div class="eco-label eco-label-beacon">Artefact</div>
-            <div class="eco-title">Harmonic Beacon</div>
-          </div>
-          <p class="eco-tagline">"Making the interference pattern of the subtle audible in the material realm."</p>
-          <p class="eco-desc">An electromagnetic kalimba exciter that implements the natural harmonic series F×1 through F×5 as physical vibration — and a companion app that makes those vibrations continuously accessible. The Beacon is both experimental instrument and sonic artwork: a 24/7 live stream of natural harmonics, with audio overlay sessions and biometric validation protocols designed to test the affective and neurological implications of harmonic structures.</p>
-          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="eco-link-beacon">harmonicbeacon.com →</a>
+  <section class="probes-section">
+    <div class="wrap">
+      <div class="probes-grid reveal">
+
+        <div class="probe-col">
+          <div class="probe-rule probe-rule-beacon"></div>
+          <span class="probe-label" style="color:#a08cff">Artefact</span>
+          <div class="probe-title">Harmonic Beacon <span class="probe-hint">ƒ×n</span></div>
+          <p class="probe-tagline">"Making the interference pattern of the subtle audible in the material realm."</p>
+          <p class="probe-body">The experiential probe of HIT — the human leg of the research. Where Phideus works inside computation, the Beacon works inside the room and inside the body. A continuously excited string holds open the full natural harmonic series as a living acoustic field: not a drone, but a sustained interference pattern that listeners enter. People report melodies, voices, textures not explicitly in the source — the Beacon takes those reports seriously as evidence. In therapeutic settings it runs alongside PMP, opening new conditions for symbolic and affective work. Available as a 24/7 live stream.</p>
+          <a href="https://harmonicbeacon.com" target="_blank" rel="noopener" class="probe-link" style="color:#a08cff">harmonicbeacon.com →</a>
         </div>
 
-        <div class="eco-card eco-card-phideus">
-          <div>
-            <div class="eco-label eco-label-phideus">Research instrument</div>
-            <div class="eco-title">Phideus</div>
-          </div>
-          <p class="eco-tagline">"Do frequency ratios constitute a universal informational language?"</p>
-          <p class="eco-desc">An AI research program testing whether harmonic frequency ratios transfer across sensory modalities. Using VICReg contrastive learning on audio↔MIDI cross-modal retrieval, Phideus asks whether shared ratio structure between domains enables cross-modal recognition — independently of timbre, instrument, or absolute pitch. Cross-modality is the testbed, not the objective. Named after Phidias, the Greek sculptor whose mastery of proportion defined classical form.</p>
-          <a href="https://phideus.net" target="_blank" rel="noopener" class="eco-link-phideus">phideus.net →</a>
+        <div class="probe-col">
+          <div class="probe-rule probe-rule-phideus"></div>
+          <span class="probe-label" style="color:#4a6fbb">Research instrument</span>
+          <div class="probe-title">Phideus <span class="probe-hint">φ · AI</span></div>
+          <p class="probe-tagline">"Do frequency ratios constitute a universal informational language?"</p>
+          <p class="probe-body">An AI research program testing whether harmonic frequency ratios transfer across sensory modalities. Phideus asks whether shared ratio structure between domains enables cross-modal recognition — independently of timbre, instrument, or absolute pitch. Cross-modality is the testbed, not the objective. Named after Phidias, the Greek sculptor whose mastery of proportion defined classical form.</p>
+          <a href="https://phideus.net" target="_blank" rel="noopener" class="probe-link" style="color:#4a6fbb">phideus.net →</a>
         </div>
 
       </div>
@@ -289,8 +314,8 @@
 
   <footer>
     <div class="foot-in">
-      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · ISBN pending · CC BY 4.0</div></div>
-      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0</div></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">editorial@altermundi.net</a><br><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank">GitHub →</a></div>
     </div>
   </footer>
 </div>
@@ -298,52 +323,85 @@
 <!-- TAB DESCARGAR -->
 <div id="tab-descargar" class="tab-panel">
   <div id="dl-hero">
-    <img src="tapa2.jpg" alt="Print edition" class="dl-img">
+    <img src="libroimpreso.png" alt="Print edition" class="dl-img">
     <div class="dl-text">
       <div class="pvbadge"><span class="pdot"></span> Available now</div>
       <h2>Download the book</h2>
       <p>The book is available in three complementary formats. The PDF is the official bibliographic edition. The Markdown is designed for AI reading. The LaTeX is the full editorial source.</p>
-      <div class="isbn-badge"><span class="rdot"></span> ISBN: pending · Official preliminary edition</div>
     </div>
   </div>
   <section class="fmts-section">
     <div class="wrap">
-      <span class="label">Formats</span>
-      <h2>One work, three layers</h2>
       <div class="fmts-grid">
         <div class="fmt">
-          <span class="fmt-type">Official edition</span>
           <div class="fmt-name">PDF</div>
           <p class="fmt-desc">Official preliminary edition of the book with full typographic design. The ISBN, when assigned, will correspond exclusively to this format.</p>
           <span class="tag tag-c">ISBN pending</span>
-          <div style="margin-top:1rem"><a href="main.pdf" download class="btn btn-fill">↓ Download PDF</a></div>
+          <div style="margin-top:1rem"><a href="libro/Harmonic_Information_Theory_Foundations_AlterMundi.pdf" download class="btn btn-fill">↓ Download PDF</a></div>
         </div>
         <div class="fmt">
-          <span class="fmt-type">Open version</span>
           <div class="fmt-name">Markdown</div>
           <p class="fmt-desc">Structured text version optimized for automated reading, segmented queries, and semantic navigation by LLMs. Not the bibliographic edition with ISBN.</p>
           <span class="tag">Optimized for LLMs</span>
-          <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub →</a></div>
+          <div style="margin-top:1rem"><a href="libro/Harmonic_Information_Theory_Foundations_AlterMundi_for-Ai-agents.md" download class="btn btn-outline">↓ Download Markdown</a></div>
         </div>
         <div class="fmt">
-          <span class="fmt-type">Editorial source</span>
           <div class="fmt-name">LaTeX</div>
           <p class="fmt-desc">Editorial source of the book. Contains exclusively the typographic source and editorial materials. Not the general repository of the research ecosystem.</p>
           <span class="tag">Source code</span>
           <div style="margin-top:1rem"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline">View repository →</a></div>
         </div>
       </div>
-      <div class="print-notice">
-        <img src="tapa2.jpg" alt="Cover" style="width:65px;opacity:.8;flex-shrink:0">
-        <div class="pnt"><h3>Print edition</h3><p>Interested in a print edition? Write to us for information on availability and pre-orders.</p></div>
-        <a href="mailto:editorial@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline">Enquire →</a>
+      <div class="map-card">
+        <img src="tapa2.jpg" alt="Cover" style="width:72px;height:72px;object-fit:cover;border-radius:8px;opacity:.85;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,.5)">
+        <div>
+          <h3>Print edition</h3>
+          <p style="margin:0;font-size:.84rem;color:var(--dim)">Interested in a print edition? Write to us for information on availability and pre-orders.</p>
+        </div>
+        <a href="mailto:editorial@altermundi.net?subject=Print edition HIT Foundations" class="btn btn-outline" style="white-space:nowrap">Enquire →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="resources-section">
+    <div class="wrap">
+      <span class="label">Resources</span>
+      <div class="resources-grid">
+
+        <div class="map-card">
+          <img src="mapa.jpg" alt="Interactive concept map" style="width:72px;height:72px;object-fit:cover;border-radius:8px;opacity:.85;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,.5)">
+          <div>
+            <h3>Interactive concept map</h3>
+            <p style="margin:0;font-size:.84rem;color:var(--dim)">Force graph with 30 concepts from the book. Navigate the relationships between hypotheses, registers, tools, and theory.</p>
+          </div>
+          <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open →</a>
+        </div>
+
+        <div class="map-card">
+          <div class="res-icon">⬡</div>
+          <div>
+            <h3>DeepWiki</h3>
+            <p style="margin:0;font-size:.84rem;color:var(--dim)">AI-generated knowledge base of the full research ecosystem. Navigate the codebase, concepts, and architecture.</p>
+          </div>
+          <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open →</a>
+        </div>
+
+        <div class="map-card">
+          <div class="res-icon">⌥</div>
+          <div>
+            <h3>Repositories</h3>
+            <p style="margin:0;font-size:.84rem;color:var(--dim)"><a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="res-repo-link">AlterMundi/harmonic-information-theory →</a><br><a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="res-repo-link">AlterMundi/Phideus →</a></p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
   <footer>
     <div class="foot-in">
-      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi · ISBN pending</div></div>
-      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a></div>
+      <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">CC BY 4.0 · Asociación Civil AlterMundi</div></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">editorial@altermundi.net</a></div>
     </div>
   </footer>
 </div>
@@ -352,7 +410,6 @@
 <div id="tab-autores" class="tab-panel">
   <section class="section" style="padding-top:8rem">
     <div class="wrap">
-      <span class="label">Authorship</span>
       <h2>The authors</h2>
       <div class="auth-grid">
         <div class="auth-card">
@@ -361,8 +418,8 @@
             <div class="auth-name">Mariano Fernández Méndez</div>
             <div class="auth-role">Author</div>
           </div>
-          <p class="auth-bio">Mariano Fernández Méndez is an author of the book, a researcher, and a musician. A member of Asociación Civil AlterMundi, he was responsible for the final compilation, writing, and conceptual architecture of the work. His research moves across information theory, acoustics, and transdisciplinary epistemologies.</p>
-          <p class="auth-bio">His work begins with a central question: if proportional relationships between frequencies constitute a level of information organization prior to any cultural encoding, what are the implications for biology, computation, and subjective experience?</p>
+          <p class="auth-bio">Mariano Fernández Méndez is a researcher, writer, and developer with a transdisciplinary background spanning artificial intelligence, electronics, acoustics, information theory, semiotics, and the social study of technology. Working across these fields, he has developed an approach oriented toward connecting technical, conceptual, and epistemological questions within a shared horizon. A member of Asociación Civil AlterMundi, he was responsible for the final compilation, writing, and conceptual architecture of this work.</p>
+          <p class="auth-bio">Within HIT, his contribution centers on organizing a transdisciplinary investigation into harmonic relations and their significance for understanding information, structure, and relation across diverse systems.</p>
         </div>
         <div class="auth-card">
           <img src="nicolas" alt="Nicolás Echaniz" class="auth-photo">
@@ -370,17 +427,19 @@
             <div class="auth-name">Nicolás Echaniz</div>
             <div class="auth-role">Author</div>
           </div>
-          <p class="auth-bio">Nicolás Echaniz is an author of the book, co-founder of Asociación Civil AlterMundi, and a researcher in community networks, free software, and sovereign technologies. He leads the conceptual and technical direction of the HIT project and created the harmonic Beacon, the electromagnetic kalimba exciter that brings the theory's hypotheses into the realm of physical vibration.</p>
-          <p class="auth-bio">He is the author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> This formulation captures the core of HIT: the passage from unity to movement as the generative act of all information. His work brings together musicology, technology studies, and artificial intelligence to explore the harmonic structure of sound and meaning.</p>
+          <p class="auth-bio">Nicolás Echaniz is an author of the book, co-founder of Asociación Civil AlterMundi, a musician, and a researcher in the field of natural harmony. His work also spans community networks, free software, and sovereign technologies. He leads the conceptual and technical direction of the HIT project and created the harmonic Beacon, a device that brings the theory's hypotheses into the realm of physical vibration.</p>
+          <p class="auth-bio">He is the author of the founding premise: <em>"In the beginning, there was one thing. The thing stretched. And as it stretched, it wiggled."</em> This formulation captures a central intuition of HIT: the passage from unity to movement as a generative act of information. His work brings together music, technology, and artificial intelligence to explore the harmonic structure of sound and meaning.</p>
         </div>
       </div>
     </div>
   </section>
   <div class="team-sec">
     <div class="wrap">
-      <span class="label">Research and development team</span>
-      <h2>Developed within the institutional framework of Asociación Civil AlterMundi.</h2>
-      <div class="team-grid">
+      <div style="text-align:center;padding:2.5rem;border-radius:16px;background:rgba(0,229,200,0.03);box-shadow:inset 0 0 0 1px rgba(0,229,200,0.08);margin-bottom:3rem">
+        <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0">AlterMundi</h2>
+      </div>
+      <h2>Research and development team</h2>
+      <div class="team-grid" style="margin-top:2.5rem">
 
         <div class="member-card">
           <canvas class="member-lissajous" data-a="2" data-b="3" data-phase="0.78"></canvas>
@@ -418,7 +477,7 @@
         </div>
 
         <div class="member-card">
-          <canvas class="member-lissajous" data-a="1" data-b="2" data-phase="0.78"></canvas>
+          <canvas class="member-lissajous" data-a="1" data-b="1.618" data-phase="0.78"></canvas>
           <div><div class="member-name">Saira Asua</div><div class="member-role">Researcher</div></div>
           <p class="member-bio">Software developer contributing to the design, implementation, and technical development of experimental systems. Her work supports the integration between software tools and research processes.</p>
           <div class="member-links"><a href="https://github.com/SairaAsua" target="_blank" rel="noopener" class="member-link">GitHub</a></div>
@@ -443,7 +502,7 @@
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Asociación Civil AlterMundi · CC BY 4.0</div></div>
-      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">editorial@altermundi.net</a></div>
     </div>
   </footer>
 </div>
@@ -452,7 +511,6 @@
 <div id="tab-info" class="tab-panel">
   <section class="section" style="padding-top:8rem">
     <div class="wrap">
-      <span class="label">More information</span>
       <h2>Get in touch</h2>
 
       <div class="contact-block">
@@ -470,13 +528,17 @@
         </div>
       </div>
 
+      <div class="altermundi-banner">
+        <div class="altermundi-line"></div>
+        <p class="altermundi-phrase">Developed within the institutional framework of Asociación Civil AlterMundi</p>
+        <div class="altermundi-line"></div>
+      </div>
+
       <div class="info-grid">
         <div class="info-block">
           <h3>Repositories</h3>
           <p style="margin-bottom:1.2rem">All book material and the research ecosystem are public:</p>
           <a href="https://github.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="info-link">AlterMundi/harmonic-information-theory →</a>
-          <a href="https://github.com/AlterMundi/book-interactive" target="_blank" rel="noopener" class="info-link">AlterMundi/book-interactive →</a>
-          <a href="https://github.com/AlterMundi/book" target="_blank" rel="noopener" class="info-link">AlterMundi/book →</a>
           <a href="https://github.com/AlterMundi/Phideus" target="_blank" rel="noopener" class="info-link">AlterMundi/Phideus →</a>
         </div>
         <div class="info-block">
@@ -487,7 +549,6 @@
         <div class="info-block">
           <h3>ISBN and editorial status</h3>
           <p>The work circulates as the official preliminary edition. The ISBN is pending and will correspond exclusively to the official PDF edition when assigned.</p>
-          <div class="isbn-badge" style="margin-top:1rem"><span class="rdot"></span> ISBN pending · Official preliminary edition</div>
         </div>
       </div>
       <div class="lic-box" style="margin-top:4rem">
@@ -499,42 +560,12 @@
         <p style="margin-top:1.2rem;margin-bottom:0;font-family:var(--mono);font-size:.68rem"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license" style="color:var(--cyan)">https://creativecommons.org/licenses/by/4.0/</a></p>
       </div>
 
-      <!-- MAPA INTERACTIVO CARD -->
-      <div class="map-card">
-        <div>
-          <span class="label" style="margin-bottom:.5rem">Visual exploration</span>
-          <h3>Interactive concept map</h3>
-          <p style="margin:0;font-size:.84rem;color:var(--dim)">Force graph with 30 concepts from the book. Navigate the relationships between hypotheses, registers, tools, and theory.</p>
-        </div>
-        <a href="app.html" target="_blank" rel="noopener" class="btn btn-outline" style="white-space:nowrap">Open map →</a>
-      </div>
-
-      <!-- Q&A EXPERIMENTAL -->
-      <div class="exp-section">
-        <div class="exp-badge">experimental</div>
-        <h2>Ask the book</h2>
-        <p style="margin-bottom:1.5rem">AI with full HIT context. You need an <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="color:var(--cyan)">Anthropic API key</a> (free to start).</p>
-        <div class="qa-box">
-          <div class="qa-key-row" id="qa-key-row">
-            <input id="qa-key-inp" class="qa-key-inp" type="password" placeholder="sk-ant-… · enter your Anthropic API key" autocomplete="off">
-            <button class="qa-send" onclick="hitSetKey()">Connect</button>
-          </div>
-          <div class="qa-msgs" id="qa-msgs">
-            <div class="qa-msg-b"><strong>HIT</strong>Hello. I have the full context of the book. You can ask me about the hypotheses, the Beacon, Phideus, Lissajous figures, or any concept from Harmonic Information Theory.</div>
-          </div>
-          <div class="qa-input-row">
-            <input id="qa-inp" class="qa-inp" type="text" placeholder="Type your question…" onkeydown="if(event.key==='Enter')hitSend()">
-            <button class="qa-send" id="qa-send-btn" onclick="hitSend()" disabled>Send</button>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
   <footer>
     <div class="foot-in">
       <div><div class="foot-brand">Harmonic Information Theory Foundations</div><div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN pending</div></div>
-      <div class="foot-r"><a href="mailto:editorial@altermundi.net">info@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
+      <div class="foot-r"><a href="mailto:editorial@altermundi.net">editorial@altermundi.net</a><br><a href="https://github.com/AlterMundi" target="_blank">GitHub →</a><br><a href="https://altermundi.net" target="_blank">altermundi.net →</a></div>
     </div>
   </footer>
 </div>
@@ -553,36 +584,43 @@ document.querySelectorAll('.nav-tab').forEach(t=>t.addEventListener('click',()=>
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
   const R=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W,H,phase=0,rafId;
-  const A=2,B=3,STEPS=800,TRAIL=400;
-  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  let W,H,phase=0,rafId,lastTime=0,baseCvs=null;
+  const A=2,B=3,STEPS=400,TRAIL=180,FPS=30,INTERVAL=1000/FPS,BUCKETS=8;
   function lx(t,ph){return W/2+Math.min(W,H)*0.24*Math.sin(A*t+ph);}
   function ly(t){return H/2+Math.min(W,H)*0.34*Math.sin(B*t);}
-  function draw(){
+  function resize(){
+    W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;
+    baseCvs=document.createElement('canvas');baseCvs.width=W;baseCvs.height=H;
+    const bc=baseCvs.getContext('2d');
+    bc.beginPath();
+    for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;i===0?bc.moveTo(lx(t,.6),ly(t)):bc.lineTo(lx(t,.6),ly(t));}
+    bc.strokeStyle='rgba(0,229,200,0.055)';bc.lineWidth=1;bc.stroke();
+  }
+  function draw(ts){
+    rafId=requestAnimationFrame(draw);
+    const delta=ts-lastTime;if(delta<INTERVAL)return;lastTime=ts-(delta%INTERVAL);
     ctx.clearRect(0,0,W,H);
-    ctx.beginPath();
-    for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;i===0?ctx.moveTo(lx(t,.6),ly(t)):ctx.lineTo(lx(t,.6),ly(t));}
-    ctx.strokeStyle='rgba(0,229,200,0.055)';ctx.lineWidth=1;ctx.stroke();
-    for(let i=TRAIL;i>=0;i--){
-      const t=phase-(i/TRAIL)*Math.PI*2*0.72,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.72;
-      const x=lx(t,phase*.18),y=ly(t),px=lx(pt,phase*.18),py=ly(pt),r=1-i/TRAIL;
-      if(i===0){
-        const g=ctx.createRadialGradient(x,y,0,x,y,22);
-        g.addColorStop(0,'rgba(0,229,200,0.85)');g.addColorStop(.45,'rgba(0,229,200,.22)');g.addColorStop(1,'rgba(0,229,200,0)');
-        ctx.beginPath();ctx.arc(x,y,22,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-        ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
-      }else{
-        ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);
-        ctx.strokeStyle='rgba(0,229,200,'+(r*.7)+')';ctx.lineWidth=r*2.6+.4;
-        ctx.shadowBlur=r*13;ctx.shadowColor='rgba(0,229,200,0.4)';ctx.stroke();ctx.shadowBlur=0;
+    if(baseCvs)ctx.drawImage(baseCvs,0,0);
+    for(let b=BUCKETS;b>=1;b--){
+      const s=Math.floor((b-1)/BUCKETS*TRAIL),e=Math.floor(b/BUCKETS*TRAIL),ratio=1-(s+e)*.5/TRAIL;
+      ctx.beginPath();ctx.strokeStyle='rgba(0,229,200,'+(ratio*.7)+')';ctx.lineWidth=ratio*2.6+.4;
+      for(let i=s;i<e;i++){
+        const t=phase-(i/TRAIL)*Math.PI*2*0.72,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.72;
+        ctx.moveTo(lx(pt,phase*.18),ly(pt));ctx.lineTo(lx(t,phase*.18),ly(t));
       }
+      ctx.stroke();
     }
-    phase+=.009;rafId=requestAnimationFrame(draw);
+    const hx=lx(phase,phase*.18),hy=ly(phase);
+    const g=ctx.createRadialGradient(hx,hy,0,hx,hy,22);
+    g.addColorStop(0,'rgba(0,229,200,0.85)');g.addColorStop(.45,'rgba(0,229,200,.22)');g.addColorStop(1,'rgba(0,229,200,0)');
+    ctx.beginPath();ctx.arc(hx,hy,22,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();ctx.arc(hx,hy,2.5,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+    phase+=.009*(60/FPS);
   }
   window.addEventListener('resize',resize);resize();
   if(R){ctx.beginPath();for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;i===0?ctx.moveTo(lx(t,.6),ly(t)):ctx.lineTo(lx(t,.6),ly(t));}ctx.strokeStyle='rgba(0,229,200,0.12)';ctx.lineWidth=1.5;ctx.stroke();}
-  else draw();
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(rafId);else if(!R)draw();});
+  else rafId=requestAnimationFrame(draw);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(rafId);else if(!R){lastTime=0;rafId=requestAnimationFrame(draw);}});
 })();
 gsap.registerPlugin(ScrollTrigger);
 const tl=gsap.timeline({delay:.4});
@@ -590,6 +628,33 @@ tl.to('h1.title',{opacity:1,y:0,duration:1.1,ease:'power3.out'})
   .to('.cta-row',{opacity:1,y:0,duration:.6,ease:'power2.out'},'-=.4')
   .to('.scroll-ind',{opacity:1,duration:.5},'-=.2');
 gsap.utils.toArray('#tab-libro .reveal').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+// === Lissajous ratio-section ===
+(function(){
+  const c=document.getElementById('ratio-lissajous');
+  if(!c)return;
+  const ctx=c.getContext('2d'),W=220,H=80,cx=W/2,cy=H/2,rx=cx-12,ry=cy-10;
+  const a=3,b=2,delta=Math.PI/4;
+  let t=0;
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const steps=400;
+    ctx.beginPath();
+    for(let i=0;i<=steps;i++){
+      const p=i/steps*Math.PI*2;
+      const x=cx+rx*Math.sin(a*p+delta+(reduced?0:t));
+      const y=cy+ry*Math.sin(b*p);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle='rgba(0,229,200,0.55)';
+    ctx.lineWidth=1.2;
+    ctx.shadowColor='rgba(0,229,200,0.3)';
+    ctx.shadowBlur=6;
+    ctx.stroke();
+    if(!reduced){t+=0.004;requestAnimationFrame(draw);}
+  }
+  draw();
+})();
 // === Q&A con API de Anthropic ===
 const HIT_SYSTEM=`You are a specialized assistant for the book "Harmonic Information Theory Foundations" (HIT). Always respond in English. Be concise and precise. Do not invent information; if you don't know something about the book, say so.
 
@@ -614,7 +679,7 @@ CONCEPTOS CLAVE:
 - Beacon: excitador electromagnético de kalimba con 5 solenoides (F×1 a F×5). Artefacto experimental y obra sonora.
 - Phideus: software Python con aprendizaje contrastivo cross-modal (VICReg). 84.1% rendimiento de referencia en validaciones musicales. 3 probes.
 
-AUTORES: Mariano Fernández Méndez (compilador, marianofm@altermundi.net) y Nicolás Echaniz (nicolasechaniz@altermundi.net). Institución: Asociación Civil AlterMundi.
+AUTORES: Mariano Fernández Méndez (compilador) y Nicolás Echaniz. Contacto: editorial@altermundi.net. Institución: Asociación Civil AlterMundi.
 LICENCIA: CC BY 4.0. ISBN: en trámite (edición preliminar oficial).`;
 
 let hitKey=localStorage.getItem('hit_apikey')||'';
@@ -682,50 +747,79 @@ async function hitSend(){
 // === Lissajous team cards ===
 (function(){
   const R=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const STEPS=300,TRAIL=100,FPS=30,INTERVAL=1000/FPS,BUCKETS=8;
+  let sharedRafId=null,lastTime=0;
+  const cards=[];
+
   document.querySelectorAll('.member-lissajous').forEach(canvas=>{
-    const A=parseFloat(canvas.dataset.a);
-    const B=parseFloat(canvas.dataset.b);
-    const ph0=parseFloat(canvas.dataset.phase);
+    const A=parseFloat(canvas.dataset.a),B=parseFloat(canvas.dataset.b),ph0=parseFloat(canvas.dataset.phase);
     const ctx=canvas.getContext('2d');
-    const STEPS=600,TRAIL=220;
-    let phase=ph0,rafId;
+    let phase=ph0,isVisible=false,baseCvs=null;
+
+    function buildBase(){
+      const W=canvas.offsetWidth,H=canvas.offsetHeight,r=Math.min(W,H)*0.34;
+      baseCvs=document.createElement('canvas');
+      baseCvs.width=canvas.width;baseCvs.height=canvas.height;
+      const bc=baseCvs.getContext('2d');
+      bc.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+      bc.beginPath();
+      for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;bc[i===0?'moveTo':'lineTo'](W/2+r*Math.sin(A*t+ph0),H/2+r*Math.sin(B*t));}
+      bc.strokeStyle='rgba(0,229,200,0.07)';bc.lineWidth=1;bc.stroke();
+    }
     function resize(){
       const s=canvas.offsetWidth;
       canvas.width=s*devicePixelRatio;canvas.height=s*devicePixelRatio;
       ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-    }
-    function draw(){
-      const W=canvas.offsetWidth,H=canvas.offsetHeight;
-      ctx.clearRect(0,0,W,H);
-      const r=Math.min(W,H)*0.34;
-      ctx.beginPath();
-      for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;const x=W/2+r*Math.sin(A*t+ph0);const y=H/2+r*Math.sin(B*t);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
-      ctx.strokeStyle='rgba(0,229,200,0.07)';ctx.lineWidth=1;ctx.stroke();
-      for(let i=TRAIL;i>=0;i--){
-        const t=phase-(i/TRAIL)*Math.PI*2*0.68,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.68;
-        const x=W/2+r*Math.sin(A*t+ph0),y=H/2+r*Math.sin(B*t);
-        const px=W/2+r*Math.sin(A*pt+ph0),py=H/2+r*Math.sin(B*pt);
-        const ratio=1-i/TRAIL;
-        if(i===0){
-          const g=ctx.createRadialGradient(x,y,0,x,y,11);
-          g.addColorStop(0,'rgba(0,229,200,0.9)');g.addColorStop(.5,'rgba(0,229,200,.2)');g.addColorStop(1,'rgba(0,229,200,0)');
-          ctx.beginPath();ctx.arc(x,y,11,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-          ctx.beginPath();ctx.arc(x,y,1.8,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
-        }else{
-          ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);
-          ctx.strokeStyle='rgba(0,229,200,'+(ratio*.6)+')';ctx.lineWidth=ratio*2.2+.3;
-          ctx.shadowBlur=ratio*9;ctx.shadowColor='rgba(0,229,200,0.35)';ctx.stroke();ctx.shadowBlur=0;
-        }
+      buildBase();
+      if(R){
+        const W=canvas.offsetWidth,H=canvas.offsetHeight,r=Math.min(W,H)*0.34;
+        ctx.clearRect(0,0,W,H);ctx.beginPath();
+        for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;ctx[i===0?'moveTo':'lineTo'](W/2+r*Math.sin(A*t+ph0),H/2+r*Math.sin(B*t));}
+        ctx.strokeStyle='rgba(0,229,200,0.18)';ctx.lineWidth=1.5;ctx.stroke();
       }
-      phase+=.0065;rafId=requestAnimationFrame(draw);
     }
-    resize();
-    new ResizeObserver(()=>{cancelAnimationFrame(rafId);resize();if(!R)draw();}).observe(canvas);
-    if(R){
+    function tick(){
       const W=canvas.offsetWidth,H=canvas.offsetHeight,r=Math.min(W,H)*0.34;
-      ctx.beginPath();for(let i=0;i<=STEPS;i++){const t=(i/STEPS)*Math.PI*2;const x=W/2+r*Math.sin(A*t+ph0);const y=H/2+r*Math.sin(B*t);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
-      ctx.strokeStyle='rgba(0,229,200,0.18)';ctx.lineWidth=1.5;ctx.stroke();
-    }else draw();
+      ctx.clearRect(0,0,W,H);
+      if(baseCvs){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(baseCvs,0,0);ctx.restore();}
+      for(let b=BUCKETS;b>=1;b--){
+        const s=Math.floor((b-1)/BUCKETS*TRAIL),e=Math.floor(b/BUCKETS*TRAIL),ratio=1-(s+e)*.5/TRAIL;
+        ctx.beginPath();ctx.strokeStyle='rgba(0,229,200,'+(ratio*.6)+')';ctx.lineWidth=ratio*2.2+.3;
+        for(let i=s;i<e;i++){
+          const t=phase-(i/TRAIL)*Math.PI*2*0.68,pt=phase-((i+1)/TRAIL)*Math.PI*2*0.68;
+          ctx.moveTo(W/2+r*Math.sin(A*pt+ph0),H/2+r*Math.sin(B*pt));
+          ctx.lineTo(W/2+r*Math.sin(A*t+ph0),H/2+r*Math.sin(B*t));
+        }
+        ctx.stroke();
+      }
+      const hx=W/2+r*Math.sin(A*phase+ph0),hy=H/2+r*Math.sin(B*phase);
+      const g=ctx.createRadialGradient(hx,hy,0,hx,hy,11);
+      g.addColorStop(0,'rgba(0,229,200,0.9)');g.addColorStop(.5,'rgba(0,229,200,.2)');g.addColorStop(1,'rgba(0,229,200,0)');
+      ctx.beginPath();ctx.arc(hx,hy,11,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      ctx.beginPath();ctx.arc(hx,hy,1.8,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+      phase+=0.0065*(60/FPS);
+    }
+
+    const io=new IntersectionObserver(e=>{isVisible=e[0].isIntersecting;},{threshold:0.1});
+    io.observe(canvas);
+    new ResizeObserver(()=>resize()).observe(canvas);
+    resize();
+    cards.push({tick,get visible(){return isVisible;}});
+  });
+
+  if(R)return;
+
+  function loop(ts){
+    sharedRafId=requestAnimationFrame(loop);
+    const delta=ts-lastTime;if(delta<INTERVAL)return;lastTime=ts-(delta%INTERVAL);
+    const tabEl=document.getElementById('tab-autores');
+    if(!tabEl||!tabEl.classList.contains('active'))return;
+    cards.forEach(c=>{if(c.visible)c.tick();});
+  }
+  sharedRafId=requestAnimationFrame(loop);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){cancelAnimationFrame(sharedRafId);sharedRafId=null;}
+    else{lastTime=0;sharedRafId=requestAnimationFrame(loop);}
   });
 })();
 </script>
