@@ -94,7 +94,7 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       cursor: pointer;
-      padding: 0 1rem;
+      padding: 0 0.8rem;
       height: 56px;
       display: flex;
       align-items: center;
@@ -1531,6 +1531,295 @@
     .foot-r a:hover {
       text-decoration: underline
     }
+
+    /* EXPLORE SECTION - Language Switch & Content */
+    .explore-hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .explore-hero h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      margin-bottom: 1rem;
+      background: linear-gradient(120deg, var(--text) 0%, var(--cyan) 50%, var(--text) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .explore-tagline {
+      font-size: 1.1rem;
+      color: var(--mid);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Language Switch */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 229, 200, 0.05);
+      border: 1px solid rgba(0, 229, 200, 0.15);
+      border-radius: 30px;
+      padding: 0.3rem;
+      margin-bottom: 3rem;
+    }
+
+    .lang-btn {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      border: none;
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--cyan);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: var(--text);
+    }
+
+    /* Content Sections */
+    .explore-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .explore-section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .explore-section:nth-child(2) { animation-delay: 0.1s; }
+    .explore-section:nth-child(3) { animation-delay: 0.2s; }
+    .explore-section:nth-child(4) { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .explore-section h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .explore-section h3::before {
+      content: '';
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(to right, var(--cyan), transparent);
+    }
+
+    .explore-section p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .explore-section .highlight {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* The Hit Box */
+    .the-hit-box {
+      background: linear-gradient(135deg, rgba(0, 229, 200, 0.05) 0%, rgba(0, 229, 200, 0.02) 100%);
+      border: 1px solid rgba(0, 229, 200, 0.12);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .the-hit-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--cyan), transparent);
+      opacity: 0.5;
+    }
+
+    .the-hit-box h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      font-family: var(--mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .the-hit-box p {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    /* Hypothesis Grid */
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .hypothesis-card {
+      background: rgba(0, 229, 200, 0.03);
+      border: 1px solid rgba(0, 229, 200, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .hypothesis-card:hover {
+      background: rgba(0, 229, 200, 0.06);
+      border-color: rgba(0, 229, 200, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .hypothesis-card .h-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .hypothesis-card p {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Key Concept */
+    .key-concept {
+      background: linear-gradient(135deg, rgba(120, 80, 255, 0.08) 0%, rgba(80, 60, 255, 0.03) 100%);
+      border-left: 3px solid #a08cff;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .key-concept h4 {
+      color: #a08cff;
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .key-concept p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Quote Block */
+    .explore-quote {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .explore-quote::before {
+      content: '"';
+      font-size: 6rem;
+      color: rgba(0, 229, 200, 0.15);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .explore-quote p {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--text);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .explore-quote .attribution {
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      color: var(--cyan);
+      margin-top: 1rem;
+      font-style: normal;
+      letter-spacing: 0.1em;
+    }
+
+    /* Visual Element */
+    .visual-lissajous {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .visual-lissajous canvas {
+      opacity: 0.6;
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media(max-width: 640px) {
+      .explore-hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+      
+      .explore-content {
+        padding: 0 1.5rem 4rem;
+      }
+      
+      .the-hit-box {
+        padding: 1.8rem;
+      }
+      
+      .hypothesis-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1540,6 +1829,7 @@
     <span class="nav-logo">HIT · Foundations</span>
     <ul class="nav-tabs">
       <li class="nav-tab active" data-tab="libro">Book</li>
+      <li class="nav-tab" data-tab="explore">Explore</li>
       <li class="nav-tab" data-tab="descargar">Download</li>
       <li class="nav-tab" data-tab="autores">Authors</li>
       <li class="nav-tab" data-tab="info">Info</li>
@@ -1959,7 +2249,236 @@
     </footer>
   </div>
 
+  <!-- TAB EXPLORE -->
+  <div id="tab-explore" class="tab-panel">
+    <section class="explore-hero">
+      <h2>Explore HIT</h2>
+      <p class="explore-tagline" data-en="An accessible journey into Harmonic Information Theory" data-es="Un viaje accesible a la Teoría de la Información Armónica">An accessible journey into Harmonic Information Theory</p>
+      
+      <!-- Language Switch -->
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es')">Español</button>
+      </div>
+
+      <div class="visual-lissajous">
+        <canvas id="explore-lissajous" width="300" height="150" data-a="3" data-b="2" data-phase="0.78"></canvas>
+      </div>
+    </section>
+
+    <div class="explore-content">
+      <!-- ENGLISH CONTENT -->
+      <div class="lang-content active" id="content-en">
+        
+        <div class="explore-section">
+          <h3>What is The Hit?</h3>
+          <div class="the-hit-box">
+            <h4>The Core Idea</h4>
+            <p><span class="highlight">Harmonic Information Theory (HIT)</span> proposes that harmony is not just about music or beauty—it is a fundamental mode of organization in the universe. The theory investigates whether <strong>ratios between frequencies</strong> constitute a primary level of information organization, prior to any absolute frequency.</p>
+            <p>In other words: before we hear individual notes, we perceive <em>relationships</em> between them. These relationships—intervals, ratios, harmonic structures—may be the true carriers of information in physical, biological, and cognitive systems.</p>
+          </div>
+        </div>
+
+        <div class="explore-quote">
+          <p>"One frequency alone can oscillate. Two frequencies can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake."</p>
+          <span class="attribution">— HIT Foundational Principle</span>
+        </div>
+
+        <div class="explore-section">
+          <h3>Executive Summary</h3>
+          <p>Across physics, neuroscience, ecology, and computation, researchers keep discovering that <span class="highlight">structured relations among oscillatory processes</span> matter more than arbitrary descriptions would predict. Simple ratios, resonant couplings, and harmonic patterns appear as privileged constraints on stability, perception, and information processing.</p>
+          
+          <p>Yet these findings remain scattered across disciplines, each using different vocabularies: neuroscientists speak of "cross-frequency coupling," physicists of "mode locking," ecologists of "acoustic niches," and musicians of "consonance." HIT seeks to coordinate these convergences into a coherent field of inquiry.</p>
+
+          <div class="key-concept">
+            <h4>Key Insight</h4>
+            <p>Harmonic organization is not merely descriptive—it is <strong>informational</strong>. Simple ratios function as constraints that make structure more available, reduce processing cost, and enable coordination across scales.</p>
+          </div>
+        </div>
+
+        <div class="explore-section">
+          <h3>The Six Hypotheses</h3>
+          <p>HIT builds upon six stratified hypotheses, ranging from empirical observations to theoretical conjectures:</p>
+          
+          <div class="hypothesis-grid">
+            <div class="hypothesis-card">
+              <div class="h-num">H1 — Observation</div>
+              <p>Natural signals contain structured ratio distributions that are not random residue.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H2 — Computation</div>
+              <p>These distributions are learnable by computational systems.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H3 — Cross-Modal</div>
+              <p>Ratio structure is shared across sensory modalities (sound, light, movement).</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H4 — Efficiency</div>
+              <p>Simple harmonic ratios correspond to lower processing cost and greater informational efficiency.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H5 — Biological</div>
+              <p>Living systems possess functional sensitivity to consonant organization.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H6 — Invariance</div>
+              <p>The interval or ratio can function as a scale-invariant carrier of information.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="explore-section">
+          <h3>Why This Matters</h3>
+          <p>If HIT's hypotheses hold, the implications span multiple domains:</p>
+          <p><strong>Science:</strong> A unified vocabulary for understanding coordination across physics, biology, and cognition.</p>
+          <p><strong>Technology:</strong> New approaches to signal processing, compression, and AI based on harmonic structures rather than symbolic representation.</p>
+          <p><strong>Health:</strong> Understanding how harmonic organization affects physiological states, stress, and well-being.</p>
+          <p><strong>Ecology:</strong> Tools for analyzing and preserving the "biosemiosphere" of acoustic ecosystems.</p>
+        </div>
+
+        <div class="explore-section">
+          <h3>The Experimental Probes</h3>
+          <p>HIT is not merely theoretical. Two experimental probes test its hypotheses:</p>
+          <p><span class="highlight">Phideus</span> — A computational probe using contrastive learning to test whether harmonic descriptors enable cross-modal learning.</p>
+          <p><span class="highlight">Harmonic Beacon</span> — A physical device that generates controlled harmonic vibrations to test physiological and perceptual responses.</p>
+        </div>
+      </div>
+
+      <!-- SPANISH CONTENT -->
+      <div class="lang-content" id="content-es">
+        
+        <div class="explore-section">
+          <h3>¿Qué es el Hit?</h3>
+          <div class="the-hit-box">
+            <h4>La Idea Central</h4>
+            <p>La <span class="highlight">Teoría de la Información Armónica (HIT)</span> propone que la armonía no es solo música o belleza—es un modo fundamental de organización en el universo. La teoría investiga si los <strong>ratios entre frecuencias</strong> constituyen un nivel primario de organización de la información, anterior a cualquier frecuencia absoluta.</p>
+            <p>En otras palabras: antes de escuchar notas individuales, percibimos <em>relaciones</em> entre ellas. Estas relaciones—intervalos, ratios, estructuras armónicas—pueden ser los verdaderos portadores de información en sistemas físicos, biológicos y cognitivos.</p>
+          </div>
+        </div>
+
+        <div class="explore-quote">
+          <p>"Una frecuencia sola puede oscilar. Dos frecuencias pueden entrar en relación. De la relación viene la interferencia; de la interferencia, el patrón; del patrón, la posibilidad de captación diferencial."</p>
+          <span class="attribution">— Principio Fundacional de HIT</span>
+        </div>
+
+        <div class="explore-section">
+          <h3>Resumen Ejecutivo</h3>
+          <p>A través de la física, neurociencia, ecología y computación, los investigadores siguen descubriendo que las <span class="highlight">relaciones estructuradas entre procesos oscilatorios</span> importan más de lo que las descripciones arbitrarias predicen. Los ratios simples, los acoplamientos resonantes y los patrones armónicos aparecen como restricciones privilegiadas sobre la estabilidad, percepción y procesamiento de información.</p>
+          
+          <p>Sin embargo, estos hallazgos permanecen dispersos entre disciplinas, cada una usando vocabularios diferentes: los neurocientíficos hablan de "acoplamiento entre frecuencias", los físicos de "bloqueo de modo", los ecólogos de "nichos acústicos", y los músicos de "consonancia". HIT busca coordinar estas convergencias en un campo coherente de investigación.</p>
+
+          <div class="key-concept">
+            <h4>Insight Clave</h4>
+            <p>La organización armónica no es meramente descriptiva—es <strong>informacional</strong>. Los ratios simples funcionan como restricciones que hacen la estructura más disponible, reducen el costo de procesamiento y permiten la coordinación a través de escalas.</p>
+          </div>
+        </div>
+
+        <div class="explore-section">
+          <h3>Las Seis Hipótesis</h3>
+          <p>HIT se construye sobre seis hipótesis estratificadas, desde observaciones empíricas hasta conjeturas teóricas:</p>
+          
+          <div class="hypothesis-grid">
+            <div class="hypothesis-card">
+              <div class="h-num">H1 — Observación</div>
+              <p>Las señales naturales contienen distribuciones de ratios estructuradas que no son residuos aleatorios.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H2 — Computación</div>
+              <p>Estas distribuciones son aprendibles por sistemas computacionales.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H3 — Cross-Modal</div>
+              <p>La estructura de ratios se comparte entre modalidades sensoriales (sonido, luz, movimiento).</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H4 — Eficiencia</div>
+              <p>Los ratios armónicos simples corresponden a menor costo de procesamiento y mayor eficiencia informacional.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H5 — Biológica</div>
+              <p>Los sistemas vivos poseen sensibilidad funcional a la organización consonante.</p>
+            </div>
+            <div class="hypothesis-card">
+              <div class="h-num">H6 — Invarianza</div>
+              <p>El intervalo o ratio puede funcionar como portador de información invariante a la escala.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="explore-section">
+          <h3>Por Qué Importa</h3>
+          <p>Si las hipótesis de HIT se sostienen, las implicaciones abarcan múltiples dominios:</p>
+          <p><strong>Ciencia:</strong> Un vocabulario unificado para entender la coordinación a través de la física, biología y cognición.</p>
+          <p><strong>Tecnología:</strong> Nuevos enfoques para procesamiento de señales, compresión e IA basados en estructuras armónicas en lugar de representación simbólica.</p>
+          <p><strong>Salud:</strong> Entender cómo la organización armónica afecta estados fisiológicos, estrés y bienestar.</p>
+          <p><strong>Ecología:</strong> Herramientas para analizar y preservar la "biosemiosfera" de los ecosistemas acústicos.</p>
+        </div>
+
+        <div class="explore-section">
+          <h3>Las Sondas Experimentales</h3>
+          <p>HIT no es meramente teórico. Dos sondas experimentales prueban sus hipótesis:</p>
+          <p><span class="highlight">Phideus</span> — Una sonda computacional que usa aprendizaje contrastivo para probar si los descriptores armónicos permiten el aprendizaje cross-modal.</p>
+          <p><span class="highlight">Harmonic Beacon</span> — Un dispositivo físico que genera vibraciones armónicas controladas para probar respuestas fisiológicas y perceptuales.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="foot-in">
+        <div>
+          <div class="foot-brand">Harmonic Information Theory Foundations</div>
+          <div class="foot-meta">Mariano Fernández Méndez and Nicolás Echaniz<br>Asociación Civil AlterMundi · CC BY 4.0 · ISBN pending</div>
+        </div>
+        <div class="foot-r"><a href="mailto:editorial@altermundi.net">editorial@altermundi.net</a></div>
+      </div>
+    </footer>
+  </div>
+
   <script>
+    // Language switch function
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+      document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('content-' + lang).classList.add('active');
+      localStorage.setItem('hit-lang', lang);
+    }
+
+    // Load saved language preference
+    (function() {
+      const savedLang = localStorage.getItem('hit-lang');
+      if (savedLang) setLang(savedLang);
+    })();
+
+    // Explore Lissajous animation
+    (function() {
+      const c = document.getElementById('explore-lissajous');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const W = c.width, H = c.height, cx = W/2, cy = H/2, rx = cx-20, ry = cy-15;
+      const a = 3, b = 2, delta = Math.PI/4, STEPS = 200;
+      let t = 0, last = 0;
+      const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      const INTERVAL = 50;
+      
+      function draw(ts) {
+        if (!reduced && ts - last < INTERVAL) { requestAnimationFrame(draw); return; }
+        last = ts;
+        ctx.clearRect(0, 0, W, H);
+        ctx.beginPath();
+        for (let i = 0; i <= STEPS; i++) {
+          const p = i / STEPS * Math.PI * 2;
+          const x = cx + rx * Math.sin(a * p + delta + (reduced ? 0 : t));
+          const y = cy + ry * Math.sin(b * p);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(0,229,200,0.6)'; ctx.lineWidth = 1.5; ctx.stroke();
+        if (!reduced) { t += 0.008; requestAnimationFrame(draw); }
+      }
+      reduced ? draw(0) : requestAnimationFrame(draw);
+    })();
+
     function switchTab(n) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
