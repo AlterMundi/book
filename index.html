@@ -1589,6 +1589,12 @@
       padding: 7rem 2rem 3rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    .explore-hero-content {
+      position: relative;
+      z-index: 2;
     }
 
     .explore-hero h2 {
@@ -1609,6 +1615,23 @@
       color: var(--mid);
       margin: 0 auto;
       max-width: 600px;
+    }
+
+    /* Harmonic Waves Visualization */
+    .harmonic-waves {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .harmonic-waves canvas {
+      width: 100%;
+      height: 100%;
     }
 
     /* Content Sections */
@@ -1806,17 +1829,6 @@
       margin-top: 1rem;
       font-style: normal;
       letter-spacing: 0.1em;
-    }
-
-    /* Visual Element */
-    .visual-lissajous {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-
-    .visual-lissajous canvas {
-      opacity: 0.6;
     }
 
     /* Continue Exploring - cards con descripción */
@@ -2368,11 +2380,12 @@
   <!-- TAB EXPLORE -->
   <div id="tab-explore" class="tab-panel">
     <section class="explore-hero">
-      <h2>About the <span class="accent">Book</span></h2>
-      <p class="explore-tagline" data-en="A guide to Harmonic Information Theory" data-es="Una guía sobre la Teoría de la Información Armónica">A guide to Harmonic Information Theory</p>
-
-      <div class="visual-lissajous">
-        <canvas id="explore-lissajous" width="300" height="150" data-a="3" data-b="2" data-phase="0.78"></canvas>
+      <div class="harmonic-waves">
+        <canvas id="harmonic-waves-canvas"></canvas>
+      </div>
+      <div class="explore-hero-content">
+        <h2>About the <span class="accent">Book</span></h2>
+        <p class="explore-tagline" data-en="A guide to Harmonic Information Theory" data-es="Una guía sobre la Teoría de la Información Armónica">A guide to Harmonic Information Theory</p>
       </div>
     </section>
 
@@ -2601,32 +2614,71 @@
       if (savedLang) setLang(savedLang);
     })();
 
-    // Explore Lissajous animation
+    // Harmonic Waves Animation - 5 Natural Harmonics
     (function() {
-      const c = document.getElementById('explore-lissajous');
+      const c = document.getElementById('harmonic-waves-canvas');
       if (!c) return;
       const ctx = c.getContext('2d');
-      const W = c.width, H = c.height, cx = W/2, cy = H/2, rx = cx-20, ry = cy-15;
-      const a = 3, b = 2, delta = Math.PI/4, STEPS = 200;
-      let t = 0, last = 0;
       const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-      const INTERVAL = 50;
       
-      function draw(ts) {
-        if (!reduced && ts - last < INTERVAL) { requestAnimationFrame(draw); return; }
-        last = ts;
-        ctx.clearRect(0, 0, W, H);
-        ctx.beginPath();
-        for (let i = 0; i <= STEPS; i++) {
-          const p = i / STEPS * Math.PI * 2;
-          const x = cx + rx * Math.sin(a * p + delta + (reduced ? 0 : t));
-          const y = cy + ry * Math.sin(b * p);
-          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = 'rgba(0,229,200,0.6)'; ctx.lineWidth = 1.5; ctx.stroke();
-        if (!reduced) { t += 0.008; requestAnimationFrame(draw); }
+      let W, H, time = 0;
+      
+      function resize() {
+        const parent = c.parentElement;
+        W = parent.clientWidth;
+        H = parent.clientHeight;
+        c.width = W * window.devicePixelRatio;
+        c.height = H * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
       }
-      reduced ? draw(0) : requestAnimationFrame(draw);
+      
+      resize();
+      window.addEventListener('resize', resize);
+      
+      // 5 natural harmonics: fundamental + 4 overtones
+      // Frequencies: 1, 2, 3, 4, 5 with decreasing amplitudes
+      const harmonics = [
+        { freq: 1, amp: 0.25, phase: 0, color: 'rgba(0,229,200,0.8)' },
+        { freq: 2, amp: 0.20, phase: 0.5, color: 'rgba(0,229,200,0.6)' },
+        { freq: 3, amp: 0.15, phase: 1.0, color: 'rgba(0,229,200,0.5)' },
+        { freq: 4, amp: 0.10, phase: 1.5, color: 'rgba(0,229,200,0.4)' },
+        { freq: 5, amp: 0.08, phase: 2.0, color: 'rgba(0,229,200,0.3)' }
+      ];
+      
+      function drawWave(harmonic, yOffset, lineWidth) {
+        ctx.beginPath();
+        const points = 200;
+        for (let i = 0; i <= points; i++) {
+          const x = (i / points) * W;
+          const phase = harmonic.phase + time * (reduced ? 0 : 0.0005);
+          const y = yOffset + Math.sin((x / W) * Math.PI * 2 * harmonic.freq + phase) * (H * harmonic.amp * 0.5);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = harmonic.color;
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+      }
+      
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        
+        const centerY = H / 2;
+        const spacing = H / 6;
+        
+        // Draw each harmonic wave
+        harmonics.forEach((h, i) => {
+          const yOffset = centerY + (i - 2) * spacing * 0.6;
+          drawWave(h, yOffset, 2 - i * 0.3);
+        });
+        
+        if (!reduced) {
+          time += 16;
+          requestAnimationFrame(draw);
+        }
+      }
+      
+      draw();
     })();
 
     function switchTab(n) {
