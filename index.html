@@ -94,8 +94,8 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       cursor: pointer;
-      padding: 0 0.8rem;
-      height: 56px;
+      padding: 0 1.1rem;
+      height: 64px;
       display: flex;
       align-items: center;
       color: var(--dim);
@@ -112,10 +112,49 @@
       border-bottom-color: var(--cyan)
     }
 
+    /* Nav right section with language switch */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* Global Language Switch in Nav */
+    .lang-switch-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(0, 229, 200, 0.08);
+      border: 1px solid rgba(0, 229, 200, 0.2);
+      border-radius: 20px;
+      padding: 0.25rem;
+    }
+
+    .lang-btn-nav {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.7rem;
+      border-radius: 15px;
+      border: none;
+      background: transparent;
+      color: var(--dim);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn-nav.active {
+      background: var(--cyan);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .lang-btn-nav:hover:not(.active) {
+      color: var(--text);
+    }
+
     @media(max-width:640px) {
-      .nav-logo {
-        display: none
-      }
 
       #nav {
         padding: 0 .5rem
@@ -124,6 +163,19 @@
       .nav-tab {
         padding: 0 .55rem;
         font-size: .62rem
+      }
+
+      .nav-right {
+        gap: 0.8rem;
+      }
+
+      .lang-switch-nav {
+        padding: 0.2rem;
+      }
+
+      .lang-btn-nav {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.55rem;
       }
     }
 
@@ -1532,27 +1584,15 @@
       text-decoration: underline
     }
 
-    /* EXPLORE SECTION - Language Switch & Content */
+    /* EXPLORE SECTION */
     .explore-hero {
       padding: 7rem 2rem 3rem;
+      text-align: center;
       position: relative;
     }
 
-    .explore-hero-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .explore-hero-title {
-      flex: 1;
-    }
-
     .explore-hero h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 500;
       letter-spacing: -.02em;
       margin-bottom: 0.5rem;
@@ -1565,57 +1605,10 @@
     }
 
     .explore-tagline {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--mid);
-      margin: 0;
-    }
-
-    /* Language Switch - Al costado */
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0, 229, 200, 0.05);
-      border: 1px solid rgba(0, 229, 200, 0.15);
-      border-radius: 30px;
-      padding: 0.3rem;
-      flex-shrink: 0;
-      margin-top: 0.5rem;
-    }
-
-    .lang-btn {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.5rem 1.2rem;
-      border-radius: 20px;
-      border: none;
-      background: transparent;
-      color: var(--dim);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .lang-btn.active {
-      background: var(--cyan);
-      color: #000;
-      font-weight: 600;
-    }
-
-    .lang-btn:hover:not(.active) {
-      color: var(--text);
-    }
-
-    @media(max-width: 640px) {
-      .explore-hero-header {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .lang-switch {
-        margin-top: 0;
-        align-self: flex-start;
-      }
+      margin: 0 auto;
+      max-width: 600px;
     }
 
     /* Content Sections */
@@ -1943,13 +1936,20 @@
 
   <nav id="nav">
     <span class="nav-logo">HIT · Foundations</span>
-    <ul class="nav-tabs">
-      <li class="nav-tab active" data-tab="libro">Book</li>
-      <li class="nav-tab" data-tab="explore">Explore</li>
-      <li class="nav-tab" data-tab="descargar">Download</li>
-      <li class="nav-tab" data-tab="autores">Authors</li>
-      <li class="nav-tab" data-tab="info">Info</li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-tabs">
+        <li class="nav-tab active" data-tab="libro">Book</li>
+        <li class="nav-tab" data-tab="explore">Explore</li>
+        <li class="nav-tab" data-tab="descargar">Download</li>
+        <li class="nav-tab" data-tab="autores">Authors</li>
+        <li class="nav-tab" data-tab="info">Info</li>
+      </ul>
+      <!-- Global Language Switch -->
+      <div class="lang-switch-nav">
+        <button class="lang-btn-nav active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn-nav" data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
   </nav>
 
   <!-- TAB LIBRO -->
@@ -2368,18 +2368,8 @@
   <!-- TAB EXPLORE -->
   <div id="tab-explore" class="tab-panel">
     <section class="explore-hero">
-      <div class="explore-hero-header">
-        <div class="explore-hero-title">
-          <h2>About the <span class="accent">Book</span></h2>
-          <p class="explore-tagline" data-en="A guide to Harmonic Information Theory" data-es="Una guía sobre la Teoría de la Información Armónica">A guide to Harmonic Information Theory</p>
-        </div>
-        
-        <!-- Language Switch -->
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
-        </div>
-      </div>
+      <h2>About the <span class="accent">Book</span></h2>
+      <p class="explore-tagline" data-en="A guide to Harmonic Information Theory" data-es="Una guía sobre la Teoría de la Información Armónica">A guide to Harmonic Information Theory</p>
 
       <div class="visual-lissajous">
         <canvas id="explore-lissajous" width="300" height="150" data-a="3" data-b="2" data-phase="0.78"></canvas>
@@ -2596,8 +2586,10 @@
   <script>
     // Language switch function
     function setLang(lang) {
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+      // Update nav language buttons
+      document.querySelectorAll('.lang-btn-nav').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.lang-btn-nav[data-lang="' + lang + '"]').classList.add('active');
+      // Update content
       document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
       document.getElementById('content-' + lang).classList.add('active');
       localStorage.setItem('hit-lang', lang);
