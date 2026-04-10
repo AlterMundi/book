@@ -1534,31 +1534,43 @@
 
     /* EXPLORE SECTION - Language Switch & Content */
     .explore-hero {
-      padding: 8rem 2rem 4rem;
-      text-align: center;
+      padding: 7rem 2rem 3rem;
       position: relative;
     }
 
+    .explore-hero-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .explore-hero-title {
+      flex: 1;
+    }
+
     .explore-hero h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 500;
       letter-spacing: -.02em;
-      margin-bottom: 1rem;
-      background: linear-gradient(120deg, var(--text) 0%, var(--cyan) 50%, var(--text) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .explore-hero h2 .accent {
+      color: var(--cyan);
     }
 
     .explore-tagline {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--mid);
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      margin: 0;
     }
 
-    /* Language Switch */
+    /* Language Switch - Al costado */
     .lang-switch {
       display: inline-flex;
       align-items: center;
@@ -1567,7 +1579,8 @@
       border: 1px solid rgba(0, 229, 200, 0.15);
       border-radius: 30px;
       padding: 0.3rem;
-      margin-bottom: 3rem;
+      flex-shrink: 0;
+      margin-top: 0.5rem;
     }
 
     .lang-btn {
@@ -1592,6 +1605,17 @@
 
     .lang-btn:hover:not(.active) {
       color: var(--text);
+    }
+
+    @media(max-width: 640px) {
+      .explore-hero-header {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .lang-switch {
+        margin-top: 0;
+        align-self: flex-start;
+      }
     }
 
     /* Content Sections */
@@ -2344,13 +2368,17 @@
   <!-- TAB EXPLORE -->
   <div id="tab-explore" class="tab-panel">
     <section class="explore-hero">
-      <h2>Explore HIT</h2>
-      <p class="explore-tagline" data-en="An accessible journey into Harmonic Information Theory" data-es="Un viaje accesible a la Teoría de la Información Armónica">An accessible journey into Harmonic Information Theory</p>
-      
-      <!-- Language Switch -->
-      <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
-        <button class="lang-btn" data-lang="es" onclick="setLang('es')">Español</button>
+      <div class="explore-hero-header">
+        <div class="explore-hero-title">
+          <h2>About the <span class="accent">Book</span></h2>
+          <p class="explore-tagline" data-en="A guide to Harmonic Information Theory" data-es="Una guía sobre la Teoría de la Información Armónica">A guide to Harmonic Information Theory</p>
+        </div>
+        
+        <!-- Language Switch -->
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+        </div>
       </div>
 
       <div class="visual-lissajous">
