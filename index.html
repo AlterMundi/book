@@ -1793,45 +1793,87 @@
       opacity: 0.6;
     }
 
-    /* Continue Exploring - links simplificados */
+    /* Continue Exploring - cards con descripción */
     .continue-section {
       margin-top: 4rem;
       padding-top: 3rem;
       border-top: 1px solid rgba(0, 229, 200, 0.1);
     }
 
-    .explore-links-bar {
+    .explore-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media(max-width: 640px) {
+      .explore-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .explore-card {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .explore-link {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--cyan);
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 1.8rem;
+      border-radius: 12px;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      background: rgba(0, 229, 200, 0.05);
-      border: 1px solid rgba(0, 229, 200, 0.15);
-      transition: all 0.25s ease;
+      background: rgba(0, 229, 200, 0.03);
+      border: 1px solid rgba(0, 229, 200, 0.08);
+      transition: all 0.3s ease;
     }
 
-    .explore-link:hover {
-      background: rgba(0, 229, 200, 0.1);
-      border-color: rgba(0, 229, 200, 0.3);
-      transform: translateY(-2px);
+    .explore-card:hover {
+      background: rgba(0, 229, 200, 0.06);
+      border-color: rgba(0, 229, 200, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3);
     }
 
-    .explore-dot {
-      color: var(--dim);
+    .explore-card-rule {
+      height: 2px;
+      width: 40px;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .explore-card-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .explore-card h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .explore-card p {
       font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+    }
+
+    .explore-card-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.3s ease;
+    }
+
+    .explore-card:hover .explore-card-link {
+      gap: 0.6rem;
     }
 
     /* Language content visibility */
@@ -2388,10 +2430,21 @@
         <!-- Continue Exploring -->
         <div class="explore-section continue-section">
           <h3>Continue Exploring</h3>
-          <div class="explore-links-bar">
-            <a href="app.html" class="explore-link">Interactive map</a>
-            <span class="explore-dot">·</span>
-            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-link">DeepWiki</a>
+          <div class="explore-cards-grid">
+            <a href="app.html" class="explore-card">
+              <div class="explore-card-rule" style="background:linear-gradient(to right, #a08cff, transparent)"></div>
+              <span class="explore-card-label" style="color:#a08cff">Visualization</span>
+              <h4>Interactive Map</h4>
+              <p>Spatial navigation through HIT concepts, hypotheses, and connections. Explore the theory's architecture visually.</p>
+              <span class="explore-card-link" style="color:#a08cff">Open map →</span>
+            </a>
+            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-card">
+              <div class="explore-card-rule" style="background:linear-gradient(to right, var(--cyan), transparent)"></div>
+              <span class="explore-card-label" style="color:var(--cyan)">Knowledge Base</span>
+              <h4>DeepWiki</h4>
+              <p>Interactive knowledge base with detailed articles, cross-linked concepts, and experimental results from the book.</p>
+              <span class="explore-card-link" style="color:var(--cyan)">Explore →</span>
+            </a>
           </div>
         </div>
       </div>
@@ -2476,10 +2529,21 @@
         <!-- Continuar Explorando -->
         <div class="explore-section continue-section">
           <h3>Continuar Explorando</h3>
-          <div class="explore-links-bar">
-            <a href="app.html" class="explore-link">Mapa interactivo</a>
-            <span class="explore-dot">·</span>
-            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-link">DeepWiki</a>
+          <div class="explore-cards-grid">
+            <a href="app.html" class="explore-card">
+              <div class="explore-card-rule" style="background:linear-gradient(to right, #a08cff, transparent)"></div>
+              <span class="explore-card-label" style="color:#a08cff">Visualización</span>
+              <h4>Mapa Interactivo</h4>
+              <p>Navegación espacial por conceptos HIT, hipótesis y conexiones. Explora la arquitectura de la teoría visualmente.</p>
+              <span class="explore-card-link" style="color:#a08cff">Abrir mapa →</span>
+            </a>
+            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-card">
+              <div class="explore-card-rule" style="background:linear-gradient(to right, var(--cyan), transparent)"></div>
+              <span class="explore-card-label" style="color:var(--cyan)">Base de Conocimiento</span>
+              <h4>DeepWiki</h4>
+              <p>Base de conocimiento interactiva con artículos detallados, conceptos interconectados y resultados experimentales del libro.</p>
+              <span class="explore-card-link" style="color:var(--cyan)">Explorar →</span>
+            </a>
           </div>
         </div>
       </div>
