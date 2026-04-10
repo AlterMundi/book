@@ -1793,11 +1793,45 @@
       opacity: 0.6;
     }
 
-    /* Continue Exploring - usando mismo diseño que probes */
+    /* Continue Exploring - links simplificados */
     .continue-section {
       margin-top: 4rem;
       padding-top: 3rem;
       border-top: 1px solid rgba(0, 229, 200, 0.1);
+    }
+
+    .explore-links-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .explore-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background: rgba(0, 229, 200, 0.05);
+      border: 1px solid rgba(0, 229, 200, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .explore-link:hover {
+      background: rgba(0, 229, 200, 0.1);
+      border-color: rgba(0, 229, 200, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .explore-dot {
+      color: var(--dim);
+      font-size: 0.9rem;
     }
 
     /* Language content visibility */
@@ -2354,24 +2388,10 @@
         <!-- Continue Exploring -->
         <div class="explore-section continue-section">
           <h3>Continue Exploring</h3>
-          <p>Dive deeper into HIT through our interactive knowledge base and visualization tools.</p>
-          <div class="probes-grid" style="margin-top:2rem">
-            <a href="https://deepwiki.com/hit" target="_blank" rel="noopener" class="probe-col" style="text-decoration:none">
-              <div class="probe-rule" style="background:linear-gradient(to right, var(--cyan), transparent)"></div>
-              <span class="probe-label" style="color:var(--cyan)">Knowledge Base</span>
-              <span class="probe-title-link" style="color:inherit">DeepWiki <span class="probe-hint">wiki</span></span>
-              <p class="probe-tagline">"Interactive exploration of HIT concepts, articles, and references."</p>
-              <p class="probe-body">A structured knowledge base containing detailed articles from the book, cross-linked concepts, hypotheses, and experimental results. Navigate through the theory's core ideas with interactive diagrams and searchable content.</p>
-              <span class="probe-link" style="color:var(--cyan);font-size:.82rem">deepwiki.com →</span>
-            </a>
-            <a href="./mapa.html" class="probe-col" style="text-decoration:none">
-              <div class="probe-rule" style="background:linear-gradient(to right, #a08cff, transparent)"></div>
-              <span class="probe-label" style="color:#a08cff">Visualization</span>
-              <span class="probe-title-link" style="color:inherit">Interactive Map <span class="probe-hint">map</span></span>
-              <p class="probe-tagline">"Spatial navigation through HIT's conceptual landscape."</p>
-              <p class="probe-body">Visual exploration of Harmonic Information Theory. Navigate through concepts, hypotheses, and their connections in a spatial interface. Discover relationships between ideas and trace pathways through the theory's architecture.</p>
-              <span class="probe-link" style="color:#a08cff;font-size:.82rem">Open map →</span>
-            </a>
+          <div class="explore-links-bar">
+            <a href="app.html" class="explore-link">Interactive map</a>
+            <span class="explore-dot">·</span>
+            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-link">DeepWiki</a>
           </div>
         </div>
       </div>
@@ -2456,24 +2476,10 @@
         <!-- Continuar Explorando -->
         <div class="explore-section continue-section">
           <h3>Continuar Explorando</h3>
-          <p>Sumérgete más profundamente en HIT a través de nuestra base de conocimiento interactiva y herramientas de visualización.</p>
-          <div class="probes-grid" style="margin-top:2rem">
-            <a href="https://deepwiki.com/hit" target="_blank" rel="noopener" class="probe-col" style="text-decoration:none">
-              <div class="probe-rule" style="background:linear-gradient(to right, var(--cyan), transparent)"></div>
-              <span class="probe-label" style="color:var(--cyan)">Base de Conocimiento</span>
-              <span class="probe-title-link" style="color:inherit">DeepWiki <span class="probe-hint">wiki</span></span>
-              <p class="probe-tagline">"Exploración interactiva de conceptos HIT, artículos y referencias."</p>
-              <p class="probe-body">Una base de conocimiento estructurada que contiene artículos detallados del libro, conceptos interconectados, hipótesis y resultados experimentales. Navega por las ideas centrales de la teoría con diagramas interactivos y contenido searchable.</p>
-              <span class="probe-link" style="color:var(--cyan);font-size:.82rem">deepwiki.com →</span>
-            </a>
-            <a href="./mapa.html" class="probe-col" style="text-decoration:none">
-              <div class="probe-rule" style="background:linear-gradient(to right, #a08cff, transparent)"></div>
-              <span class="probe-label" style="color:#a08cff">Visualización</span>
-              <span class="probe-title-link" style="color:inherit">Mapa Interactivo <span class="probe-hint">mapa</span></span>
-              <p class="probe-tagline">"Navegación espacial por el paisaje conceptual de HIT."</p>
-              <p class="probe-body">Exploración visual de la Teoría de la Información Armónica. Navega por conceptos, hipótesis y sus conexiones en una interfaz espacial. Descubre relaciones entre ideas y traza caminos a través de la arquitectura de la teoría.</p>
-              <span class="probe-link" style="color:#a08cff;font-size:.82rem">Abrir mapa →</span>
-            </a>
+          <div class="explore-links-bar">
+            <a href="app.html" class="explore-link">Mapa interactivo</a>
+            <span class="explore-dot">·</span>
+            <a href="https://deepwiki.com/AlterMundi/harmonic-information-theory" target="_blank" rel="noopener" class="explore-link">DeepWiki</a>
           </div>
         </div>
       </div>
