@@ -1620,12 +1620,13 @@
     /* Harmonic Waves Visualization */
     .harmonic-waves {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 180px;
+      transform: translateY(-50%);
       z-index: 1;
-      opacity: 0.15;
+      opacity: 0.25;
       pointer-events: none;
     }
 
@@ -2649,8 +2650,9 @@
       
       function resize() {
         const parent = c.parentElement;
-        W = parent.clientWidth;
-        H = parent.clientHeight;
+        W = parent.clientWidth || window.innerWidth;
+        H = parent.clientHeight || 320;
+        if (W < 100) W = window.innerWidth; // Fallback for hidden tab
         c.width = W * window.devicePixelRatio;
         c.height = H * window.devicePixelRatio;
         ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
@@ -2658,24 +2660,28 @@
       
       resize();
       window.addEventListener('resize', resize);
+      // Re-run resize on tab switches that might affect this canvas
+      document.querySelectorAll('.nav-tab').forEach(t => t.addEventListener('click', () => setTimeout(resize, 50)));
       
       // 5 natural harmonics: fundamental + 4 overtones
-      // Frequencies: 1, 2, 3, 4, 5 with decreasing amplitudes
       const harmonics = [
-        { freq: 1, amp: 0.25, phase: 0, color: 'rgba(0,229,200,0.8)' },
-        { freq: 2, amp: 0.20, phase: 0.5, color: 'rgba(0,229,200,0.6)' },
-        { freq: 3, amp: 0.15, phase: 1.0, color: 'rgba(0,229,200,0.5)' },
-        { freq: 4, amp: 0.10, phase: 1.5, color: 'rgba(0,229,200,0.4)' },
-        { freq: 5, amp: 0.08, phase: 2.0, color: 'rgba(0,229,200,0.3)' }
+        { freq: 1, amp: 0.35, phase: 0, color: 'rgba(0,229,200,0.4)' },
+        { freq: 2, amp: 0.28, phase: 0.5, color: 'rgba(0,229,200,0.3)' },
+        { freq: 3, amp: 0.22, phase: 1.0, color: 'rgba(0,229,200,0.25)' },
+        { freq: 4, amp: 0.16, phase: 1.5, color: 'rgba(0,229,200,0.2)' },
+        { freq: 5, amp: 0.12, phase: 2.0, color: 'rgba(0,229,200,0.15)' }
       ];
       
-      function drawWave(harmonic, yOffset, lineWidth) {
+      function drawWave(harmonic, centerY, lineWidth) {
         ctx.beginPath();
-        const points = 200;
+        const points = 350;
         for (let i = 0; i <= points; i++) {
           const x = (i / points) * W;
-          const phase = harmonic.phase + time * (reduced ? 0 : 0.0005);
-          const y = yOffset + Math.sin((x / W) * Math.PI * 2 * harmonic.freq + phase) * (H * harmonic.amp * 0.5);
+          const progress = i / points;
+          // Snail-like envelope: tapered at ends, resonant in center
+          const envelope = Math.pow(Math.sin(progress * Math.PI), 1.5);
+          const phase = harmonic.phase + time * (reduced ? 0 : 0.00045);
+          const y = centerY + Math.sin((x / W) * Math.PI * 2 * harmonic.freq + phase) * (H * harmonic.amp * 0.45 * envelope);
           if (i === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
@@ -2685,15 +2691,16 @@
       }
       
       function draw() {
+        if (W < 10) resize(); 
         ctx.clearRect(0, 0, W, H);
         
         const centerY = H / 2;
-        const spacing = H / 6;
         
-        // Draw each harmonic wave
+        // Draw all harmonics centered for a convergent "shell" feeling
         harmonics.forEach((h, i) => {
-          const yOffset = centerY + (i - 2) * spacing * 0.6;
-          drawWave(h, yOffset, 2 - i * 0.3);
+          // Very subtle yOffset to give some volume, but mostly convergent
+          const yOffset = centerY + (i - 2) * 1.5; 
+          drawWave(h, yOffset, 1.2 - i * 0.15);
         });
         
         if (!reduced) {
