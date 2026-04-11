@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIT | Harmonic Information Theory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
+        .canvas-container { background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%); }
+        .harmonic-gradient { background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        code { font-family: 'Fira Code', monospace; font-size: 0.9em; color: #a78bfa; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <section class="min-h-screen flex flex-col items-center justify-center p-6 canvas-container border-b border-gray-800">
+        <div class="text-center mb-8">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">
+                <span class="harmonic-gradient">Harmonic Information Theory</span>
+            </h1>
+            <p class="text-gray-400 text-xl max-w-2xl mx-auto font-light">
+                "La recurrencia no es mera repetición. Es la forma en que la legibilidad se estabiliza."
+            </p>
+        </div>
+
+        <div class="relative w-full max-w-xl aspect-square bg-black rounded-full border border-gray-800 shadow-2xl overflow-hidden">
+            <canvas id="lissajousCanvas" class="w-full h-full"></canvas>
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-4 text-xs font-mono">
+                <div class="bg-gray-900/80 p-2 rounded border border-gray-700">Ratio: <span id="ratioDisplay">3:2</span></div>
+                <div class="bg-gray-900/80 p-2 rounded border border-gray-700">Phase: <span id="phaseDisplay">0.50</span></div>
+            </div>
+        </div>
+
+        <div class="mt-10 flex flex-col items-center gap-2">
+            <input type="range" id="ratioSlider" min="1" max="10" step="0.01" value="1.5" class="w-64 accent-purple-500">
+            <label class="text-gray-500 text-sm uppercase tracking-widest">Ajustar Tensión Relacional (Ratio)</label>
+        </div>
+    </section>
+
+    <main class="max-w-4xl mx-auto py-20 px-6">
+        
+        <div class="mb-32">
+            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-purple-500 pl-4 text-white">¿Qué es HIT?</h2>
+            <p class="text-gray-300 leading-relaxed mb-6 italic">
+                Saira Asua, Mariano Fernández Méndez y Nicolás Echániz proponen que la armonía no es solo estética, sino un <strong>limitador informacional</strong>.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                    <h3 class="text-purple-400 font-bold mb-2 uppercase text-sm">El Problema</h3>
+                    <p class="text-sm text-gray-400">La dispersión disciplinaria. Lo que la física llama "resonancia", la neurociencia lo llama "acoplamiento" y la ecología "nicho acústico". HIT busca el hilo de Ariadna.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                    <h3 class="text-blue-400 font-bold mb-2 uppercase text-sm">La Tesis</h3>
+                    <p class="text-sm text-gray-400">Ciertas proporciones armónicas minimizan el costo de procesamiento (entropía) y maximizan la estabilidad dinámica del sistema.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-32">
+            <h2 class="text-3xl font-semibold mb-10 text-center text-white">Las 6 Hipótesis Centrales</h2>
+            <div class="space-y-4">
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H1</span> <span>Señales naturales contienen distribuciones de ratios estructurados.</span>
+                </div>
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H2</span> <span>Estos ratios son aprendibles por sistemas computacionales (Phideus).</span>
+                </div>
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H3</span> <span>La estructura de ratio se comparte de forma cross-modal.</span>
+                </div>
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H4</span> <span>Ratios simples = Menor costo de procesamiento / Mayor eficiencia.</span>
+                </div>
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H5</span> <span>Sistemas biológicos poseen una sensibilidad funcional a la consonancia.</span>
+                </div>
+                <div class="group p-4 border border-gray-800 rounded hover:bg-gray-900 transition">
+                    <span class="text-purple-500 font-mono mr-4">H6</span> <span>El intervalo/ratio funciona como un portador de información invariante de escala.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-32 grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-purple-400">Phideus</h3>
+                <p class="text-sm text-gray-400 mb-4 font-mono">La Sonda Computacional</p>
+                <p class="text-gray-300">Entrena redes neuronales para alinear audio y MIDI o voz y EGG. Demuestra que inyectar "descriptores armónicos" reorganiza la geometría latente de la IA, mejorando su capacidad de aprendizaje.</p>
+                <div class="mt-4 text-xs font-mono text-gray-500">Result: 84.0% S-Score (Escalón 1)</div>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-blue-400">Harmonic Beacon</h3>
+                <p class="text-sm text-gray-400 mb-4 font-mono">La Sonda Experiencial</p>
+                <p class="text-gray-300">Un dispositivo que sostiene un campo armónico físico. Investiga la "homeostasis espiritual": cómo el cuerpo se acopla a frecuencias puras para estabilizar estados psíquicos y biológicos.</p>
+                <div class="mt-4 text-xs font-mono text-gray-500">Status: Generación 4 (Distributed App)</div>
+            </div>
+        </div>
+
+        <footer class="border-t border-gray-800 pt-10 text-center">
+            <div class="flex flex-wrap justify-center gap-6 mb-8">
+                <div class="text-left max-w-xs">
+                    <code class="block mb-1">Jpsh!</code>
+                    <p class="text-xs text-gray-500">Momento de activación donde una perturbación libera una organización ya latente en el medio.</p>
+                </div>
+                <div class="text-left max-w-xs">
+                    <code class="block mb-1">Phi (φ)</code>
+                    <p class="text-xs text-gray-500">El número más "difícil" de bloquear. La clave para la lectura/recuperación de información sin destruirla.</p>
+                </div>
+            </div>
+            <p class="text-gray-600 text-sm">Desarrollado en el marco institucional de <strong>Asociación Civil AlterMundi</strong></p>
+            <p class="text-gray-700 text-xs mt-2">Córdoba, Argentina — Abril 2026</p>
+        </footer>
+    </main>
+
+    <script>
+        // Visualizer Code
+        const canvas = document.getElementById('lissajousCanvas');
+        const ctx = canvas.getContext('2d');
+        const slider = document.getElementById('ratioSlider');
+        const ratioDisplay = document.getElementById('ratioDisplay');
+        const phaseDisplay = document.getElementById('phaseDisplay');
+
+        let phase = 0;
+        let points = [];
+        const maxPoints = 500;
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function draw() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const ratio = parseFloat(slider.value);
+            const time = Date.now() * 0.002;
+            
+            // Texto dinámico
+            ratioDisplay.innerText = ratio.toFixed(2) + ":1";
+            phaseDisplay.innerText = Math.sin(time).toFixed(2);
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const size = canvas.width * 0.35;
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            
+            // Color armónico dinámico
+            const hue = (ratio * 40) % 360;
+            ctx.strokeStyle = `hsla(${hue}, 70%, 60%, 0.8)`;
+
+            for (let i = 0; i < maxPoints; i++) {
+                const t = time - (i * 0.05);
+                const x = centerX + Math.sin(t * ratio) * size;
+                const y = centerY + Math.sin(t + Math.PI/2) * size;
+                
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
