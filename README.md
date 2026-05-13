@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-00e5c8?style=for-the-badge&logo=creativecommons&logoColor=white" alt="CC BY 4.0"></a>
-  <img src="https://img.shields.io/badge/ISBN-pending-yellow?style=for-the-badge" alt="ISBN pending">
-  <img src="https://img.shields.io/badge/Edition-Preliminary-blueviolet?style=for-the-badge" alt="Preliminary edition">
+  <img src="https://img.shields.io/badge/ISBN-978--631--91761--0--0-00e5c8?style=for-the-badge" alt="ISBN 978-631-91761-0-0">
+  <img src="https://img.shields.io/badge/Edition-First_digital-blueviolet?style=for-the-badge" alt="First digital edition">
   <a href="https://hit.altermundi.net"><img src="https://img.shields.io/badge/🌐_Website-hit.altermundi.net-00e5c8?style=for-the-badge" alt="Website"></a>
 </p>
 
@@ -34,8 +34,8 @@ A transdisciplinary investigation into whether proportional relationships betwee
 
 | Format | Description | Link |
 |--------|-------------|------|
-| **📄 PDF** | Official preliminary edition with full typographic design. The ISBN, when assigned, will correspond exclusively to this format. | [**Download PDF**](https://hit.altermundi.net/libro/Harmonic_Information_Theory_Foundations_AlterMundi.pdf) |
-| **📝 Markdown** | Structured text version optimized for automated reading and semantic navigation by LLMs. | [**Download Markdown**](https://hit.altermundi.net/libro/Harmonic_Information_Theory_Foundations_AlterMundi_for-Ai-agents.md) |
+| **📄 PDF** | Official first digital edition with full typographic design. ISBN 978-631-91761-0-0 corresponds exclusively to this format. | [**Download PDF**](https://hit.altermundi.net/libro/Harmonic_Information_Theory_Foundations_Primera_edición_digital.pdf) |
+| **📝 Markdown** | Structured text version optimized for automated reading and semantic navigation by LLMs. | [**Download Markdown**](https://hit.altermundi.net/libro/Harmonic_Information_Theory_Foundations_Primera_edición_digital.md) |
 | **📦 LaTeX** | Full editorial source code of the book. | [Browse source](https://github.com/AlterMundi/harmonic-information-theory) |
 
 ---
@@ -93,6 +93,14 @@ An AI research program testing whether harmonic frequency ratios transfer across
 This work is licensed under [**Creative Commons Attribution 4.0 International (CC BY 4.0)**](https://creativecommons.org/licenses/by/4.0/).
 
 You are free to share, copy, redistribute, adapt, and remix — even for commercial purposes — as long as appropriate credit is given.
+
+### Suggested attribution
+
+> Fernández Méndez, Mariano, and Nicolás Echániz. *Harmonic Information Theory: Foundations*. José de la Quintana, Córdoba, Argentina: AlterMundi, 2026. ISBN 978-631-91761-0-0. https://hit.altermundi.net.
+>
+> Compilation and final writing: Mariano Fernández Méndez.
+> Institutional framework: Asociación Civil AlterMundi.
+> License: CC BY 4.0.
 
 ---
 

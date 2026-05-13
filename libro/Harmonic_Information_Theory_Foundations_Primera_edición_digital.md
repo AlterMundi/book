@@ -3,9 +3,10 @@
 **Authors**: Mariano Fernández Méndez, Nicolás Echániz
 **Compilation and final writing**: Mariano Fernández Méndez
 **Institutional framework**: This work was developed and published within the institutional framework of Asociación Civil AlterMundi.
-**Research and development team**: Anabella Scigliano, Federico Bonino, Julián De La Reta, Martín Fernández Méndez, Pablo Bustos, Saira Asua, Santiago Cetrán, Sofía Campagnoli
-**First digital preliminary edition**
-**Place and date of edition**: Córdoba, Argentina — April 2026
+**Research and development team**: Anabella Scigliano Mattiauda, Federico Bonino, Javier Jorge, Julián De La Reta, Martín Fernández Méndez, Pablo Bustos, Saira Asua, Samanta Lañin, Santiago Rodríguez Cetrán, Sofía Campagnoli
+**First digital edition**
+**Place and date of edition**: José de la Quintana, Córdoba, Argentina — 2026
+**Publisher and legal address**: Asociación Civil AlterMundi — A. Las Acacias 0, S:U205 M:68, José de la Quintana, 5189, Córdoba, Argentina
 **Official source**: https://hit.altermundi.net
 **Contact**: editorial@altermundi.net
 
@@ -13,16 +14,16 @@
 
 Unless expressly indicated otherwise, the original content of this work is licensed under **Creative Commons Attribution 4.0 International (CC BY 4.0)** — https://creativecommons.org/licenses/by/4.0/. You are free to copy, redistribute, share, adapt, remix, transform, and build upon this work in any medium or format, including for commercial purposes, provided that you give appropriate credit to the authors, provide a link to the license, indicate if changes were made, and do not suggest that the authors or Asociación Civil AlterMundi endorse your use or derivative version unless expressly authorized.
 
-This Markdown file is an official complementary open version of the same work. The ISBN applies only to the official PDF bibliographic edition and is currently in process.
+This Markdown file is an official complementary open version of the same work. The ISBN of the official PDF bibliographic edition is **978-631-91761-0-0**.
 
 **Suggested attribution:**
-Fernández Méndez, Mariano, and Nicolás Echániz. *Harmonic Information Theory*. 2026. https://hit.altermundi.net.
+Fernández Méndez, Mariano, and Nicolás Echániz. *Harmonic Information Theory: Foundations*. José de la Quintana, Córdoba, Argentina: AlterMundi, 2026. ISBN 978-631-91761-0-0. https://hit.altermundi.net.
 Compilation and final writing: Mariano Fernández Méndez.
 Institutional framework: Asociación Civil AlterMundi.
 License: CC BY 4.0.
 
-**ISBN**: in process.
-This version corresponds to an official preliminary circulation edition. Once the corresponding ISBN is assigned, the official PDF bibliographic edition, the website, and the source repository will be updated.
+**ISBN of the official PDF bibliographic edition**: 978-631-91761-0-0.
+The official PDF bibliographic edition corresponds to the first digital edition of the book. This Markdown file remains a complementary open version and does not constitute an independent bibliographic product with its own ISBN.
 
 **Formats and official edition:**
 The official bibliographic edition of the book is the **PDF**. The Markdown version and the LaTeX repository are part of the open publication and working ecosystem of the book, but do not constitute by themselves the bibliographic edition with ISBN.
@@ -33,15 +34,15 @@ Images, graphics, photographs, tables, extended quotations, or any other materia
 **Special permissions, press, and institutional inquiries:**
 editorial@altermundi.net
 
----
-
-**Editorial note on writing and authorship**
-
-This work was developed by Mariano Fernández Méndez and Nicolás Echániz, with the assistance of generative artificial intelligence tools —among them Claude (Anthropic) and Codex/OpenAI— used as support in tasks of exploration, organization, review, and textual development.
-
-Authorship, conceptual selection, theoretical and editorial decisions, compilation, and final writing belong to the human authors.
-
----
+**Catalogación en la publicación (fuente):**
+Fernández Méndez, Mariano.
+*Harmonic information theory : foundations* / Mariano Fernández Méndez ; Nicolás Echániz ; Contribuciones de Anabella Scigliano Mattiauda ... [et al.]. - 1a ed. - José de la Quintana : AlterMundi, 2026.
+Libro digital, PDF.
+Archivo Digital: descarga.
+Creada PARCIALMENTE con IA / Claude (Anthropic), Codex/OpenAI.
+ISBN 978-631-91761-0-0.
+1. Armonía. 2. Filosofía de la Información. 3. Ciencias de la Información. I. Scigliano Mattiauda, Anabella, colab. II. Título.
+CDD 600.
 
 **Acknowledgments**
 
@@ -53,127 +54,175 @@ The computational experiments of the Phideus program reported in this book consu
 
 > **For LLM navigation.** This manuscript contains an introduction, 16 chapters in 6 parts, plus 6 appendices (~68,900 words). The index below maps every heading to its line number. When working with a specific chapter, use the line numbers to read only the relevant section rather than loading the entire file.
 
-- **Introduction** (L178)
+- **Introduction** (L216)
 
-**PART I — THE OBSERVATION AND THE PROBLEM**
-
-- **Chapter 1. The Tendency** (L199)
-- **Chapter 2. The Problem of Disciplinary Dispersion** (L225)
-
-**PART II — ONTOLOGICAL FOUNDATIONS**
-
-- **Chapter 3. Ontology of Harmonic Information** (L259)
-  - 3.1 Information as pattern, not only as quantity (L267)
-  - 3.2 Why relation can be ontologically primary (L281)
-  - 3.3 The interval as a minimal informational carrier (L313)
-  - 3.4 A minimal ontological proposition for HIT (L327)
-- **Chapter 4. Consonance as a Relational Function** (L337)
-  - 4.1 Against the isolated essence of the ratio (L347)
-  - 4.2 Consonance as dynamic stability rather than rigid perfection (L359)
-  - 4.3 Natural harmony and tempered harmony (L375)
-  - 4.4 Each physical system has its own natural harmony (L387)
-  - 4.5 A minimal relational proposition about consonance (L397)
-- **Chapter 5. Central Hypotheses of HIT** (L405)
-  - 5.1 Why the framework requires a hierarchy of claims (L413)
-  - 5.2 H1 and H2: the empirical footholds (L421)
-  - 5.3 H3 and H6: shared structure and invariant carriers (L431)
-  - 5.4 H4 and H5: the major conjectures (L443)
-  - 5.5 Status, falsifiers, and the next decisive tests (L457)
-
-**PART III — STATE OF KNOWLEDGE**
-
-- **Chapter 6. Empirical Convergence: A Map of the State of the Art** (L484)
-  - 6.1 Neuroscience: resonance, coupling, and neural organization (L492)
-  - 6.2 Psychoacoustics and tonal perception (L510)
-  - 6.3 Acoustic ecology and biosemiotics (L520)
-  - 6.4 Dynamical systems, recurrence, and synchronization (L532)
-  - 6.5 Comparative, cross-cultural, and historical evidence (L548)
-  - 6.6 Information, prediction, and process organization (L558)
-  - 6.7 Bioelectricity and biological organization beyond hearing (L568)
-  - 6.8 What each field knows, and what each field misses (L576)
-- **Chapter 7. Epistemological and Methodological Framework** (L598)
-  - 7.1 What kind of knowledge HIT produces (L606)
-  - 7.2 Science, power, and the limits of formalization (L618)
-  - 7.3 An epistemology of inconsistency (L628)
-  - 7.4 Neural networks as scientific instruments (L642)
-  - 7.5 The rectification: natural harmony and perceptual harmony (L650)
-  - 7.6 Beacon's methodological arsenal (L660)
-  - 7.7 The architecture of evidence (L668)
-
-**PART IV — THE THEORY: EFFICIENCY, LIFE, MEANING**
-
-- **Chapter 8. Natural Harmony as Informational Efficiency** (L678)
-  - 8.1 From ratio to recurrence (L686)
-  - 8.2 Informative recurrence and reduced corrective burden (L714)
-  - 8.3 Informational efficiency and living organization (L728)
-  - 8.4 The biosphere and semiosphere of recurrence (L740)
-  - 8.5 A minimal proposition for HIT (L752)
-- **Chapter 9. The Sense of Consonance** (L762)
-  - 9.1 From efficiency to living orientation (L770)
-  - 9.2 Consonance, affect, and predictive ease (L782)
-  - 9.3 Disharmony, overload, and estrangement (L792)
-  - 9.4 Harmonic pareidolia and human polyphony (L802)
-  - 9.5 Consonance as structural coupling (L812)
-  - 9.6 Consonance as orienting reference (L828)
-- **Chapter 10. The Activation Problem** (L840)
-  - 10.1 The problem of reading without writing (L850)
-  - 10.2 The mathematical character of phi (L862)
-  - 10.3 Three convergent lines (L888)
-  - 10.4 The Jpsh! as a formal event (L898)
-  - 10.5 What this changes and what it does not (L904)
-  - 10.6 Status and open directions (L914)
-
-**PART V — THE EXPERIMENTAL PROGRAM**
-
-- **Chapter 11. Phideus: The Computational Probe** (L934)
-  - 11.1 The question and why it needed a machine (L938)
-  - 11.2 Experimental design: four escalones, one logic (L968)
-  - 11.3 What counts as a descriptor in Phideus (L995)
-  - 11.4 How descriptors enter the model: mechanism as variable (L1042)
-  - 11.5 The central result: descriptor-guided cross-modal learning works (L1074)
-  - 11.6 The second front: speech and electroglottography (L1107)
-  - 11.7 The discovery: representation organizes geometry (L1115)
-  - 11.8 Phideus as constructive process (L1125)
-  - 11.9 Experimental implications of the activation conjecture (L1133)
-- **Chapter 12. Harmonic Beacon: The Experiential Probe** (L1141)
-  - 12.1 What the Harmonic Beacon is (L1145)
-  - 12.2 Principle of operation: the harmonic gravitational field (L1159)
-  - 12.3 Evolution of the device (L1195)
-  - 12.4 Four experimental lines (L1213)
-  - 12.5 Personal Myth Projection (L1237)
-  - 12.6 The PMP and Beacon conjunction: theoretical assembly and observations (L1247)
-  - 12.7 HAT: Harmonically Aware Technology (L1261)
-- **Chapter 13. Phideus-Beacon Convergence** (L1275)
-  - 13.1 Two perspectives on the same hypothesis (L1279)
-  - 13.2 The feedback loop: how each probe informs the other (L1287)
-  - 13.3 The triangle: computational, physiological, psychological (L1299)
-  - 13.4 Vision: a network of Beacons, a landscape of harmony (L1309)
-
-**PART VI — SCOPE, LIMITS, AND FUTURE**
-
-- **Chapter 14. What HIT Is Not** (L1319)
-- **Chapter 15. Open Questions and Research Agenda** (L1341)
-  - 15.1 Why an agenda is needed now (L1349)
-  - 15.2 Immediate questions and programmatic next steps (L1355)
-  - 15.3 Phideus beyond the current fronts (L1363)
-  - 15.4 Beacon and PMP+Beacon: from observation to protocol (L1373)
-  - 15.5 Formalization and long-horizon technology (L1385)
-- **Chapter 16. Applications and Derivations** (L1395)
-  - 16.1 What a derivation means here (L1403)
-  - 16.2 Near instrumental derivations: health, physiology, ecology (L1409)
-  - 16.3 Technological and computational derivations (L1417)
-  - 16.4 Biomechanics and material infrastructure (L1429)
-  - 16.5 Cultural, artistic, and educational derivations (L1437)
-- **References** (L1447)
-- **Appendix A. Glossary** (L1907)
-- **Appendix B. Experimental Results** (L2041)
-- **Appendix C. Technical Specifications** (L2166)
-- **Appendix D. Project Chronology** (L2270)
-- **Appendix E. Mathematical Substrate of Harmonic Activation** (L2348)
-- **Appendix F. Working Conceptual Synthesis** (L2678)
-
----
-
+- **Chapter 1. The Tendency** (L237)
+- **Chapter 2. The Problem of Disciplinary Dispersion** (L263)
+- **Chapter 3. Ontology of Harmonic Information** (L297)
+  - 3.1 Information as pattern, not only as quantity (L305)
+  - 3.2 Why relation can be ontologically primary (L319)
+  - 3.3 The interval as a minimal informational carrier (L351)
+  - 3.4 A minimal ontological proposition for HIT (L365)
+- **Chapter 4. Consonance as a Relational Function** (L375)
+  - 4.1 Against the isolated essence of the ratio (L385)
+  - 4.2 Consonance as dynamic stability rather than rigid perfection (L397)
+  - 4.3 Natural harmony and tempered harmony (L413)
+  - 4.4 Each physical system has its own natural harmony (L425)
+  - 4.5 A minimal relational proposition about consonance (L435)
+- **Chapter 5. Central Hypotheses of HIT** (L443)
+  - 5.1 Why the framework requires a hierarchy of claims (L451)
+  - 5.2 H1 and H2: the empirical footholds (L459)
+  - 5.3 H3 and H6: shared structure and invariant carriers (L469)
+  - 5.4 H4 and H5: the major conjectures (L481)
+  - 5.5 Status, falsifiers, and the next decisive tests (L495)
+- **Chapter 6. Empirical Convergence: A Map of the State of the Art** (L522)
+  - 6.1 Neuroscience: resonance, coupling, and neural organization (L530)
+  - 6.2 Psychoacoustics and tonal perception (L548)
+  - 6.3 Acoustic ecology and biosemiotics (L558)
+  - 6.4 Dynamical systems, recurrence, and synchronization (L570)
+  - 6.5 Comparative, cross-cultural, and historical evidence (L586)
+  - 6.6 Information, prediction, and process organization (L596)
+  - 6.7 Bioelectricity and biological organization beyond hearing (L606)
+  - 6.8 What each field knows, and what each field misses (L614)
+- **Chapter 7. Epistemological and Methodological Framework** (L636)
+  - 7.1 What kind of knowledge HIT produces (L644)
+  - 7.2 Science, power, and the limits of formalization (L656)
+  - 7.3 An epistemology of inconsistency (L666)
+  - 7.4 Neural networks as scientific instruments (L680)
+  - 7.5 The rectification: natural harmony and perceptual harmony (L688)
+  - 7.6 Beacon's methodological arsenal (L698)
+  - 7.7 The architecture of evidence (L706)
+- **Chapter 8. Natural Harmony as Informational Efficiency** (L716)
+  - 8.1 From ratio to recurrence (L724)
+  - 8.2 Informative recurrence and reduced corrective burden (L752)
+  - 8.3 Informational efficiency and living organization (L766)
+  - 8.4 The biosphere and semiosphere of recurrence (L778)
+  - 8.5 A minimal proposition for HIT (L790)
+- **Chapter 9. The Sense of Consonance** (L800)
+  - 9.1 From efficiency to living orientation (L808)
+  - 9.2 Consonance, affect, and predictive ease (L820)
+  - 9.3 Disharmony, overload, and estrangement (L830)
+  - 9.4 Harmonic pareidolia and human polyphony (L840)
+  - 9.5 Consonance as structural coupling (L850)
+  - 9.6 Consonance as orienting reference (L866)
+- **Chapter 10. The Activation Problem** (L878)
+  - 10.1 The problem of reading without writing (L888)
+  - 10.2 The mathematical character of phi (L900)
+  - 10.3 Three convergent lines (L926)
+  - 10.4 The Jpsh! as a formal event (L936)
+  - 10.5 What this changes and what it does not (L942)
+  - 10.6 Status and open directions (L952)
+- **Chapter 11. Phideus: The Computational Probe** (L972)
+  - 11.1 The question and why it needed a machine (L976)
+  - 11.2 Experimental design: four escalones, one logic (L1006)
+  - 11.3 What counts as a descriptor in Phideus (L1033)
+  - 11.4 How descriptors enter the model: mechanism as variable (L1080)
+  - 11.5 The central result: descriptor-guided cross-modal learning works (L1112)
+  - 11.6 The second front: speech and electroglottography (L1145)
+  - 11.7 The discovery: representation organizes geometry (L1153)
+  - 11.8 Phideus as constructive process (L1163)
+  - 11.9 Experimental implications of the activation conjecture (L1171)
+- **Chapter 12. Harmonic Beacon: The Experiential Probe** (L1179)
+  - 12.1 What the Harmonic Beacon is (L1183)
+  - 12.2 Principle of operation: the harmonic gravitational field (L1197)
+  - 12.3 Evolution of the device (L1233)
+  - 12.4 Four experimental lines (L1251)
+  - 12.5 Personal Myth Projection (L1275)
+  - 12.6 The PMP and Beacon conjunction: theoretical assembly and observations (L1285)
+  - 12.7 HAT: Harmonically Aware Technology (L1299)
+- **Chapter 13. Phideus-Beacon Convergence** (L1313)
+  - 13.1 Two perspectives on the same hypothesis (L1317)
+  - 13.2 The feedback loop: how each probe informs the other (L1325)
+  - 13.3 The triangle: computational, physiological, psychological (L1337)
+  - 13.4 Vision: a network of Beacons, a landscape of harmony (L1347)
+- **Chapter 14. What HIT Is Not** (L1357)
+- **Chapter 15. Open Questions and Research Agenda** (L1379)
+  - 15.1 Why an agenda is needed now (L1387)
+  - 15.2 Immediate questions and programmatic next steps (L1393)
+  - 15.3 Phideus beyond the current fronts (L1401)
+  - 15.4 Beacon and PMP+Beacon: from observation to protocol (L1411)
+  - 15.5 Formalization and long-horizon technology (L1423)
+- **Chapter 16. Applications and Derivations** (L1433)
+  - 16.1 What a derivation means here (L1441)
+  - 16.2 Near instrumental derivations: health, physiology, ecology (L1447)
+  - 16.3 Technological and computational derivations (L1455)
+  - 16.4 Biomechanics and material infrastructure (L1467)
+  - 16.5 Cultural, artistic, and educational derivations (L1475)
+  - 1.1 Neural resonance and harmonic perception (L1491)
+  - 1.2 Psychoacoustics and consonance (L1505)
+  - 1.3 Acoustic ecology and biosemiotics (L1517)
+  - 1.4 Dynamical systems and recurrence (L1527)
+  - 1.5 Cross-species perception (L1549)
+  - 2.1 Information theory (L1564)
+  - 2.2 Process philosophy and relationalism (L1574)
+  - 2.3 Autopoiesis and enaction (L1591)
+  - 2.4 Free energy principle and efficiency (L1613)
+  - 2.5 Interdisciplinarity and trading zones (L1622)
+  - 3.1 Consonance, dissonance, and tonal perception (L1635)
+  - 3.2 Just intonation and temperament (L1647)
+  - 3.3 Ethnomusicology and harmonic traditions (L1655)
+  - 3.4 Archaeoacoustics and prehistoric evidence (L1671)
+  - 3.5 Cross-cultural studies and pareidolia (L1680)
+  - 4.1 Recurrence and dynamic stability (L1692)
+  - 4.2 Landauer, energetic cost, and computation (L1701)
+  - 4.3 Fractals, golden ratio, and self-organization (L1710)
+  - 4.4 Activation, retrieval, and mathematical substrate (L1718)
+  - 5.1 Neuroscience of musical reward (L1732)
+  - 5.2 Music therapy and restorative effects (L1742)
+  - 5.3 Entrainment and altered states (L1752)
+  - 5.4 Polyvagal theory and autonomic regulation (L1760)
+  - 5.5 Bioelectricity, quantum biology, and oscillatory signaling (L1767)
+  - 6.1 Phideus: cross-modal learning and representations (L1789)
+  - 6.2 Phideus: injection mechanisms and conditioning (L1813)
+  - 6.3 Harmonic Beacon: instrument acoustics and resonance (L1823)
+  - 6.4 Harmonic Beacon: biosignals and feedback (L1837)
+  - 6.5 Phideus: Lissajous figures and audio-visual cross-modal learning (L1845)
+  - 6.6 Analytical psychology, psychodrama, and Personal Myth Projection (L1862)
+  - 7.1 Critical studies (L1881)
+  - 7.2 Falsifiability and negative controls (L1890)
+  - 7.3 Pseudoscience differentiation and limits (L1898)
+  - 7.4 Context references and internal use (L1908)
+  - 7.5 Critical and methodological epistemology (L1916)
+- **Appendix A. Glossary** (L1946)
+- **Appendix B. Experimental Results** (L2080)
+  - B.1 How to read this appendix (L2084)
+  - B.2 Escalon 1 - Canonical closed results (L2090)
+  - B.3 Escalon 1 - Retrospective branches omitted from the main chapter (L2134)
+  - B.4 Escalon 2 - Full null and descriptor-by-mechanism inventory (L2168)
+- **Appendix C. Technical Specifications** (L2205)
+  - C.1 How to read this appendix (L2209)
+  - C.2 Descriptor families (L2213)
+  - C.3 Mechanism variants (L2231)
+  - C.4 Canonical arms (L2248)
+  - C.5 Architectural skeletons and shape conventions (L2280)
+  - C.6 Evaluation protocols (L2296)
+- **Appendix D. Project Chronology** (L2309)
+  - D.1 How to read this chronology (L2313)
+  - D.2 From problem intuition to program architecture (L2317)
+  - D.3 Phideus chronology (L2323)
+  - D.4 Beacon chronology (L2345)
+  - D.5 Convergence chronology (L2368)
+  - D.6 Present cut (L2383)
+- **Appendix E. Mathematical Substrate of Harmonic Activation** (L2387)
+  - E.1 Why the formal substrate is separated (L2391)
+  - E.2 Hurwitz extremality and continued fractions (L2446)
+  - E.3 Equidistribution and the three-distance problem (L2494)
+  - E.4 KAM and the golden-mean torus (L2555)
+  - E.5 Quasiperiodic operators and the almost Mathieu line (L2587)
+  - E.6 Noble numbers, higher-dimensional caveat, and the Harmonic Activation Lemma (L2636)
+  - E.7 External convergences (L2697)
+- **Appendix F. Working Conceptual Synthesis** (L2717)
+  - F.1 General statement (L2721)
+  - F.2 What is not being proposed (L2727)
+  - F.3 Central hypothesis (L2733)
+  - F.4 Natural harmony as dynamic stability (L2739)
+  - F.5 Information: operational definition (L2747)
+  - F.6 Storage, recurrence, and entropy (L2753)
+  - F.7 Activation, query, and retrieval (L2761)
+  - F.8 Energetic efficiency and processing cost (L2769)
+  - F.9 From the physical system to the interpreting system (L2777)
+  - F.10 Organized chaos and recurrent stability (L2783)
+  - F.11 Acoustic niche hypothesis, biosemiosphere, and spiritual homeostasis (L2787)
 
 ## Introduction
 
@@ -189,7 +238,7 @@ The same methodological demand governs the role of instruments. Neural networks,
 
 One further figure belongs to the argument, though its full treatment comes later. There are moments when a brief perturbation does not impose order from outside but releases an organization already latent in a medium. The later chapters give that event a name: *Jpsh!* The word is bodily and a little unruly, yet it points to something exact. Certain recognitions arrive neither as deduction nor as revelation, but as constrained release under accumulated pressure. The project gathered itself in that register: not as a finished doctrine seeking examples, but as a pattern that became harder to ignore as convergent evidence kept pressing beyond the vocabularies meant to contain it.
 
-What follows begins with a tendency, enters the problem of dispersion, builds an ontology of relation, turns toward consonance, orders its hypotheses, surveys a convergent state of knowledge, rethinks efficiency and orientation, reaches the activation problem, and only then arrives at the probes through which the proposal submits itself to controlled exposure. The central claim is demanding but bounded: under specifiable conditions, harmonic relations may act as privileged constraints on stability, coupling, interpretability, and informational economy across domains that still lack a common language for them. That is also why Appendix F can serve as a second entrance to this book. Begin there, let its compression strike once, then return to Chapter 1 and move forward in sequence. Read that way, the appendix can produce an abductive *Jpsh!*: an activation of what lies latent in the structure of the book itself, so that the chapters can be read as the unfolding of a form already struck into legibility.
+What follows begins with a tendency, enters the problem of dispersion, builds an ontology of relation, turns toward consonance, orders its hypotheses, surveys a convergent state of knowledge, rethinks efficiency and orientation, reaches the activation problem, and only then arrives at the probes through which the proposal submits itself to controlled exposure. The central claim is demanding but bounded: under specifiable conditions, harmonic relations may act as privileged constraints on stability, coupling, interpretability, and informational economy across domains that still lack a common language for them. That is also why the appendix *Working Conceptual Synthesis* can serve as a second entrance to this book. Begin there, let its compression strike once, then return to Chapter 1 and move forward in sequence. Read that way, the appendix can produce an abductive *Jpsh!*: an activation of what lies latent in the structure of the book itself, so that the chapters can be read as the unfolding of a form already struck into legibility.
 
 ---
 
@@ -258,7 +307,7 @@ Popper's demarcation problem adds a complementary requirement. If HIT is to beco
 
 ### Chapter 3. Ontology of Harmonic Information
 
-*A single frequency can oscillate. Two frequencies can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake.*
+*A single oscillator can oscillate. Two oscillators can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake.*
 
 If the previous chapters established why a coordinated field may now be warranted, the present chapter addresses a prior question: what, exactly, is the object that such a field would study? Harmonic Information Theory cannot remain a useful category of coordination unless it specifies, at least provisionally, what it means by `information`, why harmonic relations might matter ontologically, and under what conditions an interval can be treated as more than a descriptive convenience. The immediate task is therefore conceptual precision: to define the vocabulary without which later claims about consonance, efficiency, or biological significance would remain equivocal.
 
@@ -294,7 +343,7 @@ Operational closure sharpens the same lesson. An autopoietic system is materiall
 
 The same problem also becomes visible from outside biological theory proper, which matters here because it shows that recursive organization is not a local intuition of one school alone.
 
-An instructive convergence appears here from a different tradition altogether. In *La tecnica digitalizada*, Fernandez Mendez describes a "relational closure" through which a system of know-how achieves enough internal consistency to sustain itself without the continuous intervention of a subject (Fernandez Mendez, 2021b). In the manuscript on digital language, he arrives at a closely related problem from yet another route, connecting recursive formal systems, Godelian incompleteness, and operational closure as conditions under which a system can function without ever becoming complete in the strong sense (Fernandez Mendez, s.f.). HIT does not need to collapse these trajectories into one doctrine. It only needs to register a structurally significant fact: biology, psychoanalytic theories of work and technique, and the epistemology of computation all converge on the intuition that organization is achieved through recursive relation before it is secured by isolated substantial units.
+An instructive convergence appears here from a different tradition altogether. In *La técnica digitalizada*, Fernández Méndez describes a "relational closure" through which a system of know-how achieves enough internal consistency to sustain itself without the continuous intervention of a subject (Fernández Méndez, 2021b). In the manuscript on digital language, he arrives at a closely related problem from yet another route, connecting recursive formal systems, Gödelian incompleteness, and operational closure as conditions under which a system can function without ever becoming complete in the strong sense (Fernández Méndez, s.f.). HIT does not need to collapse these trajectories into one doctrine. It only needs to register a structurally significant fact: biology, psychoanalytic theories of work and technique, and the epistemology of computation all converge on the intuition that organization is achieved through recursive relation before it is secured by isolated substantial units.
 
 That shift matters for HIT because the framework is interested in phenomena whose explanatory core often lies in organization among terms rather than in the isolated identity of those terms. A ratio does not become significant merely because two frequencies can be listed side by side; it becomes significant when their relation constrains pattern, recurrence, interference, and uptake. This is why the issue is ontological before it is methodological. If relation were only derivative, harmonic information would always risk appearing as a useful descriptive fiction layered over more fundamental realities. If relation can sometimes belong to the order of what first organizes appearance, then harmonic structure becomes a plausible candidate for primitive description rather than an ornamental afterthought.
 
@@ -320,7 +369,7 @@ The second property is pattern generation. Intervals are not abstract ratios flo
 
 The third property is dynamical privilege. In models of coupled oscillation, some ratios are more likely than others to anchor stable mode-locking or recurrence structure, especially once one looks at Arnold tongues, locking regimes, and the broader synchronization literature rather than at isolated equations alone (Kuramoto, 1984; Strogatz, 2000a). Reviews such as Acebron and colleagues help situate this broader terrain of synchronization and partial locking without themselves carrying the entire argument about ratio privilege (Acebron et al., 2005). In neural and cortical systems, ratios likewise appear not merely as incidental numerical coincidences but as organizing constraints within coupling architectures (Canolty & Knight, 2010; Jacobs et al., 2025). This does not license the naive claim that "simple ratios are always better." It does support a more exact claim: certain intervallic relations are repeatedly recruited by systems because they afford recurrent and stable coordination. That is exactly the sort of condition under which an informational role becomes plausible.
 
-The fourth property is differential interpretability. An interval functions as an informational carrier only if a system can distinguish it from alternative relations in a stable way. This point returns us to Bateson. A ratio is not informative simply because it can be written. It becomes informative when it constrains behavior, coupling, prediction, or response differently than another ratio would. In this sense, the interval is a candidate minimal carrier because it is the smallest relational unit capable of generating a non-trivial difference in oscillatory organization. One frequency alone can oscillate. Two frequencies can relate. With relation comes interference; with interference comes pattern; with pattern comes the possibility of differential uptake.
+The fourth property is differential interpretability. An interval functions as an informational carrier only if a system can distinguish it from alternative relations in a stable way. This point returns us to Bateson. A ratio is not informative simply because it can be written. It becomes informative when it constrains behavior, coupling, prediction, or response differently than another ratio would. In this sense, the interval is a candidate minimal carrier because it is the smallest relational unit capable of generating a non-trivial difference in oscillatory organization. A single oscillator can oscillate. Two oscillators can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake.
 
 At this point, the central proposal can be formulated more precisely. HIT treats the interval as a minimal informational carrier not because it is musically familiar, but because it satisfies four conditions at once: it is relational rather than substantial, robust under common scaling, generative of recurrent structure, and in principle capable of differential interpretation by receiving systems. None of these conditions alone is sufficient. Together they make the interval the strongest initial candidate for the ontological primitive that this program requires.
 
@@ -340,7 +389,7 @@ If this is correct, then consonance cannot be defined as the intrinsic property 
 
 If the previous chapter argued that harmonic information is best understood in relational terms, then consonance can no longer be treated as a self-sufficient essence lodged inside a ratio taken in abstraction from every medium, body, and context. The ratio remains indispensable. It would be pointless to deny that simple proportional relations recur across acoustics, dynamical systems, and wave-bearing systems of many kinds with unusual explanatory force. Yet that force is not adequately described by saying that consonance simply inheres in numerical simplicity itself. A ratio does not sound, radiate, interfere, stabilize, or become salient in a vacuum. It does so only within a concrete field composed of modal constitution, physical transmission, coupling regime, receptive organization, and contextual framing. For that reason, the present chapter proposes a stricter formulation: consonance should be understood as a relational function rather than as an intrinsic property of the interval considered in isolation.
 
-This shift is not a denial of structure but a correction of emphasis. HIT does not dissolve consonance into pure relativism, nor does it reduce it to arbitrary taste. It instead claims that the ratio names a privileged relational constraint whose consequences depend on the system in which it appears. One may summarize the point provisionally as `Consonance = F(ratio, modal or spectral constitution, medium, coupling regime, receiver, context)`. In the acoustic case, that modal constitution appears as timbre and overtone profile; elsewhere, it may appear as mode structure, propagation condition, or resonant topology. Such a formula should not be read as a finished equation, but as a disciplinary warning. It reminds us that no account of consonance is conceptually complete if it abstracts away from the constitution of the interacting modes, the resonant properties of the medium, the dynamics of the receiving system, and the practical or perceptual horizon in which the relation is encountered.
+This shift is not a denial of structure but a correction of emphasis. HIT does not dissolve consonance into pure relativism, nor does it reduce it to arbitrary taste. It instead claims that the ratio names a privileged relational constraint whose consequences depend on the system in which it appears. One may summarize the point provisionally as *Consonance = F(ratio, modal or spectral constitution, medium, coupling regime, receiver, context).* In the acoustic case, that modal constitution appears as timbre and overtone profile; elsewhere, it may appear as mode structure, propagation condition, or resonant topology. Such a formula should not be read as a finished equation, but as a disciplinary warning. It reminds us that no account of consonance is conceptually complete if it abstracts away from the constitution of the interacting modes, the resonant properties of the medium, the dynamics of the receiving system, and the practical or perceptual horizon in which the relation is encountered.
 
 The term `consonance` is retained here because the acoustic and musical traditions gave this family of problems one of its richest and most durable vocabularies. But the concept, as HIT develops it, should be read more broadly. It names a kind of resonant fit, mode compatibility, or low-conflict coordination that becomes especially legible in the sonic domain without being exhausted by it. The task of this chapter is therefore double: to preserve what the sound-focused traditions discovered, and to prevent those discoveries from being mistaken for the limits of the field itself.
 
@@ -547,7 +596,7 @@ The limit of this literature is equally clear. It often sees the formal organiza
 
 #### 6.5 Comparative, cross-cultural, and historical evidence
 
-Comparative and cross-cultural work complicates the picture in ways that are essential rather than inconvenient, because any account of harmonic information must be constrained at once by variation and by persistence. Studies of non-human animals suggest that some sensitivity to consonance-like or interval-structured organization may not be uniquely human, though the evidence is heterogeneous and should not be smoothed into a false consensus. Hoeschele and colleagues, Walker and colleagues, and related comparative work show that patterned sensitivity to harmonic organization can appear outside the human case, but also that such sensitivity varies by species, task, and ecological niche. These results are valuable precisely because they resist simplistic conclusions. They neither prove a universal biological law nor support the idea that harmonic organization is only a local artifact of Western music.
+Comparative and cross-cultural work complicates the picture in ways that are essential rather than inconvenient, because any account of harmonic information must be constrained at once by variation and by persistence. Studies of non-human animals suggest that some sensitivity to consonance-like or interval-structured organization may not be uniquely human, though the evidence is heterogeneous and should not be smoothed into a false consensus. Hoeschele and colleagues, Walker and colleagues, and related comparative work show that patterned sensitivity to harmonic organization can appear outside the human case, but also that such sensitivity varies by species, task, and ecological niche (Hoeschele et al., 2015; Walker et al., 2019; Bowling et al., 2017; Wagner et al., 2024). These results are valuable precisely because they resist simplistic conclusions. They neither prove a universal biological law nor support the idea that harmonic organization is only a local artifact of Western music.
 
 Cross-cultural work imposes an equally important discipline. The findings on the Tsimane have become especially important because they block any easy slide from recurring structure to universal aesthetic preference (McDermott et al., 2016). The lesson is not that harmonic regularities disappear cross-culturally, but that familiarity, enculturation, and listening practice matter. This is one of the reasons HIT must keep distinguishing structural recurrence from evaluative judgment. A system may exhibit harmonic organization without every culture or listener assigning it the same aesthetic value. Cross-cultural evidence therefore does not invalidate the search for harmonic information; it forces the search to become more precise about what kind of universality is being claimed, and at what level.
 
@@ -733,7 +782,7 @@ Neural dynamics offer one of the clearest domains in which this ambiguity become
 
 Physiological oscillators point in the same direction. Glass and Mackey's work on biological rhythms demonstrates that viable living systems often preserve order not through rigid uniformity, but through flexible locking among interacting cycles (Glass & Mackey, 1988). Cardiorespiratory coordination, endocrine timing, and other rhythmic regimes do not remain healthy by eliminating difference, but by stabilizing it into low-conflict relation. Here again the interesting regime is neither perfect regularity nor uncontrolled noise. It is an intermediate one: enough recurrent structure to reduce destabilizing correction, enough plasticity to remain adaptive. Harmonic relations become theoretically interesting in that context because they may mark families of regimes within which such economy is easier to sustain.
 
-The ecological case is similar. Krause's work on the acoustic niche shows that biofonic organization is not a chaotic pile-up of signals, but often a partitioned spectral and temporal arrangement in which organisms reduce destructive overlap while preserving communicative salience (Krause, 2013). An ecology that lowers masking while preserving legible difference has solved a problem of coordination under constraint. Whether one interprets that as harmony producing efficiency or efficiency selecting harmonic spacing is precisely the kind of directionality question the chapter must leave open. The literature is enough to justify the convergence. It is not yet enough to close the mechanism.
+The ecological case is similar. Krause's work on the acoustic niche shows that biophonic organization is not a chaotic pile-up of signals, but often a partitioned spectral and temporal arrangement in which organisms reduce destructive overlap while preserving communicative salience (Krause, 2013). An ecology that lowers masking while preserving legible difference has solved a problem of coordination under constraint. Whether one interprets that as harmony producing efficiency or efficiency selecting harmonic spacing is precisely the kind of directionality question the chapter must leave open. The literature is enough to justify the convergence. It is not yet enough to close the mechanism.
 
 An autopoietic reading can sharpen the stakes of that convergence without pretending to settle it. If a living system is organizationally precarious, then efficiency matters because organization can fail. Di Paolo's extension of autopoiesis is helpful here: autonomy becomes normatively charged precisely because the system must continually preserve itself under conditions that can dissolve its viability (Di Paolo, 2005). In that light, the chain developed in this chapter can be reread more cautiously. Ratios that support informative recurrence may reduce corrective burden not only in an abstract informational sense, but because they help sustain organization under conditions of vulnerability. This remains an interpretive bridge, not a formal derivation. Autopoiesis still lacks a metric directly comparable to recurrence quantification or variational free energy. But the bridge is conceptually important because it translates efficiency into the biological language of maintaining organization under precarious conditions.
 
@@ -883,7 +932,7 @@ Phi matters here as the clearest current answer to a specific problem. Harmonic 
 
 An external engineering convergence helps state the same problem more sharply. Jelinčič and colleagues describe a probabilistic hardware architecture in which expressive energy landscapes become difficult to traverse when access is shaped by the geometry of the landscape itself: basin depth, barrier height, and locality become part of the computational problem (Jelinčič et al., 2025). Their response is to redesign the trajectory through which that landscape is sampled. This makes newly legible a distinction that matters here as well: storage-like richness and readout-like accessibility can pull in different directions, and the route of traversal can therefore become an architectural variable in its own right.
 
-Read from that angle, the activation conjecture names a more general tension between preserving organized structure and making it newly legible. In HIT that tension appears as a difference between relation-types inside a stored harmonic field: integer-ratio recurrence for stabilization, phi-class offset for traversal. Extropic addresses a neighboring problem by decomposing the path through the landscape. The convergence lies in the form of the problem and in the architectural sensibility it demands: traversal becomes a distinct operation that has to be organized rather than assumed.
+Read from that angle, the activation conjecture names a more general tension between preserving organized structure and making it newly legible. In HIT that tension appears as a difference between relation-types inside a stored harmonic field: integer-ratio recurrence for stabilization, phi-class offset for traversal. The Extropic architecture reported by Jelinčič and colleagues addresses a neighboring problem by decomposing the path through the landscape. The convergence lies in the form of the problem and in the architectural sensibility it demands: traversal becomes a distinct operation that has to be organized rather than assumed.
 
 #### 10.3 Three convergent lines
 
@@ -1023,7 +1072,7 @@ $$
 
 In implementation, these bandwise deltas are normalized and, when needed, interpolated to the target sequence length of the encoder side they guide. The important point for the present chapter is conceptual. D4 and A4 are descriptors. A4r is not a third descriptor but the arm in which A4 is injected through reverse cross-attention, and d4a4 is the dual arm in which D4 and A4 guide their respective modalities together. One descriptor is symbolic and explicitly local; the other is acoustic, broadband, and non-ratio in the strict sense. Together they were enough to establish the central closed result of the front, which Section 11.5 develops in full. But they did not yet settle the stronger question of natural harmony. A4 is spectrally rich without being a direct encoding of harmonic proportion, and D4 lives in a musically mediated interval space rather than in physically natural coordinates.
 
-That is why the descriptor map of Phideus has to be read historically and experimentally rather than as a single universal family tree. Escalon 1 used D4 and A4 to prove that descriptor-guided cross-modal learning is a real and powerful mechanism. The retrospective music branch later reopened the question with A7, A9, and A10. Escalon 2 then introduced a new local taxonomy derived from the vocal oscillator itself. The point of the present section is not to flatten those moments into one scheme, but to make clear how they belong to the same program while preserving their different epistemic roles. Table 11.2 gives the compact map needed for the body of this chapter. The exhaustive inventory of descriptors, mechanism variants, and canonical arms belongs in Appendix C and in the companion methodological paper now in preparation, while the public Phideus repository carries the implementation-level detail.
+That is why the descriptor map of Phideus has to be read historically and experimentally rather than as a single universal family tree. Escalon 1 used D4 and A4 to prove that descriptor-guided cross-modal learning is a real and powerful mechanism. The retrospective music branch later reopened the question with A7, A9, and A10. Escalon 2 then introduced a new local taxonomy derived from the vocal oscillator itself. The point of the present section is not to flatten those moments into one scheme, but to make clear how they belong to the same program while preserving their different epistemic roles. Table 11.2 gives the compact map needed for the body of this chapter. The exhaustive inventory of descriptors, mechanism variants, and canonical arms belongs in Appendix C and in the published companion paper *Descriptor-Injected Cross-Modal Learning* (Fernandez Mendez, 2026), while the public Phideus repository carries the implementation-level detail.
 
 **Table 11.2.** Inventory of descriptors across the Phideus program.
 
@@ -1067,7 +1116,7 @@ The cleanest lesson of Escalon 1 is that route matters, but not in the simple se
 
 That point is especially important for reverse cross-attention. Its interest is not that it always wins on raw score. It is that it can remain competitively strong while compressing long encoder sequences through a much shorter descriptor-guided interface, reducing processing cost and interaction burden. Projection conditioning adds a complementary lesson. Descriptor information can also survive when the intervention occurs at the end of the pipeline rather than at its beginning. The signal is therefore not tied to one privileged insertion point. It can work by reshaping token interaction early, by compressing interaction efficiently through descriptor queries, or by modulating the final projection late.
 
-This distinction also stabilizes the reading of the chapter's own evidence. D4 and A4 answer the question of content. Concat, cross-attention, attention bias, reverse cross-attention, and projection conditioning answer the question of route. Arms such as d4a4, a4r, or d4-a4r belong to the level where both variables meet. Figure 11.2 schematizes the three most legible routes, while Appendix C and the methodological paper will carry the full implementation-level inventory. The later sections can then read results without collapsing these layers into one another.
+This distinction also stabilizes the reading of the chapter's own evidence. D4 and A4 answer the question of content. Concat, cross-attention, attention bias, reverse cross-attention, and projection conditioning answer the question of route. Arms such as d4a4, a4r, or d4-a4r belong to the level where both variables meet. Figure 11.2 schematizes the three most legible routes, while Appendix C and that published companion paper (Fernandez Mendez, 2026) carry the full implementation-level inventory. The later sections can then read results without collapsing these layers into one another.
 
 [FIGURE 11.2: Three injection mechanisms shown schematically side by side. Left: Concatenation (descriptor appended to encoder output as extra dimensions). Center: Cross-attention (encoder features attend to descriptor tokens). Right: Projection conditioning (descriptor modulates the projection head via learned affine transformation). Each diagram shows the data flow from encoder output through the injection point to the shared space.]
 
@@ -1081,7 +1130,7 @@ The evidence does not stop at retrieval. Cross-encoder alignment, measured by CK
 
 Mechanistic evidence strengthens the same reading. Under projection conditioning, the best arm reaches 84.2 percent, the program's highest single-seed retrieval score. Even when only one side is conditioned late in the pipeline, the guided arm remains above the unguided control. Descriptor signal survives injection at the level of the projection head itself. This matters because it shows that the effect is not tied only to early token interaction. Guidance can remain operative all the way down to the final mapping into shared space.
 
-The front also closes strongly at the level of discrimination difficulty. Hard-negative accuracy stays above 94 percent across the canonical arms, including the unguided baseline under the comparable Gate 5B regime. These negatives come from the same musical piece at different temporal locations, so timbre, recording conditions, and style remain nearby while local identity changes. The hard-negative probe therefore confirms fine temporal discrimination across the front, while the descriptor-specific advantage has to be read more strongly in retrieval, CKA, and pre-projection retention.
+The front also closes strongly at the level of discrimination difficulty. Hard-negative accuracy stays above 94 percent across the canonical arms, including the unguided baseline under the same Escalon 1 evaluation regime. These negatives come from the same musical piece at different temporal locations, so timbre, recording conditions, and style remain nearby while local identity changes. The hard-negative probe therefore confirms fine temporal discrimination across the front, while the descriptor-specific advantage has to be read more strongly in retrieval, CKA, and pre-projection retention.
 
 **Table 11.3a.** Summary of convergent evidence, Escalon 1.
 
@@ -1110,7 +1159,7 @@ Escalon 2 poses a harder question than Escalon 1 because the modalities are no l
 
 That is why the unguided baseline matters so much. Under grouped bootstrap by speaker, D0 reaches 77.8 percent. On its own, that number already establishes something important: speech and electroglottographic traces share enough organization for a neural model to retrieve one from the other at a high level over structured candidate pools. Cross-modal structure in Phideus is therefore not confined to music, symbolic pairing, or aligned score metadata.
 
-The first descriptor-guided pass over the vocal front was not framed as a failure hunt but as a mechanistic clarification. Twelve conditions were tested across descriptor families and routes of injection. None produced a defendable lift over D0 under the declared interpretive rules. That result now has a clearer status than it did in earlier drafts: it is a closed initial mechanistic null, not an unresolved frontier waiting for one more weak positive. The existence claim is already secure at the level of the baseline. The live question shifts elsewhere: not whether `P2` can still be rescued by re-reading noise as lift, but how the front changes when the encoder regime itself changes, and how `P2` and `P3` should be read against one another.
+The first descriptor-guided pass over the vocal front was not framed as a failure hunt but as a mechanistic clarification. Twelve conditions were tested across descriptor families and routes of injection. None produced a defendable lift over D0 under the declared interpretive rules. That result now has a clearer status than it did in earlier drafts: it is a closed initial mechanistic null, not an unresolved frontier waiting for one more weak positive. The existence claim is already secure at the level of the baseline. The live question shifts elsewhere: not whether the first mechanism block (`P2`, descriptor-by-mechanism under the baseline speech encoder) can still be rescued by re-reading noise as lift, but how the front changes when the encoder regime itself changes, and how `P2` and the second block (`P3`, a stronger speech encoder regime) should be read against one another.
 
 #### 11.7 The discovery: representation organizes geometry
 
@@ -1218,9 +1267,9 @@ The first line concerns biosignal reading and personalized calibration. Its expe
 
 The second line measures physiological response under controlled exposure. Here the question is narrower and less speculative. Does exposure to a sustained harmonic field produce measurable changes in autonomic or cortical parameters relative to a baseline or matched control? Heart rate variability, respiration, EEG, and related signals belong to this line. The criterion is not whether the subject reports that the field was pleasant. Subjective report matters, but by itself it cannot discriminate harmonic organization from novelty, relaxation, expectation, or context. The line therefore aims toward pre/post designs and contrastive conditions in which the harmonic structure of the field, rather than sound in general, is what is being tested.
 
-The third line concerns EEG-to-harmonics feedback: transforming the Beacon from a source of exposure into an interactive system in which measured neural dynamics modulate the harmonic field in real time. Because the electroencephalography hardware used in this line exports its readings via OSC, the same protocol already used for harmonic control, the technical path is direct: an application receives the EEG stream, translates its spectral content into frequency parameters, and routes those parameters to the Beacon's harmonic surface, so that the instrument responds in real time to the listener's own brain activity. A prototype of this application is currently under development.
+The third line concerns EEG-to-harmonics feedback: transforming the Beacon from a source of exposure into an interactive system in which measured neural dynamics modulate the harmonic field in real time. Because the electroencephalography hardware used in this line exports its readings via OSC, the same protocol already used for harmonic control, the technical path is direct: an application receives the EEG stream, translates its spectral content into frequency parameters, and routes those parameters to the Beacon's harmonic surface, so that the instrument responds in real time to the listener's own brain activity. A first prototype stands at the hardware-integration stage, with OSC routing between the EEG hardware and the Beacon already functional.
 
-What this makes possible is an experimentally legible feedback loop. Brain activity produces an electrical pattern; that pattern is read and translated into frequencies; those frequencies drive the Beacon; the Beacon's acoustic field reaches the body; and the resulting physiological response may in turn alter the next EEG pattern. The subject therefore receives continuous sensory feedback on a neural state that would otherwise remain imperceptible. The experimental question is whether that loop can support voluntary, intentional modulation---whether a person can learn to steer internal states by attending to the harmonic field that those states are themselves generating. If so, the Beacon would function as a brain--field interface: not a passive exposure device but an active channel through which cortical dynamics and acoustic organization constrain one another in real time. This line is the least mature of the four, but it marks the conceptual horizon of the Beacon program: harmonic organization is not only something to which a subject might respond, but also a candidate variable through which feedback itself might be structured.
+What this makes possible is an experimentally legible feedback loop. Brain activity produces an electrical pattern; that pattern is read and translated into frequencies; those frequencies drive the Beacon; the Beacon's acoustic field reaches the body; and the resulting physiological response may in turn alter the next EEG pattern. The subject therefore receives continuous sensory feedback on a neural state that would otherwise remain imperceptible. The experimental question is whether that loop can support voluntary, intentional modulation---whether a person can learn to steer internal states by attending to the harmonic field that those states are themselves generating. If so, the Beacon would function as a brain--field interface: not a passive exposure device but an active channel through which cortical dynamics and acoustic organization constrain one another in real time. This line sits at the conceptual horizon of the Beacon program: harmonic organization is not only something to which a subject might respond, but also a candidate variable through which feedback itself might be structured.
 
 The fourth line studies harmonic organization made visible. The Beacon's experimental work led independently to Lissajous figures as objects in which ratio becomes simultaneously audible, visible, and physically generable. This line uses a physical apparatus of controlled excitation, resonance tubes or vibrating membranes, mirrors, laser projection, and image capture to produce analog figures under repeatable conditions. In that respect it belongs to a longer experimental archive running from Chladni's vibrating plates to Jenny's cymatic investigations, where patterned excitation leaves stable traces in visible matter and geometry (Chladni, 1787; Jenny, 1967/2001). The point is to document how specific harmonic relations generate visible topologies in a pipeline where the source, the resonator, and the capture device are all part of the experiment. It matters because it pushes the Beacon beyond exposure studies and into the deliberate documentation of harmonic structure in visible form.
 
@@ -1755,6 +1804,7 @@ This is also where the book should end. The strongest consequence of HIT is not 
 - Bardes, A., Ponce, J., & LeCun, Y. (2022). VICReg: Variance-Invariance-Covariance Regularization for Self-Supervised Learning. In *Proceedings of ICLR*. https://arxiv.org/abs/2105.04906
 - Chen, T., Kornblith, S., Norouzi, M., & Hinton, G. (2020). A simple framework for contrastive learning of visual representations (SimCLR). In *Proceedings of ICML* (pp. 1597--1607). https://arxiv.org/abs/2002.05709
 - Elizalde, B., Deshmukh, S., Al Ismail, M., & Wang, H. (2023). CLAP: Learning audio concepts from natural language supervision. In *Proceedings of ICASSP*. https://arxiv.org/abs/2206.04769
+- Fernandez Mendez, M. (2026). *Descriptor-Injected Cross-Modal Learning: A Systematic Exploration of Audio-MIDI Alignment via Spectral and Melodic Features*. *arXiv preprint*, arXiv:2604.10283. https://arxiv.org/abs/2604.10283
 - Engel, J., Hantrakul, L., Gu, C., & Roberts, A. (2020). DDSP: Differentiable digital signal processing. In *Proceedings of ICLR*. https://arxiv.org/abs/2001.04643
 - Girdhar, R., El-Nouby, A., Liu, Z., Singh, M., Alwala, K. V., Joulin, A., & Misra, I. (2023). ImageBind: One embedding space to bind them all. In *Proceedings of CVPR*. https://arxiv.org/abs/2305.05665
 - He, K., Fan, H., Wu, Y., Xie, S., & Girshick, R. (2020). Momentum contrast for unsupervised visual representation learning (MoCo). In *Proceedings of CVPR* (pp. 9729--9738). https://arxiv.org/abs/1911.05722
@@ -2072,6 +2122,8 @@ All four arms summarize five independent training-seed reruns. `D0`, `a4r`, and 
 | Test02 | zero descriptor | `75.0%` | `-8.0pp` | falls back to baseline band | closed positive |
 | Test02 | random descriptor | `73.6%` | `-9.4pp` | control without structured guidance | closed positive |
 | Test02 | shuffled descriptor | `73.2%` | `-9.8pp` | control without correct pairing | closed positive |
+
+Note: Test01 uses the multi-seed flagship mean (`83.8%`, rounded from `84.0 ± 2.7`) as its reference, because the zeroing contrast is evaluated against the consolidated Escalon 1 closure. The four Test02 rows are single-checkpoint diagnostics that use their own `real descriptor` row (`83.0%`) as reference. The two regimes are not interchangeable and are reported here side by side solely because each addresses a distinct causal question.
 
 **Table B.3. Geometry, information retention, and fine discrimination.** The descriptor arms do not merely raise retrieval. They also reorganize cross-encoder geometry and preserve more cross-modal information prior to the projection bottleneck.
 
@@ -2677,7 +2729,7 @@ Their value is therefore twofold. First, they indicate that the activation conje
 
 ### Appendix F. Working Conceptual Synthesis
 
-*One frequency alone can oscillate. Two frequencies can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake.*
+*A single oscillator can oscillate. Two oscillators can enter into relation. From relation comes interference; from interference, pattern; from pattern, the possibility of differential uptake.*
 
 #### F.1 General statement
 
@@ -2752,3 +2804,11 @@ Krause's acoustic niche hypothesis offers an important bridge for extending this
 Another strong axis of the proposal is the idea of a biosemiosphere, in which the recurrence of harmonic ratios functions as a system of compression across biosemiotic levels. Certain simple and coherent oscillatory patterns would allow systems to better interpret their material constraints, store and transmit relevant regularities, reduce the energetic cost of updating their interpretive mechanisms, and sustain more efficient ecological relations. Repetition would not be a mere return of the same, but a physical foundation of interpretation.
 
 Within this language there appears a particularly powerful notion: spiritual homeostasis. As a working hypothesis, it names the state or process through which a system develops a sensitivity to configurations of consonance, activation, and reorientation that favor its biological, ecological, and informational stability. It is an expanded form of homeostasis, one that concerns not only immediate physiological variables, but also patterns of resonance, sense, orientation, and coherence across levels of the system. In this key, developing the sense of consonance means becoming capable of detecting and inhabiting configurations that reduce unnecessary conflict, improve integration, and favor relational efficiency, while remaining open to the kinds of activation through which a stored order becomes newly available. It is a strong hypothesis, still open, but conceptually fertile.
+
+---
+
+**Editorial note on writing and authorship**
+
+This work was developed by Mariano Fernández Méndez and Nicolás Echániz, with the assistance of generative artificial intelligence tools —among them Claude (Anthropic) and Codex/OpenAI— used as support in tasks of exploration, organization, review, and textual development.
+
+Authorship, conceptual selection, theoretical and editorial decisions, compilation, and final writing belong to the human authors.
